@@ -2,8 +2,6 @@
 package acme.features.auditor.audit;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +14,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
+public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> {
 
 	@Autowired
 	protected AuditorAuditRepository repository;
@@ -39,8 +37,9 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void authorise() {
 		boolean status;
+		final Audit audit = this.repository.findAuditById(super.getRequest().getData("id", int.class));
 
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
+		status = super.getRequest().getPrincipal().hasRole(Auditor.class) && audit.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -69,9 +68,8 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 		object.setCourse(course);
 		object.setAuditor(auditor);
-		object.setDraftMode(true);
 
-		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints");
+		super.bind(object, "code", "conclusion", "strongPoints", "weakPoints", "draftMode");
 
 	}
 
@@ -79,10 +77,6 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	public void validate(final Audit object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final List<String> codes = this.repository.findAllAudits(super.getRequest().getPrincipal().getActiveRoleId()).stream().map(Audit::getCode).collect(Collectors.toList());
-			super.state(!codes.contains(object.getCode()), "code", "administrator.audit.form.error.code");
-		}
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
 			super.state(object.isDraftMode(), "draftMode", "administrator.audit.form.error.draftMode");
 	}
@@ -90,6 +84,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void perform(final Audit object) {
 		assert object != null;
+		object.setDraftMode(false);
 
 		this.repository.save(object);
 

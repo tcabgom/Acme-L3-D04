@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.audit.Audit;
 import acme.entities.audit.AuditingRecords;
+import acme.entities.enumerates.Mark;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -73,14 +75,20 @@ public class AuditorAuditingRecordsCreateService extends AbstractService<Auditor
 	@Override
 	public void unbind(final AuditingRecords object) {
 		assert object != null;
+		final SelectChoices choices;
+
 		final int auditId = super.getRequest().getData("auditId", int.class);
 		final Audit audit = this.repository.findAuditById(auditId);
+		choices = SelectChoices.from(Mark.class, object.getMark());
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "subject", "assesment", "auditingPeriodInitial", "auditingPeriodEnd", "furtherInformation", "mark", "draftMode");
+		tuple = super.unbind(object, "subject", "assesment", "auditingPeriodInitial", "auditingPeriodEnd", "furtherInformation", "draftMode");
 		tuple.put("readonly", false);
 		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
+		tuple.put("mark", choices.getSelected().getKey());
+		tuple.put("marks", choices);
+		tuple.put("published", object.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}
