@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.enumerates.ActivityType;
 import acme.entities.lecture.Lecture;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -29,7 +30,8 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final Principal principal = super.getRequest().getPrincipal();
+		super.getResponse().setAuthorised(principal.hasRole(Lecturer.class));
 	}
 
 	@Override
@@ -51,9 +53,6 @@ public class LecturerLectureCreateService extends AbstractService<Lecturer, Lect
 	@Override
 	public void validate(final Lecture object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("learningTime"))
-			super.state(object.getLearningTime() >= 0.01, "learningTime", "lecturer.lecture.form.error.learningTime");
-
 	}
 
 	@Override

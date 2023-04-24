@@ -14,7 +14,7 @@ lecturer.lecture.form.label.learningTime = Tiempo de aprendizaje
 lecturer.lecture.form.label.body = Cuerpo
 lecturer.lecture.form.label.knowledge = Tipo de Conocimiento
 lecturer.lecture.form.label.furtherInformation = Más Información
-lecturer.lecture.form.label.draftMode = Draft mode
+lecturer.lecture.form.label.draftMode = Modo Borrador
 
 
 ################### Buttons ####################
@@ -28,4 +28,3 @@ lecturer.lecture.form.button.create = Crear
 
 
 ################### Errors #####################
-lecturer.lecture.form.error.learningTime = El tiempo de aprendizaje no puede ser inferior a 0.01 

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.lecture.Course;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -27,7 +28,8 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final Principal principal = super.getRequest().getPrincipal();
+		super.getResponse().setAuthorised(principal.hasRole(Lecturer.class));
 	}
 
 	@Override
@@ -49,8 +51,13 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final Course potentialDuplicate = this.repository.findCourseById(object.getId());
-			super.state(potentialDuplicate != object, "code", "lecturer.course.form.error.code");
+			final Course potentialDuplicate = this.repository.findOneCourseByCode(object.getCode());
+			super.state(potentialDuplicate == null || potentialDuplicate.getId() == object.getId(), "code", "lecturer.course.form.error.code");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
+			final Double amount = object.getRetailPrice().getAmount();
+			super.state(amount < 1000000000 && amount >= 0, "retailPrice", "lecturer.course.form.error.retailPrice");
 		}
 
 	}

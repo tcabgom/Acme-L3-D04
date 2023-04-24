@@ -28,7 +28,7 @@ lecturer.lecture.form.button.create = Create
 
 
 ################### Errors #####################
-lecturer.lecture.form.error.learningTime = Learning Time must not be lower than 0.01 
+ 
 
 
 

@@ -16,3 +16,6 @@ lecturer.course.form.button.delete = Borrar
 lecturer.course.form.button.publish = Publicar
 lecturer.course.form.button.create = Crear
 lecturer.course.list.button.create = Crear
+
+lecturer.course.form.error.code = El código ya existe
+lecturer.course.form.error.retailPrice = No puede costar más de 1 000 000 ni menos de 0
