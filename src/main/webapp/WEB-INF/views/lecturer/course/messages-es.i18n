@@ -9,6 +9,7 @@ lecturer.course.list.label.code = Código
 lecturer.course.list.label.title = Título
 lecturer.course.list.label.retailPrice = Precio de venta
 lecturer.course.list.label.furtherInformation = Más información
+lecturer.course.list.label.draftMode = Modo Borrador
 
 lecturer.course.lectures = Lecciones
 lecturer.course.form.button.update = Actualizar
