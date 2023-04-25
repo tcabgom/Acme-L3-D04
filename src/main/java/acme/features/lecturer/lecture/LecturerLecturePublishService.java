@@ -32,10 +32,8 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 
 	@Override
 	public void authorise() {
-		Lecture object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findLectureById(id);
+		final int id = super.getRequest().getData("id", int.class);
+		final Lecture object = this.repository.findLectureById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
@@ -76,7 +74,6 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 		final SelectChoices choices = SelectChoices.from(ActivityType.class, object.getKnowledge());
 
 		tuple = super.unbind(object, "title", "lecAbstract", "learningTime", "body", "knowledge", "furtherInformation", "draftMode");
-
 		tuple.put("knowledge", choices.getSelected().getKey());
 		tuple.put("choices", choices);
 

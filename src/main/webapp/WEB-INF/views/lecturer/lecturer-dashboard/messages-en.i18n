@@ -1,0 +1,16 @@
+
+lecturer.dashboard.form.title.course = Course Statistics 
+lecturer.dashboard.form.title.lecture = Lectures Statistics
+lecturer.dashboard.form.title.lecture-type = Number of lectures by type
+
+lecturer.dashboard.form.label.course.count = Number of courses
+lecturer.dashboard.form.label.course.maximum = Hours of the longest Course
+lecturer.dashboard.form.label.course.minimum = Hours of the shortest Course
+lecturer.dashboard.form.label.course.average = Average Course Hours
+lecturer.dashboard.form.label.course.deviation = Standard Deviation of Course Hours
+
+lecturer.dashboard.form.label.lecture.count = Number of lectures
+lecturer.dashboard.form.label.lecture.maximum = Hours of the longest Course
+lecturer.dashboard.form.label.lecture.minimum = Hours of the shortest lecture
+lecturer.dashboard.form.label.lecture.average = Average Lecture Hours
+lecturer.dashboard.form.label.lecture.deviation = Standard Deviation of Lecture Hours

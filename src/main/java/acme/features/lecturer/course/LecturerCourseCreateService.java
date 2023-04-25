@@ -57,7 +57,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
 			final Double amount = object.getRetailPrice().getAmount();
-			super.state(amount < 1000000000 && amount >= 0, "retailPrice", "lecturer.course.form.error.retailPrice");
+			super.state(amount < 1000000 && amount >= 0, "retailPrice", "lecturer.course.form.error.retailPrice");
 		}
 
 	}

@@ -17,7 +17,7 @@
 
 <acme:form>
 	<acme:input-textbox code="lecturer.lecturesInCourse.form.lecture.title" 			path="title" readonly="true"/>	
-	<acme:input-textbox code="lecturer.lecturesInCourse.form.lecture.lecAbstract" 	path="lecAbstract" readonly="true"/>	
+	<acme:input-textarea code="lecturer.lecturesInCourse.form.lecture.lecAbstract" 	path="lecAbstract" readonly="true"/>	
 	<acme:input-select code="lecturer.lecturesInCourse.form.course" 			path="course" choices="${courses}"/>	
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'delete') && !cursos.isEmpty()}">

@@ -62,9 +62,9 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 
 		final Collection<Lecture> lectures = new ArrayList<>();
 
-		final Statistics tutorialsStatistics = new Statistics();
+		final Statistics coursesStatistics = new Statistics();
 		final Collection<Course> courses = this.repository.findManyCoursesByLecturerId(lecturerId);
-		final Collection<Double> tutorialsDuration = new ArrayList<>();
+		final Collection<Double> coursesDuration = new ArrayList<>();
 
 		for (final Course t : courses) {
 			final Collection<Lecture> thislectures = this.repository.findManyLecturesByCourseId(t.getId());
@@ -73,31 +73,32 @@ public class LecturerDashboardShowService extends AbstractService<Lecturer, Lect
 				hours += l.getLearningTime();
 
 			lectures.addAll(lectures);
-			tutorialsDuration.add(hours);
+			coursesDuration.add(hours);
 		}
 
-		tutorialsStatistics.obtainValues(tutorialsDuration);
-		object.setLecturerCourses(tutorialsStatistics);
+		coursesStatistics.obtainValues(coursesDuration);
+		object.setLecturerCourses(coursesStatistics);
 
 		super.getBuffer().setData(object);
 
 		///////////////////////////////////////////////
 
-		final Statistics sessionsStatistics = new Statistics();
-		final Collection<Double> sessionsDuration = new ArrayList<>();
+		final Statistics lecturesStatistics = new Statistics();
+		final Collection<Double> lecturesDuration = new ArrayList<>();
+		Collection<Lecture> lecturerLectures = new ArrayList<>();
+		lecturerLectures = this.repository.findLecturesByLecturer(lecturer);
+		for (final Lecture ts : lecturerLectures)
+			lecturesDuration.add(ts.getLearningTime());
 
-		for (final Lecture ts : lectures)
-			sessionsDuration.add(ts.getLearningTime());
-
-		sessionsStatistics.obtainValues(sessionsDuration);
-		object.setLecturerLectures(sessionsStatistics);
+		lecturesStatistics.obtainValues(lecturesDuration);
+		object.setLecturerLectures(lecturesStatistics);
 	}
 
 	@Override
 	public void unbind(final LecturerDashboard object) {
 
 		Tuple tuple;
-		tuple = super.unbind(object, "assistantSession", "assistantTutorials");
+		tuple = super.unbind(object, "lecturerLectures", "lecturerCourses");
 		tuple.put("totalNumberOfHandsOnLectures", object.getTotalNumberOfLecturesPerType().get(ActivityType.HANDS_ON));
 		tuple.put("totalNumberOfTheoryLectures", object.getTotalNumberOfLecturesPerType().get(ActivityType.THEORY));
 		tuple.put("totalNumberOfBalancedLectures", object.getTotalNumberOfLecturesPerType().get(ActivityType.BALANCED));

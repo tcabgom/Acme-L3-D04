@@ -1,0 +1,16 @@
+
+lecturer.dashboard.form.title.course = Estadísticas de Cursos
+lecturer.dashboard.form.title.lecture = Estadísticas de Lecciones
+lecturer.dashboard.form.title.lecture-type = Número de lecciones por Tipo
+
+lecturer.dashboard.form.label.course.count = Número de Cursos
+lecturer.dashboard.form.label.course.maximum = Horas del Curso Más Largo
+lecturer.dashboard.form.label.course.minimum = Horas del Curso Más Corto
+lecturer.dashboard.form.label.course.average = Media de Horas de Cursos
+lecturer.dashboard.form.label.course.deviation = Desviación típica de Horas de Cursos
+
+lecturer.dashboard.form.label.lecture.count = Número de Lecciones
+lecturer.dashboard.form.label.lecture.maximum = Horas de la Lección Más Larga
+lecturer.dashboard.form.label.lecture.minimum = Horas de la Lección Más Corta
+lecturer.dashboard.form.label.lecture.average = Media de Horas de Lecciones
+lecturer.dashboard.form.label.lecture.deviation = Desviación típica de Horas de Lecciones

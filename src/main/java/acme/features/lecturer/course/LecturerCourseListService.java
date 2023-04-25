@@ -30,7 +30,8 @@ public class LecturerCourseListService extends AbstractService<Lecturer, Course>
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		final Principal principal = super.getRequest().getPrincipal();
+		super.getResponse().setAuthorised(principal.hasRole(Lecturer.class));
 	}
 
 	@Override

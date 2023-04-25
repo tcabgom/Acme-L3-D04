@@ -32,10 +32,8 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void authorise() {
-		Course object;
-		int masterId;
-		masterId = super.getRequest().getData("masterId", int.class);
-		object = this.repository.findCourseById(masterId);
+		final int masterId = super.getRequest().getData("masterId", int.class);
+		final Course object = this.repository.findCourseById(masterId);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
@@ -53,28 +51,17 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 	@Override
 	public void unbind(final Lecture object) {
 		assert object != null;
-		Tuple tuple;
-		tuple = super.unbind(object, "title", "lecAbstract", "learningTime", "knowledge", "draftMode");
 
+		Tuple tuple;
 		final int masterId = super.getRequest().getData("masterId", int.class);
 		super.getResponse().setGlobal("masterId", masterId);
-		tuple.put("masterId", masterId);
 		final Course course = this.repository.findCourseById(masterId);
 		final boolean showCreate = course.isDraftMode();
+
+		tuple = super.unbind(object, "title", "lecAbstract", "learningTime", "knowledge", "draftMode");
+		tuple.put("masterId", masterId);
 		super.getResponse().setGlobal("showCreate", showCreate);
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void unbind(final Collection<Lecture> object) {
-		assert object != null;
-
-		int masterId;
-		masterId = super.getRequest().getData("masterId", int.class);
-		super.getResponse().setGlobal("masterId", masterId);
-		final Course course = this.repository.findCourseById(masterId);
-		final boolean showCreate = course.isDraftMode();
-		super.getResponse().setGlobal("showCreate", showCreate);
 	}
 
 }

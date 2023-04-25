@@ -35,10 +35,8 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 
 	@Override
 	public void authorise() {
-		Lecture object;
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findLectureById(id);
+		final int id = super.getRequest().getData("id", int.class);
+		final Lecture object = this.repository.findLectureById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
 		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
