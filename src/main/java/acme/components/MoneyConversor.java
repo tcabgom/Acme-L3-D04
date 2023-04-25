@@ -17,11 +17,11 @@ public class MoneyConversor {
 	public Money performMoneyConversion(final Money input) {
 
 		final Money output = new Money();
+		final String inputCurrency = input.getCurrency();
 		final String outputCurrency = "EUR";
-		final String apiURL = "westilldonthaveone";
 		final String apiKey = "westilldonthaveone";
 
-		final String url = String.format("%?key=%s", apiURL, apiKey);
+		final String url = String.format("ttps://api.freecurrencyapi.com/v1/latest?key=%s&base_currency=%s&currencies=%s", apiKey, inputCurrency, outputCurrency);
 		final OkHttpClient httpClient = new OkHttpClient();
 		final Request request = new Request.Builder().url(url).build();
 
