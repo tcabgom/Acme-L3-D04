@@ -43,6 +43,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 			final List<String> codes = this.repository.findAllAudits(super.getRequest().getPrincipal().getActiveRoleId()).stream().map(Audit::getCode).collect(Collectors.toList());
 			super.state(!codes.contains(object.getCode()), "code", "administrator.audit.form.error.code");
 		}
+
 	}
 
 	@Override

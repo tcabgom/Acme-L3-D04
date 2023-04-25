@@ -4,12 +4,15 @@ package acme.features.assistant.assistantDashboard;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.enumerates.ActivityType;
+import acme.entities.lecture.Course;
+import acme.entities.lecture.Lecture;
 import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorialSession.TutorialSession;
 import acme.forms.AssistantDashboard;
@@ -55,10 +58,17 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 
 		//////// Total Number Of Sessions Per Type
 
-		final Map<ActivityType, Integer> sessionsPerType = new HashMap<>();
+		final Map<ActivityType, Integer> tutorialsPerCourseType = new HashMap<>();
+		final Collection<Tutorial> assistantTutorials = this.repository.findManyTutorialsByAssistantId(assistantId);
 		for (final ActivityType at : ActivityType.values())
-			sessionsPerType.put(at, this.repository.findNumOfAssistantSessionsBySessionType(at, assistant));
-		object.setTotalNumberOfSessionsPerType(sessionsPerType);
+			tutorialsPerCourseType.put(at, 0);
+		for (final Tutorial t : assistantTutorials) {
+			final Course thisTutorialCourse = t.getCourse();
+			final List<Lecture> thisCourseLectures = this.repository.findManyLecturesByCourseId(thisTutorialCourse.getId());
+			final ActivityType thisCourseType = thisTutorialCourse.courseActivityType(thisCourseLectures);
+			tutorialsPerCourseType.put(thisCourseType, tutorialsPerCourseType.get(thisCourseType) + 1);
+		}
+		object.setTotalNumberOfSessionsPerType(tutorialsPerCourseType);
 
 		//////// Tutorial Statistics
 
@@ -67,7 +77,6 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		final Collection<TutorialSession> assistantSessions = new ArrayList<>();
 
 		final Statistics tutorialsStatistics = new Statistics();
-		final Collection<Tutorial> assistantTutorials = this.repository.findManyTutorialsByAssistantId(assistantId);
 		final Collection<Double> tutorialsDuration = new ArrayList<>();
 
 		for (final Tutorial t : assistantTutorials) {

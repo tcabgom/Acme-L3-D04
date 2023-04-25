@@ -8,15 +8,13 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.audit.Audit;
 import acme.entities.audit.AuditingRecords;
-import acme.entities.enumerates.Mark;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditingRecordsUpdateService extends AbstractService<Auditor, AuditingRecords> {
+public class AuditorAuditingRecordsPublishService extends AbstractService<Auditor, AuditingRecords> {
 
 	@Autowired
 	protected AuditorAuditingRecordRepository repository;
@@ -31,7 +29,8 @@ public class AuditorAuditingRecordsUpdateService extends AbstractService<Auditor
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findAuditingRecordById(id);
 
-		status = object.getAudit().getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && object.isDraftMode() && super.getRequest().hasData("id", int.class);
+		status = object.getAudit().getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && super.getRequest().hasData("id", int.class);
+
 		super.getResponse().setChecked(status);
 	}
 	@Override
@@ -49,12 +48,16 @@ public class AuditorAuditingRecordsUpdateService extends AbstractService<Auditor
 
 		if (!super.getBuffer().getErrors().hasErrors("auditingPeriodEnd"))
 			super.state(MomentHelper.isLongEnough(object.getAuditingPeriodInitial(), object.getAuditingPeriodEnd(), 1, ChronoUnit.HOURS), "auditingPeriodEnd", "auditor.records.form.error.not-long-enough");
+
+		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
+			super.state(object.isDraftMode(), "draftMode", "auditor.audit.form.error.draftMode");
 	}
 
 	@Override
 	public void perform(final AuditingRecords object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 
 	}
@@ -83,20 +86,14 @@ public class AuditorAuditingRecordsUpdateService extends AbstractService<Auditor
 	@Override
 	public void unbind(final AuditingRecords object) {
 		assert object != null;
-		final SelectChoices choices;
-
 		final int auditId = super.getRequest().getData("auditId", int.class);
 		final Audit audit = this.repository.findAuditById(auditId);
-		choices = SelectChoices.from(Mark.class, object.getMark());
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "subject", "assesment", "auditingPeriodInitial", "auditingPeriodEnd", "furtherInformation", "draftMode");
+		tuple = super.unbind(object, "subject", "assesment", "auditingPeriodInitial", "auditingPeriodEnd", "furtherInformation", "mark", "draftMode");
 		tuple.put("readonly", false);
 		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
-		tuple.put("mark", choices.getSelected().getKey());
-		tuple.put("marks", choices);
-		tuple.put("published", object.isDraftMode());
 
 		super.getResponse().setData(tuple);
 	}

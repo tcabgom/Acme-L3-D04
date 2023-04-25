@@ -12,6 +12,7 @@ auditor.records.form.label.draftMode= ¿No Publicado?
 auditor.records.form.button.create= Crear
 auditor.records.form.button.update= Actualizar
 auditor.records.form.button.delete= Eliminar
+auditor.records.form.button.publish= Publicar
 
 auditor.records.form.error.not-long-enough= Tiene que durar una hora como mínimo
 auditor.audit.form.error.draftMode= El informe no puede estar publicado

@@ -2,11 +2,13 @@
 package acme.features.assistant.assistantDashboard;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.enumerates.ActivityType;
+import acme.entities.lecture.Lecture;
 import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorialSession.TutorialSession;
 import acme.framework.repositories.AbstractRepository;
@@ -26,5 +28,8 @@ public interface AssistantDashboardRepository extends AbstractRepository {
 
 	@Query("select ts from TutorialSession ts where ts.tutorial.id = :id")
 	Collection<TutorialSession> findManySessionsByTutorialId(int id);
+
+	@Query("select l from Lecture l inner join LecturesInCourse lc on l = lc.lecture inner join Course c on lc.course = c where c.id = :id")
+	List<Lecture> findManyLecturesByCourseId(int id);
 
 }
