@@ -1,0 +1,3 @@
+administrator.configuration.form.label.currency = Currency
+administrator.configuration.form.label.acceptedCurrencies = Accepted currencies
+administrator.configuration.form.button.update = Update
