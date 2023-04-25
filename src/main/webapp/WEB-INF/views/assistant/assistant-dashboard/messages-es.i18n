@@ -1,7 +1,7 @@
 
 assistant.dashboard.form.title.tutorial = Estadísticas de Tutoriales
 assistant.dashboard.form.title.session = Estadísticas de Sesiones
-assistant.dashboard.form.title.session-type = Número de Sesiones por Tipo
+assistant.dashboard.form.title.session-type = Número de Tutoriales para cada Tipo de Curso
 
 assistant.dashboard.form.label.tutorial.count = Número de Tutoriales
 assistant.dashboard.form.label.tutorial.maximum = Horas del Tutorial Más Largo
