@@ -4,7 +4,6 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-
 	<acme:input-moment code="administrator.banner.form.label.instantiation" path="instantiation" readonly="true"/>
 	<acme:input-textbox code="administrator.banner.form.label.slogan" path="slogan"/>
 	<acme:input-url code="administrator.banner.form.label.linkToPicture" path="linkToPicture"/>

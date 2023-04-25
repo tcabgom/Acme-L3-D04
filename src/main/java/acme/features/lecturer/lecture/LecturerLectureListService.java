@@ -54,7 +54,7 @@ public class LecturerLectureListService extends AbstractService<Lecturer, Lectur
 	public void unbind(final Lecture object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "title", "lecAbstract", "learningTime", "knowledge");
+		tuple = super.unbind(object, "title", "lecAbstract", "learningTime", "knowledge", "draftMode");
 
 		final int masterId = super.getRequest().getData("masterId", int.class);
 		super.getResponse().setGlobal("masterId", masterId);

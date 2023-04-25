@@ -9,6 +9,7 @@ lecturer.course.list.label.code = Código
 lecturer.course.list.label.title = Título
 lecturer.course.list.label.retailPrice = Precio de venta
 lecturer.course.list.label.furtherInformation = Más información
+lecturer.course.list.label.draftMode = Modo Borrador
 
 lecturer.course.lectures = Lecciones
 lecturer.course.form.button.update = Actualizar
@@ -16,3 +17,6 @@ lecturer.course.form.button.delete = Borrar
 lecturer.course.form.button.publish = Publicar
 lecturer.course.form.button.create = Crear
 lecturer.course.list.button.create = Crear
+
+lecturer.course.form.error.code = El código ya existe
+lecturer.course.form.error.retailPrice = No puede costar más de 1 000 000 ni menos de 0

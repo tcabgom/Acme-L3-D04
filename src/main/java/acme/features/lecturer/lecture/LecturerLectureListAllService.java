@@ -45,7 +45,7 @@ public class LecturerLectureListAllService extends AbstractService<Lecturer, Lec
 		assert object != null;
 
 		Tuple tuple;
-		tuple = super.unbind(object, "title", "lecAbstract", "learningTime", "knowledge");
+		tuple = super.unbind(object, "title", "lecAbstract", "learningTime", "knowledge", "draftMode");
 
 		super.getResponse().setGlobal("showCreate", false);
 		super.getResponse().setData(tuple);

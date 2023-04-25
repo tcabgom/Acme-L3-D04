@@ -86,17 +86,21 @@ public class LecturerLecturesInCourseDeleteService extends AbstractService<Lectu
 	public void unbind(final LecturesInCourse object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "lecture", "course");
+
 		final int lectureId = super.getRequest().getData("lectureId", int.class);
-		tuple.put("lectureId", super.getRequest().getData("lectureId", int.class));
+
 		Collection<Course> courses;
 		courses = this.repository.findCourseByLecture(object.getLecture());
 		final Lecture lecture = this.repository.findOneLectureById(lectureId);
+
+		final SelectChoices choices;
+		choices = SelectChoices.from(courses, "code", object.getCourse());
+
+		tuple = super.unbind(object, "lecture", "course");
+		tuple.put("lectureId", super.getRequest().getData("lectureId", int.class));
 		tuple.put("lecAbstract", lecture.getLecAbstract());
 		tuple.put("title", lecture.getTitle());
 		tuple.put("draftMode", lecture.isDraftMode());
-		final SelectChoices choices;
-		choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 		tuple.put("cursos", courses);

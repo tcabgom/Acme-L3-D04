@@ -1,7 +1,9 @@
 
 package acme.features.lecturer.lecturesInCourse;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -89,19 +91,24 @@ public class LecturerLecturesInCourseCreateService extends AbstractService<Lectu
 	public void unbind(final LecturesInCourse object) {
 		assert object != null;
 		Tuple tuple;
-		tuple = super.unbind(object, "lecture", "course");
 		final int lectureId = super.getRequest().getData("lectureId", int.class);
-		tuple.put("lectureId", super.getRequest().getData("lectureId", int.class));
 		final Lecturer lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+		final Lecture lecture = this.repository.findOneLectureById(lectureId);
 		Collection<Course> courses;
 		courses = this.repository.findCoursesByLecturer(lecturer);
-		final Lecture lecture = this.repository.findOneLectureById(lectureId);
+		final SelectChoices choices;
+		final List<Course> availableCourses = new ArrayList<Course>();
+		final Collection<Course> notAvailCourses = this.repository.findCourseByLecture(object.getLecture());
+		for (final Course course : courses)
+			if (!notAvailCourses.contains(course))
+				availableCourses.add(course);
+		choices = SelectChoices.from(availableCourses, "code", object.getCourse());
+
+		tuple = super.unbind(object, "lecture", "course");
+		tuple.put("lectureId", super.getRequest().getData("lectureId", int.class));
 		tuple.put("draftMode", lecture.isDraftMode());
 		tuple.put("title", lecture.getTitle());
 		tuple.put("lecAbstract", lecture.getLecAbstract());
-
-		final SelectChoices choices;
-		choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 
