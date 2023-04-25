@@ -111,7 +111,6 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 			final double thisSessionMinutes = Math.abs(thisSessionEndTime / minutesInMilliseconds - thisSessionStartTime / minutesInMilliseconds) % 60 * 0.01;
 
 			thisSessionDuration = thisSessionHours + thisSessionMinutes;
-
 			sessionsDuration.add(thisSessionDuration);
 		}
 

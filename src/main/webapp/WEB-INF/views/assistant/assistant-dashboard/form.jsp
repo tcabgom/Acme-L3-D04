@@ -67,6 +67,7 @@
 
 <h2><acme:message code="assistant.dashboard.form.title.session-type"/></h2>
 
+
 <div>
 	<canvas id="canvas"></canvas>
 </div>
@@ -80,9 +81,9 @@
 			datasets : [
 				{
 					data : [
-						<jstl:out value="${totalNumberOfHandsOnLectures}"/>, 
-						<jstl:out value="${totalNumberOfTheoryLectures}"/>, 
-						<jstl:out value="${totalNumberOfBalancedLectures}"/>
+						<jstl:out value="${totalNumberOfHandsOnSessions}"/>, 
+						<jstl:out value="${totalNumberOfTheorySessions}"/>, 
+						<jstl:out value="${totalNumberOfBalancedSessions}"/>
 					]
 				}
 			]
