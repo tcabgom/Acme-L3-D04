@@ -90,6 +90,11 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 		tuple.put("activityType", object.courseActivityType(lectures));
 		tuple.put("readonly", false);
 
+		boolean showPublish = false;
+		showPublish = lectures.stream().allMatch(e -> e.isDraftMode() == false);
+
+		tuple.put("showPublish", showPublish);
+
 		super.getResponse().setData(tuple);
 	}
 }
