@@ -1,4 +1,4 @@
-package acme.testing.assistant.tuturialSession;
+package acme.testing.assistant.tutorialSession;
 
 
 public class AssistantTutorialSessionShowTest {
