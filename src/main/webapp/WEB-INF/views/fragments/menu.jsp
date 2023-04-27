@@ -77,7 +77,7 @@
 			<acme:menu-suboption code="master.menu.student.list-course" action="/student/course/list"/>
 			<acme:menu-suboption code="master.menu.student.list-enrolment" action="/student/enrolment/list"/>
 			<acme:menu-suboption code="master.menu.student.update" action="/authenticated/student/update"/>
-
+			<acme:menu-suboption code="master.menu.student.dashboard" action="/student/student-dashboard/show"/>
 		</acme:menu-option>
 
 	</acme:menu-left>
