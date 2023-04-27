@@ -41,7 +41,6 @@ public class AuthenticatedAuditorUpdateService extends AbstractService<Authentic
 		userAccountId = principal.getAccountId();
 		object = this.repository.findAuditorByUserAccountId(userAccountId);
 
-		object = new Auditor();
 		super.getBuffer().setData(object);
 	}
 
