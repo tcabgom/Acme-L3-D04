@@ -1,6 +1,6 @@
 recordIndex,code,title,retailPrice,draftMode
-0,ABC123,Titulo1,EUR 17.65,true
-1,ABC124,Título2,EUR 15.00,false
-2,ABC125,tercerTitulo,EUR 20.00,true
-3,ABC126,TituloCuarto,USD 3.35,false
-4,ABC127,5Título,USD 30.65,true
+0,ABL123,Titulo1,EUR 17.65,true
+1,ABL124,Título2,EUR 15.00,false
+2,ABL125,tercerTitulo,EUR 20.00,true
+3,ABL126,TituloCuarto,USD 3.35,false
+4,ABL127,5Título,USD 30.65,true

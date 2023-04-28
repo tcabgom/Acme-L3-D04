@@ -1,6 +1,31 @@
 recordIndex,code,title,courseAbstract,retailPrice,furtherInformation,draftMode
-0,ABC123,Titulo1,Abstract1,EUR 17.65,https://www.us.es,true
-1,ABC124,Título2,Abstract2,EUR 15.00,https://www.us.es,false
-2,ABC125,tercerTitulo,Abstract3,EUR 20.00,https://www.us.es,true
-3,ABC126,TituloCuarto,Abstract4,USD 3.35,https://www.us.es,false
-4,ABC127,5Título,Abstract5,USD 30.65,https://www.us.es,true
+0,ABE123,Un muy buen título,Abstract1,EUR 17.65,https://www.us.es,true
+1,ABE124,Ένα καλό τίτλο,Abstract2,EUR 15.00,https://www.us.es,true
+2,ABE125,عنوان جيد,Abstract3,EUR 20.00,https://www.us.es,true
+3,ABE126,<b>A good title</b>,Abstract4,USD 3.35,https://www.us.es,true
+4,ABE127,<script> title with &lt;html&gt; tag</script>,Abstract5,USD 30.65,https://www.us.es,true
+5,ABE128,A title with &amp; symbol,Abstract5,USD 30.65,https://www.us.es,true
+6,ABE129,A,Abstract5,USD 30.65,https://www.us.es,true
+7,ABE130,Es,Abstract5,USD 30.65,https://www.us.es,true
+8,ABE131,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion,Abstract5,USD 30.65,https://www.us.es,true
+9,ABE132,Este es un ejemplo de una cadena de 75 caracteres para probar la generacio,Abstract5,USD 30.65,https://www.us.es,true
+10,ABE133,5Título,Ένα καλό απόσπασμα,USD 30.65,https://www.us.es,true
+11,ABE134,5Título,مستخلص جيد,USD 30.65,https://www.us.es,true
+12,ABE135,5Título,<i>A good abstract</i>,USD 30.65,https://www.us.es,true
+13,ABE136,5Título,<script>An abstract with &lt;html&gt; tag</script>,USD 30.65,https://www.us.es,true
+14,ABE137,5Título,An abstract with &amp; symbol,USD 30.65,https://www.us.es,true
+15,ABE138,5Título,A,USD 30.65,https://www.us.es,true
+16,ABE139,5Título,Es,USD 30.65,https://www.us.es,true
+17,ABE140,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c",USD 30.65,https://www.us.es,true
+18,ABE141,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres parai",USD 30.65,https://www.us.es,true
+19,ABE142,5Título,Abstract5,USD 0.00,https://www.us.es,true
+20,ABE143,5Título,Abstract5,USD 0.01,https://www.us.es,true
+21,ABE144,5Título,Abstract5,EUR 999999.99,https://www.us.es,true
+22,ABE145,5Título,Abstract5,GBP 999999.98,https://www.us.es,true
+23,ABE146,5Título,Abstract5,USD 30.65,,true
+24,ABE147,5Título,Abstract5,USD 30.65,null,true
+25,ABE148,5Título,Abstract5,USD 30.65,http://www.acme.com/a?b,true
+26,ABE149,5Título,Abstract5,USD 30.65,http://www.acme.com/a/b,true
+27,ABE150,5Título,Abstract5,USD 30.65,ftp://user:pass@acme.org,true
+28,ABE151,5Título,Abstract5,USD 30.65,https://www.link1.com,true
+29,ABE152,5Título,Abstract5,USD 30.65,https://www.us.es,false
