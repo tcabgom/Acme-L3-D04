@@ -11,3 +11,4 @@ authenticated.course.list.label.furtherInformation = Más información
 
 any.course.form.button.tutorial = Tutoriales de Curso
 any.course.form.button.practicum = Practicas de Curso
+any.course.form.button.signInMessage = Tienes que iniciar sesión para acceder a los tutoriales y prácticas del curso

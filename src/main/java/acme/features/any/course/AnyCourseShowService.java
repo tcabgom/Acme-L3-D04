@@ -59,7 +59,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 		final List<Lecture> lectures = this.repository.findLecturesInCourse(object.getId()).stream().collect(Collectors.toList());
 
 		tuple.put("activityType", object.courseActivityType(lectures));
-
+		tuple.put("isAuthenticated", super.getRequest().getPrincipal().isAuthenticated());
 		super.getResponse().setData(tuple);
 	}
 
