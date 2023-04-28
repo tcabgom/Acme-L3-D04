@@ -95,7 +95,7 @@ public class AuditorAuditPublishTest extends TestHarness {
 		Collection<Audit> audits;
 		String params;
 
-		super.signIn("employer1", "employer1");
+		super.signIn("auditor1", "auditor1");
 		audits = this.repository.findMyAuditsByAuditorUsername("auditor1");
 		for (final Audit audit : audits)
 			if (!audit.isDraftMode()) {

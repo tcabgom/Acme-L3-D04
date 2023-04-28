@@ -121,7 +121,7 @@ public class AuditorAuditUpdateTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
-			super.signIn("auditor1", "auditor1");
+			super.signIn("auditor2", "auditor2");
 			super.request("/auditor/audit/update", param);
 			super.checkPanicExists();
 			super.signOut();
