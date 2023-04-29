@@ -1,0 +1,15 @@
+company.dashboard.form.title.practicum=Practicum statistics
+company.dashboard.form.label.practicum.count=Number of practicums
+company.dashboard.form.label.practicum.maximum=Hours of Longest practicum
+company.dashboard.form.label.practicum.minimum=Hours of Shortest practicum
+company.dashboard.form.label.practicum.average=Average number of practicum hours
+company.dashboard.form.label.practicum.deviation=Deviation of practicum hours
+
+company.dashboard.form.title.session=Session statistics
+company.dashboard.form.label.session.count=Number of Sessions
+company.dashboard.form.label.session.maximum=Hours of Longest Session
+company.dashboard.form.label.session.minimum=Hours of Shortest Session
+company.dashboard.form.label.session.average=Average number of Session Hours
+company.dashboard.form.label.session.deviation=Deviation of Session Hours
+
+company.dashboard.form.title.month=Number of practices per month
