@@ -3,6 +3,7 @@ package acme.features.administrator.banner;
 
 import java.time.temporal.ChronoUnit;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,8 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 
 	@Autowired
 	protected AdministratorBannerRepository repository;
-
+	@Autowired
+	protected AuxiliaryService auxiliaryService;
 
 	@Override
 	public void check() {
@@ -63,6 +65,12 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 			super.state(MomentHelper.isAfter(object.getDisplayPeriodInitial(), object.getInstantiation()), "displayPeriodInitial", "administrator.banner.form.error.beginning-close");
 		if (!super.getBuffer().getErrors().hasErrors("displayPeriodEnding"))
 			super.state(MomentHelper.isLongEnough(object.getDisplayPeriodInitial(), object.getDisplayPeriodEnding(), 7, ChronoUnit.DAYS), "displayPeriodEnding", "administrator.banner.form.error.ending-not-long-enough");
+		if (!super.getBuffer().getErrors().hasErrors("linkToPicture"))
+			super.state(auxiliaryService.validateString(object.getLinkToPicture()), "linkToPicture", "acme.validation.spam");
+		if (!super.getBuffer().getErrors().hasErrors("slogan"))
+			super.state(auxiliaryService.validateString(object.getSlogan()), "slogan", "acme.validation.spam");
+		if (!super.getBuffer().getErrors().hasErrors("linWebDocument"))
+			super.state(auxiliaryService.validateString(object.getLinWebDocument()), "linWebDocument", "acme.validation.spam");
 	}
 
 	@Override

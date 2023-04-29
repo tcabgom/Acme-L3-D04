@@ -3,6 +3,7 @@ package acme.features.company.practicumSession;
 
 import java.time.temporal.ChronoUnit;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,8 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 	@Autowired
 	protected CompanyPracticumSessionRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -78,6 +81,16 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 
 		if (!super.getBuffer().getErrors().hasErrors("startWeek"))
 			super.state(MomentHelper.isAfter(object.getStartWeek(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS)), "startWeek", "company.practicumSession.form.error.sessionStart");
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(auxiliaryService.validateString("title"), "title", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("abstractSession"))
+			super.state(auxiliaryService.validateString("abstractSession"), "abstractSession", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(auxiliaryService.validateString("link"), "link", "acme.validation.spam");
+
 	}
 
 	@Override

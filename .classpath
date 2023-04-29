@@ -42,5 +42,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/Acme-Framework-23.3.1"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Acme-L3-Filtro-Spam"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
