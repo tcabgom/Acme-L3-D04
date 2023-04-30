@@ -45,5 +45,4 @@ public interface BannerRepository extends AbstractRepository {
 
 		return result;
 	}
-
 }

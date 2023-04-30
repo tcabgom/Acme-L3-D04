@@ -10,3 +10,5 @@ authenticated.course.list.label.retailPrice = Retail price
 authenticated.course.list.label.furtherInformation = Further information
 
 any.course.form.button.tutorial = Course Tutorials
+any.course.form.button.practicum = Course Practicums
+any.course.form.button.signInMessage = You have to sign in to access the course tutorials and practicums
