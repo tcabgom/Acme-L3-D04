@@ -14,38 +14,38 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumCreateService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumPublishService extends AbstractService<Company, Practicum> {
 
-	// Internal state -----------------------------------------------------
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
 
-	// AbstractService interface ------------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
+		final Practicum object = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
 
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
+		status = object != null && super.getRequest().getPrincipal().hasRole(Company.class) && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final Practicum object = new Practicum();
-
-		final Company company = this.repository.findCompanyById(super.getRequest().getPrincipal().getActiveRoleId());
-
-		object.setCompany(company);
-		object.setDraftMode(true);
+		final Practicum object = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
 
 		super.getBuffer().setData(object);
 	}
@@ -54,13 +54,11 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 	public void bind(final Practicum object) {
 		assert object != null;
 
-		final Company company = this.repository.findCompanyById(super.getRequest().getPrincipal().getActiveRoleId());
 		final Course course = this.repository.findCourseById(super.getRequest().getData("course", int.class));
 
-		object.setCompany(company);
-		object.setCourse(course);
+		super.bind(object, "code", "title", "tutorialAbstract", "goals", "draftMode");
 
-		super.bind(object, "code", "title", "abstractPracticum", "goals", "draftMode");
+		object.setCourse(course);
 	}
 
 	@Override
@@ -68,8 +66,8 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final Practicum code = this.repository.findPracticumByCode(object.getCode());
-			super.state(code == null, "code", "company.practicum.form.error.code");
+			final Practicum potentialDuplicate = this.repository.findPracticumByCode(object.getCode());
+			super.state(potentialDuplicate == null || potentialDuplicate.equals(object), "code", "company.practicum.form.error.code");
 		}
 	}
 
@@ -77,6 +75,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 	public void perform(final Practicum object) {
 		assert object != null;
 
+		object.setDraftMode(false);
 		this.repository.save(object);
 	}
 
@@ -84,11 +83,14 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 	public void unbind(final Practicum object) {
 		assert object != null;
 
+		Collection<Course> courses;
+		SelectChoices choices;
 		Tuple tuple;
-		final Collection<Course> courses = this.repository.findAllCourses();
-		final SelectChoices choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "abstractPracticum", "goals", "draftMode");
+		courses = this.repository.findAllCourses();
+		choices = SelectChoices.from(courses, "title", object.getCourse());
+
+		tuple = super.unbind(object, "code", "title", "tutorialAbstract", "goals", "draftMode");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

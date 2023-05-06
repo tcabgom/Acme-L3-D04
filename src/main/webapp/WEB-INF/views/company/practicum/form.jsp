@@ -19,9 +19,10 @@
         <jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode==true}">
             <acme:submit code="company.practicum.form.button.update" action="/company/practicum/update"/>
             <acme:submit code="company.practicum.form.button.delete" action="/company/practicum/delete"/>
+            <acme:submit code="company.practicum.form.button.publish"  action="/company/practicum/publish"/>
         </jstl:when>
     </jstl:choose>
     <jstl:if test="${acme:anyOf(_command, 'show|update|delete')}">
-    	<acme:button code="compnay.practicum.form.button.sessions" action="/company/practicum-session/list?practicumId=${id}"/>
+    	<acme:button code="company.practicum.form.button.sessions" action="/company/practicum-session/list?practicumId=${id}"/>
 	</jstl:if>
 </acme:form>
