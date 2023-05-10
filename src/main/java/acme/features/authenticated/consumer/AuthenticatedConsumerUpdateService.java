@@ -12,6 +12,7 @@
 
 package acme.features.authenticated.consumer;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,8 @@ public class AuthenticatedConsumerUpdateService extends AbstractService<Authenti
 
 	@Autowired
 	protected AuthenticatedConsumerRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------ç
 
@@ -68,6 +71,13 @@ public class AuthenticatedConsumerUpdateService extends AbstractService<Authenti
 	@Override
 	public void validate(final Consumer object) {
 		assert object != null;
+		if(!super.getBuffer().getErrors().hasErrors("company")) {
+			super.state(auxiliaryService.validateString(object.getCompany()), "company", "acme.validation.spam");
+		}
+
+		if(!super.getBuffer().getErrors().hasErrors("sector")) {
+			super.state(auxiliaryService.validateString(object.getSector()), "sector", "acme.validation.spam");
+		}
 	}
 
 	@Override

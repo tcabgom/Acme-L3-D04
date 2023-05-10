@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.auditor;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ public class AuthenticatedAuditorUpdateService extends AbstractService<Authentic
 
 	@Autowired
 	protected AutheticatedAuditorRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 
 	@Override
@@ -53,6 +56,19 @@ public class AuthenticatedAuditorUpdateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Auditor object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("firm"))
+			super.state(auxiliaryService.validateString(object.getFirm()), "firm","acme.validation.spam");
+
+		if(!super.getBuffer().getErrors().hasErrors("proffesionalID"))
+			super.state(auxiliaryService.validateString(object.getProffesionalID()), "proffesionalID","acme.validation.spam");
+
+		if(!super.getBuffer().getErrors().hasErrors("certifications"))
+			super.state(auxiliaryService.validateString(object.getCertifications()), "certifications","acme.validation.spam");
+
+		if(!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(auxiliaryService.validateString(object.getLink()), "link","acme.validation.spam");
+
 	}
 
 	@Override

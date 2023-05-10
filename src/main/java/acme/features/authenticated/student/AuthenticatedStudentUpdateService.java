@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.student;
 
+import acme.components.AuxiliaryService;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.accounts.UserAccount;
@@ -20,6 +21,8 @@ public class AuthenticatedStudentUpdateService extends AbstractService<Authentic
 
 	@Autowired
 	protected AuthenticatedStudentRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -55,6 +58,22 @@ public class AuthenticatedStudentUpdateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Student object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("statement")) {
+			super.state(auxiliaryService.validateString(object.getStatement()), "statement","acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("strongFeatures")) {
+			super.state(auxiliaryService.validateString(object.getStrongFeatures()), "strongFeatures","acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("weakFeatures")) {
+			super.state(auxiliaryService.validateString(object.getWeakFeatures()), "weakFeatures","acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation")) {
+			super.state(auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation","acme.validation.spam");
+		}
 	}
 
 	@Override

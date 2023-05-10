@@ -1,6 +1,7 @@
 
 package acme.features.lecturer.course;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 	@Autowired
 	protected LecturerCourseRepository repository;
+	@Autowired
+	protected AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -58,6 +61,22 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		if (!super.getBuffer().getErrors().hasErrors("retailPrice")) {
 			final Double amount = object.getRetailPrice().getAmount();
 			super.state(amount < 1000000 && amount >= 0, "retailPrice", "lecturer.course.form.error.retailPrice");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("courseAbstract")) {
+			super.state(auxiliaryService.validateString(object.getCourseAbstract()), "courseAbstract", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation")) {
+			super.state(auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation", "acme.validation.spam");
 		}
 
 	}
