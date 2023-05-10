@@ -58,7 +58,6 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
         SelectChoices choices = SelectChoices.from(ActivityType.class, object.getType());
 
         Tuple tuple = super.unbind(object, "title", "activityAbstract", "type", "periodStart", "periodEnd", "furtherInformation");
-        tuple.put("readonly", true);
         tuple.put("types", choices);
         tuple.put("type", choices.getSelected());
 

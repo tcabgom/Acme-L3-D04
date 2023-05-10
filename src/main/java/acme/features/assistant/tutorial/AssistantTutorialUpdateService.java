@@ -3,6 +3,7 @@ package acme.features.assistant.tutorial;
 
 import java.util.Collection;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 
 	@Autowired
 	protected AssistantTutorialRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -82,6 +85,19 @@ public class AssistantTutorialUpdateService extends AbstractService<Assistant, T
 			final Tutorial potentialDuplicate = this.repository.findOneTutorialByCode(object.getCode());
 			super.state(potentialDuplicate == null || potentialDuplicate.getId() == object.getId(), "code", "assistant.tutorial.form.error.code");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("tutorialAbstract")) {
+			super.state(auxiliaryService.validateString(object.getTutorialAbstract()), "tutorialAbstract", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("goals")) {
+			super.state(auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
+		}
+
 	}
 
 	@Override

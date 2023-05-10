@@ -4,6 +4,7 @@ package acme.features.assistant.tutorialSession;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,8 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 
 	@Autowired
 	protected AssistantTutorialSessionRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -79,6 +82,16 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 			final Date minimunValidEndDate = MomentHelper.deltaFromMoment(object.getSessionStart(), 5, ChronoUnit.HOURS);
 			super.state(MomentHelper.isBefore(object.getSessionEnd(), minimunValidEndDate), "sessionEnd", "assistant.tutorialSession.form.error.sessionEnd");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("sessionAbstract"))
+			super.state(auxiliaryService.validateString(object.getSessionAbstract()), "sessionAbstract", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("moreInfo"))
+			super.state(auxiliaryService.validateString(object.getMoreInfo()), "moreInfo", "acme.validation.spam");
+
 
 	}
 

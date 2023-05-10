@@ -60,7 +60,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractSession");
+		tuple = super.unbind(object, "title", "abstractSession", "extraSession");
 
 		super.getResponse().setData(tuple);
 	}

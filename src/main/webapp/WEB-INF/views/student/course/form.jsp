@@ -13,4 +13,6 @@
 	<acme:input-url  	  code="student.course.form.label.furtherInformation" path="furtherInformation"/>
 	<acme:hidden-data path="draftMode"/>
 
+	<acme:button code="student.course.form.label.showLectures" action="/student/lecture/list?courseId=${id}"/>
+
 </acme:form>
