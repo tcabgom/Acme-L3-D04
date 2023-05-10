@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,8 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 
 	@Autowired
 	protected LecturerCourseRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService Interface -------------------------------------
 
@@ -72,6 +75,22 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 			boolean allPublished;
 			allPublished = lectures.stream().allMatch(x -> x.isDraftMode() == false);
 			super.state(allPublished, "draftMode", "lecturer.course.form.error.lecturenp");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("courseAbstract")) {
+			super.state(auxiliaryService.validateString(object.getCourseAbstract()), "courseAbstract", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation")) {
+			super.state(auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation", "acme.validation.spam");
 		}
 	}
 

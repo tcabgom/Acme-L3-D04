@@ -3,6 +3,7 @@ package acme.features.auditor.auditingRecords;
 
 import java.time.temporal.ChronoUnit;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,8 @@ public class AuditorAuditingRecordsPublishService extends AbstractService<Audito
 
 	@Autowired
 	protected AuditorAuditingRecordRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 
 	@Override
@@ -51,6 +54,16 @@ public class AuditorAuditingRecordsPublishService extends AbstractService<Audito
 
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
 			super.state(object.isDraftMode(), "draftMode", "auditor.audit.form.error.draftMode");
+
+		if (!super.getBuffer().getErrors().hasErrors("subject"))
+			super.state(auxiliaryService.validateString(object.getSubject()), "subject", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("assesment"))
+			super.state(auxiliaryService.validateString(object.getAssesment()), "assesment", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation", "acme.validation.spam");
+
 	}
 
 	@Override

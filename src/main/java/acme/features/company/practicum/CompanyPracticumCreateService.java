@@ -3,6 +3,7 @@ package acme.features.company.practicum;
 
 import java.util.Collection;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
+	@Autowired
+	protected AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ------------------------------------------
 
@@ -70,6 +73,20 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			final Practicum code = this.repository.findPracticumByCode(object.getCode());
 			super.state(code == null, "code", "company.practicum.form.error.code");
+			super.state(code == null, "code", "administrator.Practicum.form.error.code");
+			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("abstractPracticum")) {
+			super.state(auxiliaryService.validateString(object.getAbstractPracticum()), "abstractPracticum", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("goals")) {
+			super.state(auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
 		}
 	}
 
