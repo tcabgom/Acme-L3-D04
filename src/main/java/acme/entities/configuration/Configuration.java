@@ -27,7 +27,7 @@ public class Configuration extends AbstractEntity {
 	protected String			currency;
 
 	@NotBlank
-	protected String			aceptedCurrencies;
+	protected String			acceptedCurrencies;
 
 	protected String			spamWords;
 
