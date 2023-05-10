@@ -74,6 +74,8 @@ master.menu.lecturer.dashboard = Panel
 master.menu.student = Estudiante
 master.menu.student.list-course = Ver cursos
 master.menu.student.list-enrolment = Ver tus inscripciones
+master.menu.student.dashboard = Panel
+master.menu.student.update = Actualizar mi perfil de estudiante
 
 # master.menu.company ####################################################
 
@@ -91,6 +93,7 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.assistant = Datos de asistente
 master.menu.user-account.become-assistant = Hazte asistente
+master.menu.authenticated.student.create = Hazte estudiante
 master.menu.user-account.offer = Ver Ofertas Activas
 master.menu.user-account.bulletin = Ver Boletines
 master.menu.user-account.note = Ver Notas

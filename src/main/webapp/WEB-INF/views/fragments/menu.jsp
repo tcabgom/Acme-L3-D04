@@ -72,12 +72,14 @@
 		
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
 			<acme:menu-suboption code="master.menu.company.practicum" action="/company/practicum/list"/>
+			<acme:menu-suboption code="master.menu.company.dashboard" action="/company/company-dashboard/show"/>			
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 			<acme:menu-suboption code="master.menu.student.list-course" action="/student/course/list"/>
 			<acme:menu-suboption code="master.menu.student.list-enrolment" action="/student/enrolment/list"/>
-
+			<acme:menu-suboption code="master.menu.student.update" action="/authenticated/student/update"/>
+			<acme:menu-suboption code="master.menu.student.dashboard" action="/student/student-dashboard/show"/>
 		</acme:menu-option>
 
 	</acme:menu-left>
@@ -101,6 +103,7 @@
 			<acme:menu-suboption code="master.menu.authenticated.auditor.update" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.authenticated.company.create" action="/authenticated/company/create" access="!hasRole('Company')"/>
 			<acme:menu-suboption code="master.menu.authenticated.company.update" action="/authenticated/company/update" access="hasRole('Company')"/>
+			<acme:menu-suboption code="master.menu.authenticated.student.create" action="/authenticated/student/create" access="!hasRole('Student')"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.user-account.bulletin" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.user-account.offer" action="/authenticated/offer/list"/>

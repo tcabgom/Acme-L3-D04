@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.company;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class AuthenticatedCompanyCreateService extends AbstractService<Authentic
 
 	@Autowired
 	protected AuthenticatedCompanyRepository repository;
+	@Autowired
+	protected AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -61,6 +64,19 @@ public class AuthenticatedCompanyCreateService extends AbstractService<Authentic
 			final Company potencialDuplicate = this.repository.findOneCompanyByVATNumber(object.getVATNumber());
 			super.state(potencialDuplicate == null, "VATNumber", "authenticated.company.form.error.code");
 		}
+
+		if(!super.getBuffer().getErrors().hasErrors("name")) {
+			super.state(auxiliaryService.validateString(object.getName()), "name", "acme.validation.spam");
+		}
+
+		if(!super.getBuffer().getErrors().hasErrors("summary")) {
+			super.state(auxiliaryService.validateString(object.getSummary()), "summary", "acme.validation.spam");
+		}
+
+		if(!super.getBuffer().getErrors().hasErrors("link")) {
+			super.state(auxiliaryService.validateString(object.getLink()), "link", "acme.validation.spam");
+		}
+
 	}
 
 	@Override

@@ -10,5 +10,8 @@
 	<acme:list-column code="lecturer.lecture.list.label.knowledge" path="knowledge" width="20%" />
 	<acme:list-column code="lecturer.lecture.list.label.draftMode" path="draftMode" width="10%" />
 </acme:list>
-
-<acme:button code="lecturer.lecture.list.button.create" action="/lecturer/lecture/create"/>
+<jstl:choose>
+	<jstl:when test="${_command == 'list-all'}">
+		<acme:button code="lecturer.lecture.list.button.create" action="/lecturer/lecture/create"/>
+	</jstl:when>		
+</jstl:choose>

@@ -4,6 +4,7 @@ package acme.features.administrator.offer;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 
 	@Autowired
 	protected AdministratorOfferRepository repository;
+	@Autowired
+	protected AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -76,6 +79,15 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 			final Double amount = object.getPrice().getAmount();
 			super.state(amount < 10000000000. && amount >= 0, "price", "administrator.offer.form.error.price");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("header"))
+			super.state(auxiliaryService.validateString(object.getHeader()), "header", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("summary"))
+			super.state(auxiliaryService.validateString(object.getSummary()), "summary", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("moreInfo"))
+			super.state(auxiliaryService.validateString(object.getMoreInfo()), "moreInfo", "acme.validation.spam");
 
 	}
 

@@ -4,6 +4,7 @@ package acme.features.lecturer.course;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,8 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 	@Autowired
 	protected LecturerCourseRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -70,6 +73,22 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 			final Double amount = object.getRetailPrice().getAmount();
 			super.state(amount < 1000000 && amount >= 0, "retailPrice", "lecturer.course.form.error.retailPrice");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("courseAbstract")) {
+			super.state(auxiliaryService.validateString(object.getCourseAbstract()), "courseAbstract", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation")) {
+			super.state(auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation", "acme.validation.spam");
+		}
 	}
 
 	@Override
@@ -89,6 +108,11 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 		tuple.put("activityType", object.courseActivityType(lectures));
 		tuple.put("readonly", false);
+
+		boolean showPublish = false;
+		showPublish = lectures.stream().allMatch(e -> e.isDraftMode() == false);
+
+		tuple.put("showPublish", showPublish);
 
 		super.getResponse().setData(tuple);
 	}

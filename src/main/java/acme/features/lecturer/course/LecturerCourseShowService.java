@@ -66,8 +66,11 @@ public class LecturerCourseShowService extends AbstractService<Lecturer, Course>
 
 		final List<Lecture> lectures = this.repository.findLecturesByCourse(object.getId()).stream().collect(Collectors.toList());
 		final ActivityType activityType = object.courseActivityType(lectures);
+		boolean showPublish = false;
+		showPublish = lectures.stream().allMatch(e -> e.isDraftMode() == false);
 
 		tuple.put("activityType", activityType);
+		tuple.put("showPublish", showPublish);
 
 		super.getResponse().setData(tuple);
 	}

@@ -1,6 +1,7 @@
 
 package acme.features.company.practicum;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ------------------------------------------
 
@@ -75,6 +78,22 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
 			super.state(object.isDraftMode(), "draftMode", "company.practicum.form.error.draftMode");
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title")) {
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("abstractPracticum")) {
+			super.state(auxiliaryService.validateString(object.getAbstractPracticum()), "abstractPracticum", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("goals")) {
+			super.state(auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
+		}
 	}
 
 	@Override
