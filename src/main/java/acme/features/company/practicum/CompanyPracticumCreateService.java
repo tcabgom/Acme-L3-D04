@@ -72,6 +72,7 @@ public class CompanyPracticumCreateService extends AbstractService<Company, Prac
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			final Practicum code = this.repository.findPracticumByCode(object.getCode());
+			super.state(code == null, "code", "company.practicum.form.error.code");
 			super.state(code == null, "code", "administrator.Practicum.form.error.code");
 			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
 		}

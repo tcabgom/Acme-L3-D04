@@ -7,9 +7,10 @@
 	<acme:hidden-data path="practicum"/>
 	<acme:input-textbox code="company.practicumSession.form.label.title" path="title"/>	
 	<acme:input-textarea code="company.practicumSession.form.label.abstractSession" path="abstractSession"/>	
-	<acme:input-moment code="company.practicumSession.form.label.startWeek" path="startWeek"/>	
-	<acme:input-moment code="company.practicumSession.form.label.finishWeek" path="finishWeek"/>	
+	<acme:input-moment code="company.practicumSession.form.label.start" path="start"/>	
+	<acme:input-moment code="company.practicumSession.form.label.finish" path="finish"/>	
 	<acme:input-url code="company.practicumSession.form.label.link" path="link"/>	
+	<acme:input-checkbox code="company.practicumSession.form.label.extraSession" path="extraSession" readonly="true"/>
 	
 	<jstl:choose>
         <jstl:when test="${_command == 'create'}">

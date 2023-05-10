@@ -12,7 +12,15 @@
 	<acme:input-moment    code="student.activity.form.label.periodEnd" path="periodEnd"/>
 	<acme:input-url  	  code="student.activity.form.label.furtherInformation" path="furtherInformation"/>
 
-	<jstl:if test="${_command == 'create'}">
-		<acme:submit code="student.activity.form.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>
-	</jstl:if>
+	<jstl:choose>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="student.activity.form.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>
+		</jstl:when>
+		<jstl:otherwise>
+			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
+			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
+		</jstl:otherwise>
+	</jstl:choose>
+
+
 </acme:form>

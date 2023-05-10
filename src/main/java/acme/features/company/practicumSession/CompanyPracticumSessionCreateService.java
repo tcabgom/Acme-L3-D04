@@ -57,6 +57,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		final Practicum practicum = this.repository.findPracticumById(super.getRequest().getData("practicumId", int.class));
 
 		object.setPracticum(practicum);
+		object.setExtraSession(practicum.isDraftMode() ? false : true);
 
 		super.getBuffer().setData(object);
 	}
@@ -69,18 +70,18 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 		object.setPracticum(practicum);
 
-		super.bind(object, "title", "abstractSession", "startWeek", "finishWeek", "link");
+		super.bind(object, "title", "abstractSession", "start", "finish", "link", "extraSession");
 	}
 
 	@Override
 	public void validate(final PracticumSession object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("finishWeek"))
-			super.state(MomentHelper.isLongEnough(object.getStartWeek(), object.getFinishWeek(), 1, ChronoUnit.WEEKS), "finishWeek", "company.pacticumSession.form.error.not-long-enough");
+		if (!super.getBuffer().getErrors().hasErrors("finish"))
+			super.state(MomentHelper.isLongEnough(object.getStart(), object.getFinish(), 1, ChronoUnit.WEEKS), "finish", "company.pacticumSession.form.error.not-long-enough");
 
-		if (!super.getBuffer().getErrors().hasErrors("startWeek"))
-			super.state(MomentHelper.isAfter(object.getStartWeek(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS)), "startWeek", "company.practicumSession.form.error.sessionStart");
+		if (!super.getBuffer().getErrors().hasErrors("start"))
+			super.state(MomentHelper.isAfter(object.getStart(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS)), "start", "company.practicumSession.form.error.sessionStart");
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))
 			super.state(auxiliaryService.validateString("title"), "title", "acme.validation.spam");
@@ -106,7 +107,7 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractSession", "startWeek", "finishWeek", "link");
+		tuple = super.unbind(object, "title", "abstractSession", "start", "finish", "link", "extraSession");
 		tuple.put("practicumId", super.getRequest().getData("practicumId", int.class));
 
 		super.getResponse().setData(tuple);

@@ -6,6 +6,8 @@ student.activity.form.label.periodEnd = Period end
 student.activity.form.label.furtherInformation = More information
 
 student.activity.form.button.create = Create activity
+student.activity.form.button.update = Update
+student.activity.form.button.delete = Delete
 
 student.activity.list.label.title = Title
 student.activity.list.label.type = Type

@@ -16,19 +16,22 @@ public class CompanyPracticumController extends AbstractController<Company, Prac
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumListService	listService;
+	protected CompanyPracticumListService		listService;
 
 	@Autowired
-	protected CompanyPracticumShowService	showService;
+	protected CompanyPracticumShowService		showService;
 
 	@Autowired
-	protected CompanyPracticumCreateService	createService;
+	protected CompanyPracticumCreateService		createService;
 
 	@Autowired
-	protected CompanyPracticumUpdateService	updateService;
+	protected CompanyPracticumUpdateService		updateService;
 
 	@Autowired
-	protected CompanyPracticumDeleteService	deleteService;
+	protected CompanyPracticumDeleteService		deleteService;
+
+	@Autowired
+	protected CompanyPracticumPublishService	publishService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -40,5 +43,6 @@ public class CompanyPracticumController extends AbstractController<Company, Prac
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 }
