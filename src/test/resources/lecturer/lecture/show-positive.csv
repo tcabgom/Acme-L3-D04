@@ -1,6 +1,11 @@
-recordIndex,title,lecAbstract,learningTime,knowledge,draftMode
-0,Titulo1,resumen,10.05,HANDS_ON,true
-1,Título2,resumen,11.12,THEORY,false
-2,tercerTitulo,resumen,12.54,HANDS_ON,true
-3,TituloCuarto,resumen,12.43,BALANCED,false
-4,5Título,resumen,12.54,HANDS_ON,true
+recordIndex,title,lecAbstract,learningTime,body,knowledge,furtherInformation,draftMode
+0,<b>A good title</b>,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,false
+1,<script> title with &lt;html&gt; tag</script>,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,false
+2,??? ???? ?????,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+3,A sample with &amp; symbol,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,false
+4,Este es un ejemplo de una cadena de 75 caracteres para probar la generacio,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,false
+5,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+6,U,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+7,Un,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+8,Un título,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+9,Un título,??? ???? ?????,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,false
