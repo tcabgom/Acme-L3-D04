@@ -1,6 +1,8 @@
 recordIndex,code,title,retailPrice,draftMode
-0,ABL123,Titulo1,EUR 17.65,true
-1,ABL124,Título2,EUR 15.00,false
-2,ABL125,tercerTitulo,EUR 20.00,true
-3,ABL126,TituloCuarto,USD 3.35,false
-4,ABL127,5Título,USD 30.65,true
+0,ABC123,Un muy buen título,USD 5.00,true
+1,ABC126,??? ???? ?????,USD 5.00,false
+2,ABC127,????? ???,USD 5.00,true
+3,ABC128,<b>A good title</b>,USD 5.00,false
+4,ABC129,<script> title with &lt;html&gt; tag</script>,USD 5.00,true
+5,ABC130,A title with &amp; symbol,USD 5.00,false
+6,ABC131,A,USD 5.00,true
