@@ -161,7 +161,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
         try {
             parsedDate = MomentHelper.parse("MM/yy", expirationDate);
-        } catch (Exception e) {
+        } catch (AssertionError e) {
             parsedDate = MomentHelper.parse("yy/MM", expirationDate);
         }
         return parsedDate;

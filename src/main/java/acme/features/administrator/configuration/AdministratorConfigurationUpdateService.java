@@ -26,7 +26,7 @@ public class AdministratorConfigurationUpdateService extends AbstractService<Adm
     @Override
     public void bind(Configuration object) {
         assert object != null;
-        super.bind(object, "currency", "acceptedCurrencies");
+        super.bind(object, "currency", "acceptedCurrencies", "spamWords", "spamThreshold");
 
     }
 
@@ -50,7 +50,7 @@ public class AdministratorConfigurationUpdateService extends AbstractService<Adm
     @Override
     public void unbind(Configuration object) {
         assert object != null;
-        Tuple tuple = super.unbind(object, "currency", "acceptedCurrencies");
+        Tuple tuple = super.unbind(object, "currency", "acceptedCurrencies", "spamWords", "spamThreshold");
         tuple.put("readonly", false);
 
         super.getResponse().setData(tuple);
