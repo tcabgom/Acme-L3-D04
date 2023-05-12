@@ -20,7 +20,7 @@ public class LecturerLectureCreateTest extends TestHarness {
 		super.clickOnMenu("Lecturer", "My Lectures");
 		super.checkListingExists();
 
-		super.clickOnButton("Create");
+		super.clickOnButton("Create lecture");
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("lecAbstract", lecAbstract);
 		super.fillInputBoxIn("learningTime", learningTime);
@@ -59,7 +59,7 @@ public class LecturerLectureCreateTest extends TestHarness {
 		super.signIn("lecturer1", "lecturer1");
 
 		super.clickOnMenu("Lecturer", "My Lectures");
-		super.clickOnButton("Create");
+		super.clickOnButton("Create lecture");
 		super.checkFormExists();
 
 		super.fillInputBoxIn("title", title);

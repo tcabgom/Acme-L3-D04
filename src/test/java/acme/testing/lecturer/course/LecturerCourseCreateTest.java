@@ -11,7 +11,7 @@ public class LecturerCourseCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/course/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String title, final String courseAbstract, final String retailPrice, final String furtherInformation, final String activityType, final String draftMode) {
+	public void test100Positive(final int recordIndex, final String code, final String title, final String courseAbstract, final String retailPrice, final String furtherInformation, final String draftMode, final String activityType) {
 		// HINT: this test authenticates as a lecturer and then lists his or her
 		// HINT: courses, creates a new one, and check that it's been created properly.
 

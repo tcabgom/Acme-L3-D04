@@ -20,12 +20,12 @@ recordIndex,code,title,courseAbstract,retailPrice,furtherInformation,draftMode,a
 25,ABE141,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres parai",USD 30.65,https://www.us.es,true,BALANCED
 26,ABE142,5Título,Abstract5,USD 0.00,https://www.us.es,true,BALANCED
 27,ABE143,5Título,Abstract5,USD 0.01,https://www.us.es,true,BALANCED
-28,ABE144,5Título,Abstract5,EUR 999999.99,https://www.us.es,true,BALANCED
-29,ABE145,5Título,Abstract5,GBP 999999.98,https://www.us.es,true,BALANCED
+28,ABE144,5Título,Abstract5,"EUR 999,999.99",https://www.us.es,true,BALANCED
+29,ABE145,5Título,Abstract5,"GBP 999,999.98",https://www.us.es,true,BALANCED
 30,ABE146,5Título,Abstract5,USD 30.65,,true,BALANCED
 31,ABE147,5Título,Abstract5,USD 30.65,null,true,BALANCED
 32,ABE148,5Título,Abstract5,USD 30.65,http://www.acme.com/a?b,true,BALANCED
 33,ABE149,5Título,Abstract5,USD 30.65,http://www.acme.com/a/b,true,BALANCED
 34,ABE150,5Título,Abstract5,USD 30.65,ftp://user:pass@acme.org,true,BALANCED
 35,ABE151,5Título,Abstract5,USD 30.65,https://www.link1.com,true,BALANCED
-36,ABE152,5Título,Abstract5,USD 30.65,https://www.us.es,false,BALANCED
+36,ABE152,5Título,Abstract5,USD 30.65,https://www.us.es,true,BALANCED

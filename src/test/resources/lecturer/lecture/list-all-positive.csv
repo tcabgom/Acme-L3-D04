@@ -1,11 +1,11 @@
 recordIndex,title,lecAbstract,learningTime,knowledge,draftMode
-0,Un título,Un Abstract,5.0,HANDS_ON,true
-1,Ένα καλό τίτλο,Un Abstract,5.0,HANDS_ON,true
-2,U,Un Abstract,5.0,HANDS_ON,true
-3,Un,Un Abstract,5.0,HANDS_ON,true
-4,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion,Un Abstract,5.0,HANDS_ON,true
-5,Este es un ejemplo de una cadena de 75 caracteres para probar la generacio,Un Abstract,5.0,HANDS_ON,false
-6,<b>A good title</b>,Un Abstract,5.0,HANDS_ON,false
-7,<script> title with &lt;html&gt; tag</script>,Un Abstract,5.0,HANDS_ON,false
-8,A sample with &amp; symbol,Un Abstract,5.0,HANDS_ON,false
-9,Un título,Ένα καλό τίτλο,5.0,HANDS_ON,false
+0,<b>A good title</b>,Un Abstract,5.00,HANDS_ON,false
+1,<script> title with &lt;html&gt; tag</script>,Un Abstract,5.00,HANDS_ON,false
+2,A sample with &amp; symbol,Un Abstract,5.00,HANDS_ON,false
+3,Este es un ejemplo de una cadena de 75 caracteres para probar la generacio,Un Abstract,5.00,HANDS_ON,false
+4,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion,Un Abstract,5.00,HANDS_ON,true
+5,U,Un Abstract,5.00,HANDS_ON,true
+6,Un,Un Abstract,5.00,HANDS_ON,true
+7,Un título,Un Abstract,5.00,HANDS_ON,true
+8,Un título,Ένα καλό τίτλο,5.00,HANDS_ON,false
+9,Ένα καλό τίτλο,Un Abstract,5.00,HANDS_ON,true

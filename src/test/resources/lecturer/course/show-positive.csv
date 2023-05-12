@@ -1,8 +1,8 @@
-recordIndex,code,title,courseAbstract,retailPrice,furtherInformation,draftMode
-0,ABC123,Un muy buen título,Un buen abstract,USD 5.00,https://www.link1.com,true
-1,ABC126,Ένα καλό τίτλο,Un buen abstract,USD 5.00,https://www.link1.com,true
-2,ABC127,عنوان جيد,Un buen abstract,USD 5.00,https://www.link1.com,true
-3,ABC128,<b>A good title</b>,Un buen abstract,USD 5.00,https://www.link1.com,true
-4,ABC129,<script> title with &lt;html&gt; tag</script>,Un buen abstract,USD 5.00,https://www.link1.com,true
-5,ABC130,A title with &amp; symbol,Un buen abstract,USD 5.00,https://www.link1.com,true
-6,ABC131,A,Un buen abstract,USD 5.00,https://www.link1.com,true
+recordIndex,code,title,courseAbstract,retailPrice,furtherInformation,activityType
+0,ABC123,Un muy buen título,Un buen abstract,USD 5.00,https://www.link1.com,HANDS_ON
+1,ABC126,Ένα καλό τίτλο,Un buen abstract,USD 5.00,https://www.link1.com,HANDS_ON
+2,ABC127,عنوان جيد,Un buen abstract,USD 5.00,https://www.link1.com,HANDS_ON
+3,ABC128,<b>A good title</b>,Un buen abstract,USD 5.00,https://www.link1.com,HANDS_ON
+4,ABC129,<script> title with &lt;html&gt; tag</script>,Un buen abstract,USD 5.00,https://www.link1.com,BALANCED
+5,ABC130,A title with &amp; symbol,Un buen abstract,USD 5.00,https://www.link1.com,BALANCED
+6,ABC131,A,Un buen abstract,USD 5.00,https://www.link1.com,BALANCED

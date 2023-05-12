@@ -42,24 +42,10 @@ public class LecturerCoursePublishTest extends TestHarness {
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/course/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code) {
-		// HINT: this test attempts to update a course with wrong data.
-
-		super.signIn("lecturer1", "lecturer1");
-
-		super.clickOnMenu("Lecturer", "My Courses");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.checkColumnHasValue(recordIndex, 0, code);
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.clickOnSubmit("Publish");
-		super.checkAlertExists(false);
-
-		super.signOut();
+	@Test
+	public void test200Negative() {
+		// HINT: there aren't any negative tests for this feature because
+		// HINT+ there is no button when it can't be published.
 	}
 
 	@Test
