@@ -1,6 +1,6 @@
-recordIndex,title,draftMode,course.title,numberOfSessions
-0,Title,false,Course Title 0,5
-1,Title,false,Course Title 1,6
-2,Title,false,Course Title 2,7
-3,Title,false,Course Title 3,8
-4,Title,false,Course Title 4,9
+recordIndex,title,course,sessions,draftMode
+0,<script>alert('This value is invalid')</script>,Un muy buen título,0,false
+1,??? ?????????? ??????,Un muy buen título,0,false
+2,A Normal Tutorial,Un muy buen título,0,false
+3,A Normal Tutorial,Un muy buen título,0,false
+4,A Normal Tutorial,Un muy buen título,0,false

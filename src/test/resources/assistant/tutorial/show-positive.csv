@@ -1,0 +1,6 @@
+recordIndex,title,course,abstract,goals,estimatedTotalHours,numberOfSessions,draftMode
+0,<script>alert('This value is invalid')</script>,Un muy buen título,ABC009,A Normal Description,"Goal1,Goal2,Goal3,Goal4,Goal5,Goal6,Goal7,Goal8",0.00,0,false
+1,??? ?????????? ??????,Un muy buen título,ABC008,A Normal Description,"Goal1,Goal2,Goal3,Goal4,Goal5,Goal6,Goal7,Goal8",0.00,0,false
+2,A Normal Tutorial,Un muy buen título,ABC025,A Normal Description,Some goals that are not normal because they have 100 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,0.00,0,false
+3,A Normal Tutorial,Un muy buen título,ABC026,A Normal Description,????????????????,0.00,0,false
+4,A Normal Tutorial,Un muy buen título,DE001,A Normal Description,"Goal1,Goal2,Goal3,Goal4,Goal5,Goal6,Goal7,Goal8",0.00,0,false
