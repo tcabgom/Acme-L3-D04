@@ -11,7 +11,7 @@ public class AssistantTutorialListTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String title, final String draftMode, final String courseTitle, final String numberOfSessions) {
+	public void test100Positive(final int recordIndex, final String title, final String course, final String sessions, final String draftMode) {
 		// HINT: this test authenticates as an assistant, lists his or her tutorials only,
 		// HINT+ and then checks that the listing has the expected data.
 
@@ -22,9 +22,9 @@ public class AssistantTutorialListTest extends TestHarness {
 		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, draftMode);
-		super.checkColumnHasValue(recordIndex, 2, courseTitle);
-		super.checkColumnHasValue(recordIndex, 3, numberOfSessions);
+		super.checkColumnHasValue(recordIndex, 1, course);
+		super.checkColumnHasValue(recordIndex, 2, sessions);
+		super.checkColumnHasValue(recordIndex, 3, draftMode);
 
 		super.signOut();
 

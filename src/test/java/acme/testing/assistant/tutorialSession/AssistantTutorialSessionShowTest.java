@@ -22,10 +22,36 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/tutorialSession/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive() {
+	@CsvFileSource(resources = "/assistant/tutorial-session/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int tutorialRecordIndex, final String title, final int sessionRecordIndex, final String sessionTitle, final String sessionAbstract, final String sessionType, final String sessionStart, final String sessionEnd,
+		final String moreInfo) {
 		// HINT: this test signs in as an assistant, lists his or her tutorials, selects
 		// HINT+ one of them and checks that it's as expected.
+
+		super.signIn("assistant1", "assistant1");
+
+		super.clickOnMenu("Assistant", "My Tutorials");
+		super.checkListingExists();
+		super.sortListing(2, "desc");
+
+		super.checkColumnHasValue(tutorialRecordIndex, 0, title);
+		super.clickOnListingRecord(tutorialRecordIndex);
+		super.checkInputBoxHasValue("Title", title);
+		super.clickOnButton("Manage Sessions");
+
+		super.sortListing(0, "asc");
+		super.clickOnListingRecord(sessionRecordIndex);
+		super.checkFormExists();
+
+		super.checkInputBoxHasValue("title", sessionTitle);
+		super.checkInputBoxHasValue("abstract", sessionAbstract);
+		super.checkInputBoxHasValue("sessionType", sessionType);
+		super.checkInputBoxHasValue("sessionStart", sessionStart);
+		super.checkInputBoxHasValue("sessionEnd", sessionEnd);
+		super.checkInputBoxHasValue("moreInfo", moreInfo);
+
+		super.signOut();
+
 	}
 
 	@Test

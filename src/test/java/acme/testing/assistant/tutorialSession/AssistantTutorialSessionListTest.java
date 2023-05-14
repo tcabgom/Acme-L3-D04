@@ -22,15 +22,16 @@ public class AssistantTutorialSessionListTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/tutorialSession/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/assistant/tutorial-session/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int tutorialRecordIndex, final String title, final int tutorialSessionRecordIndex, final String sessionTitle, final String sessionType) {
 		// HINT: this test authenticates as an assistant, lists his or her tutorials only,
 		// HINT+ selects one of them, and check that it has the expected sessions.
 
 		super.signIn("assistant1", "assistant1");
+
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(2, "desc");
 
 		// Buscar el tutorial con las sesiones de prueba
 		super.checkColumnHasValue(tutorialRecordIndex, 0, title);
@@ -42,7 +43,6 @@ public class AssistantTutorialSessionListTest extends TestHarness {
 		super.checkListingExists();
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 0, sessionTitle);
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 1, sessionType);
-		super.clickOnListingRecord(tutorialSessionRecordIndex);
 
 		super.signOut();
 

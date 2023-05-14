@@ -3,7 +3,6 @@ package acme.features.assistant.tutorial;
 
 import java.util.Collection;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +20,6 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 
 	@Autowired
 	protected AssistantTutorialRepository repository;
-	@Autowired
-	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -82,22 +79,6 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 	@Override
 	public void validate(final Tutorial object) {
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("title")) {
-			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("tutorialAbstract")) {
-			super.state(auxiliaryService.validateString(object.getTutorialAbstract()), "tutorialAbstract", "acme.validation.spam");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("goals")) {
-			super.state(auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
-		}
 
 	}
 

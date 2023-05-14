@@ -31,12 +31,12 @@ public class AssistantTutorialPublishTest extends TestHarness {
 
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(3, "desc");
 		super.checkColumnHasValue(recordIndex, 0, reference);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.clickOnSubmit("Publish");
+		super.clickOnSubmit("Publish Tutorial");
 		super.checkNotErrorsExist();
 
 		super.signOut();
@@ -51,12 +51,12 @@ public class AssistantTutorialPublishTest extends TestHarness {
 
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(3, "desc");
 
 		super.checkColumnHasValue(recordIndex, 0, reference);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.clickOnSubmit("Publish");
+		super.clickOnSubmit("Publish Tutorial");
 		super.checkAlertExists(false);
 
 		super.signOut();
