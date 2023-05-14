@@ -1,0 +1,6 @@
+recordIndex,code,title,courseAbstract,retailPrice,furtherInformation,draftMode
+0,ABC123,Titulo1,Abstract1,EUR 17.65,https://www.us.es,true
+1,ABC124,Título2,Abstract2,EUR 15.00,https://www.us.es,false
+2,ABC125,tercerTitulo,Abstract3,EUR 20.00,https://www.us.es,true
+3,ABC126,TituloCuarto,Abstract4,USD 3.35,https://www.us.es,false
+4,ABC127,5Título,Abstract5,USD 30.65,https://www.us.es,true
