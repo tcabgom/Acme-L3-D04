@@ -1,5 +1,5 @@
 key,key:lecturer,code,title,courseAbstract,retailPrice,furtherInformation,draftMode
-curso-01,lecturer-01,ABC123,Un buen título,Un buen abstract,USD 5.00,https://www.link1.com,false
+curso-01,lecturer-01,ABC123,Un muy buen título,Un buen abstract,USD 5.00,https://www.link1.com,false
 curso-02,lecturer-01,ABC126,Ένα καλό τίτλο,Un buen abstract,USD 5.00,https://www.link1.com,false
 curso-03,lecturer-01,ABC127,عنوان جيد,Un buen abstract,USD 5.00,https://www.link1.com,true
 curso-04,lecturer-01,ABC128,<b>A good title</b>,Un buen abstract,USD 5.00,https://www.link1.com,true

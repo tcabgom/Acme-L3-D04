@@ -1,0 +1,15 @@
+company.dashboard.form.title.practicum=Estadísticas de prácticas
+company.dashboard.form.label.practicum.count=Número de prácticas
+company.dashboard.form.label.practicum.maximum=Horas de la práctica más larga
+company.dashboard.form.label.practicum.minimum=Horas de la práctica más corta
+company.dashboard.form.label.practicum.average=Media de horas de prácticas
+company.dashboard.form.label.practicum.deviation=Desviación de horas de prácticas
+
+company.dashboard.form.title.session=Estadísticas de sesiones
+company.dashboard.form.label.session.count=Número de sesiones
+company.dashboard.form.label.session.maximum=Horas de la sesión más larga
+company.dashboard.form.label.session.minimum=Horas de la sesión más corta
+company.dashboard.form.label.session.average=Media de horas de las sesiones
+company.dashboard.form.label.session.deviation=Desviacion de horas de las sesiones
+
+company.dashboard.form.title.month=Número de prácticas por mes

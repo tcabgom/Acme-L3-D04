@@ -1,9 +1,28 @@
 key,key:auditor,key:course,code,conclusion,strongPoints,weakPoints,draftMode
-audit-01,auditor-01,curso-01,KKK420,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,true
-audit-02,auditor-01,curso-01,KKD420,bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb,true
-audit-03,auditor-01,curso-01,KKC420,c,c,c,false
-audit-04,auditor-01,curso-01,KKL420,Si,Si,Si,false
-audit-05,auditor-01,curso-01,KKP420,conclusionTest,strongPointsTest,weakPointsTest,false
-audit-06,auditor-01,curso-01,KKT420,"<script>alert("hi")</script>","<script>alert("hi")</script>","<script>alert("hi")</script>",false
-audit-07,auditor-01,curso-01,KKF420,"<h1>Lorem ipsum</h1>","<h1>Lorem ipsum</h1>","<h1>Lorem ipsum</h1>",false
-audit-08,auditor-01,curso-01,KTY420,"πατάτα","πατάτα","πατάτα",false
+audit-01,auditor-01,curso-01,KKC443,A,strongPoints,weakPoints,false
+audit-02,auditor-01,curso-01,KKC442,AB,strongPoints,weakPoints,false
+audit-03,auditor-01,curso-01,KKC441,Мне становится скучно,strongPoints,weakPoints,false
+audit-04,auditor-01,curso-01,KKC440,変な言葉で書かれた普通のタイトル,strongPoints,weakPoints,false
+audit-05,auditor-01,curso-01,KKC439,<script>alert('This value is invalid')</script>,strongPoints,weakPoints,false
+audit-06,auditor-01,curso-01,KKC438,<h1>Hello</h1>,strongPoints,weakPoints,false
+audit-07,auditor-01,curso-01,KKC437,? ??rm#| ~|?T0{r}I@l,strongPoints,weakPoints,false
+audit-08,auditor-01,curso-01,KKC436,conclusion,A,weakPoints,false
+audit-09,auditor-01,curso-01,KKC435,conclusion,AB,weakPoints,false
+audit-10,auditor-01,curso-01,KKC434,conclusion,Мне становится скучно,weakPoints,false
+audit-11,auditor-01,curso-01,KKC433,conclusion,変な言葉で書かれた普通のタイトル,weakPoints,false
+audit-12,auditor-02,curso-01,KKC432,conclusion,<script>alert('This value is invalid')</script>,weakPoints,true
+audit-13,auditor-02,curso-01,KKC431,conclusion,<h1>Hello</h1>,weakPoints,true
+audit-14,auditor-02,curso-01,KKC430,conclusion,? ??rm#| ~|?T0{r}I@l,weakPoints,true
+audit-15,auditor-02,curso-01,KKC429,conclusion,strongPoints,A,true
+audit-16,auditor-02,curso-01,KKC428,conclusion,strongPoints,AB,true
+audit-17,auditor-02,curso-01,KKC427,conclusion,strongPoints,Мне становится скучно,true
+audit-18,auditor-02,curso-01,KKC426,conclusion,strongPoints,変な言葉で書かれた普通のタイトル,true
+audit-19,auditor-02,curso-01,KKC425,conclusion,strongPoints,<script>alert('This value is invalid')</script>,true
+audit-20,auditor-02,curso-01,KKC424,conclusion,strongPoints,<h1>Hello</h1>,true
+audit-21,auditor-02,curso-01,KKC423,conclusion,strongPoints,? ??rm#| ~|?T0{r}I@l,true
+audit-22,auditor-02,curso-01,KKC422,Esta conclusión tiene el máximo de caracteres que es 100 ###########################################,strongPoints,weakPoints,true
+audit-23,auditor-02,curso-01,KKC421,Esta conclusión tiene el máximo de caracteres menos 1 que es 99 ###################################,strongPoints,weakPoints,true
+audit-24,auditor-02,curso-01,KKC420,conclusion,Estos puntos fuertes tiene el máximo de caracteres que es 100 ######################################,weakPoints,true
+audit-25,auditor-02,curso-01,KKC419,conclusion,Estos puntos fuertes tiene el máximo de caracteres menos 1 que es 99 ##############################,weakPoints,true
+audit-26,auditor-02,curso-01,KKC418,conclusion,strongPoints,Estos puntos débiles tiene el máximo de caracteres que es 100 ######################################,true
+audit-27,auditor-02,curso-01,KKC417,conclusion,strongPoints,Estos puntos débiles tiene el máximo de caracteres menos 1 que es 99 ##############################,true

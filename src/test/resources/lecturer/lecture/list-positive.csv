@@ -1,0 +1,6 @@
+courseRecordIndex,code,lectureRecordIndex,title,lecAbstract,learningTime,knowledge,draftMode
+0,ABC321,0,Titulo1,resumen,10.05,HANDS_ON,true
+1,ABC432,0,Título2,resumen,11.12,THEORY,false
+1,ABC432,1,tercerTitulo,resumen,12.54,HANDS_ON,true
+2,ABC543,0,TituloCuarto,resumen,12.43,BALANCED,false
+2,ABC543,1,5Título,resumen,12.54,HANDS_ON,true

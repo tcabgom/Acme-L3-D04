@@ -4,6 +4,7 @@ package acme.features.assistant.tutorialSession;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,8 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 	@Autowired
 	protected AssistantTutorialSessionRepository repository;
+	@Autowired
+	protected AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -75,13 +78,23 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 		if (!super.getBuffer().getErrors().hasErrors("sessionStart")) {
 			final Date minimunValidStartDate = MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getSessionStart(), minimunValidStartDate), "sessionStart", "assistant.tutorialSession.form.error.sessionStart");
+			super.state(MomentHelper.isAfterOrEqual(object.getSessionStart(), minimunValidStartDate), "sessionStart", "assistant.tutorialSession.form.error.sessionStart");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("sessionEnd")) {
-			final Date minimunValidEndDate = MomentHelper.deltaFromMoment(object.getSessionStart(), 5, ChronoUnit.HOURS);
-			super.state(MomentHelper.isBefore(object.getSessionEnd(), minimunValidEndDate), "sessionEnd", "assistant.tutorialSession.form.error.sessionEnd");
+			final Date minimunValidEndDate = MomentHelper.deltaFromMoment(object.getSessionStart(), 1, ChronoUnit.HOURS);
+			final Date maximunValidEndDate = MomentHelper.deltaFromMoment(object.getSessionStart(), 5, ChronoUnit.HOURS);
+			super.state(MomentHelper.isAfterOrEqual(object.getSessionEnd(), minimunValidEndDate) && MomentHelper.isBeforeOrEqual(object.getSessionEnd(), maximunValidEndDate), "sessionEnd", "assistant.tutorialSession.form.error.sessionEnd");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("sessionAbstract"))
+			super.state(auxiliaryService.validateString(object.getSessionAbstract()), "sessionAbstract", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("moreInfo"))
+			super.state(auxiliaryService.validateString(object.getMoreInfo()), "moreInfo", "acme.validation.spam");
 
 	}
 

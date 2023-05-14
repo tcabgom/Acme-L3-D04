@@ -1,0 +1,8 @@
+
+authenticated.student.form.label.statement = Declaración
+authenticated.student.form.label.strongFeatures = Puntos fuertes
+authenticated.student.form.label.weakFeatures = Puntos débiles
+authenticated.student.form.label.furtherInformation = Más información
+
+authenticated.student.form.button.create = Registrarse
+authenticated.student.form.button.update = Actualizar
