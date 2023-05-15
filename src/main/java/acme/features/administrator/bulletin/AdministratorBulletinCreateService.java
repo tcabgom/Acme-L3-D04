@@ -1,5 +1,6 @@
 package acme.features.administrator.bulletin;
 
+import acme.components.AuxiliaryService;
 import acme.entities.bulletin.Bulletin;
 import acme.features.authenticated.bulletin.AuthenticatedBulletinRepository;
 import acme.framework.components.accounts.Administrator;
@@ -19,6 +20,8 @@ public class AdministratorBulletinCreateService extends AbstractService<Administ
 
     @Autowired
     protected AdministratorBulletinRepository repository;
+    @Autowired
+    protected AuxiliaryService auxiliaryService;
 
     // AbstractService interface ------------------------------------------
 
@@ -55,6 +58,13 @@ public class AdministratorBulletinCreateService extends AbstractService<Administ
         assert object != null;
         boolean confirmation = super.getRequest().getData("confirmation",boolean.class);
         super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+
+        if (!super.getBuffer().getErrors().hasErrors("title"))
+            super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+        if(!super.getBuffer().getErrors().hasErrors("message"))
+            super.state(auxiliaryService.validateString(object.getMessage()), "message", "acme.validation.spam");
+        if(!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+            super.state(auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation", "acme.validation.spam");
     }
 
     @Override

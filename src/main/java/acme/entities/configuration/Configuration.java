@@ -2,6 +2,8 @@
 package acme.entities.configuration;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -25,8 +27,13 @@ public class Configuration extends AbstractEntity {
 	protected String			currency;
 
 	@NotBlank
-	protected String			aceptedCurrencies;
+	protected String			acceptedCurrencies;
 
+	protected String			spamWords;
+
+	@Min(0)
+	@Max(1)
+	protected double		 	spamThreshold;
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

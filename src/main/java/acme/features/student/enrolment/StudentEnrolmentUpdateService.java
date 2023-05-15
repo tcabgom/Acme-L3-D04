@@ -1,6 +1,7 @@
 
 package acme.features.student.enrolment;
 
+import acme.components.AuxiliaryService;
 import acme.entities.enrolment.Enrolment;
 import acme.entities.lecture.Course;
 import acme.entities.tutorial.Tutorial;
@@ -18,6 +19,8 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 	@Autowired
 	protected StudentEnrolmentRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 
 	@Override
@@ -66,7 +69,17 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			final Enrolment potentialDuplicate = this.repository.findByCode(object.getCode());
 			super.state(potentialDuplicate == null || potentialDuplicate.getId() == object.getId(), "code", "student.enrolment.form.error.code");
+			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam" );
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("motivation")) {
+			super.state(auxiliaryService.validateString(object.getMotivation()), "motivation", "acme.validation.spam" );
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("goals")) {
+			super.state(auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam" );
+		}
+
 	}
 
 	@Override
