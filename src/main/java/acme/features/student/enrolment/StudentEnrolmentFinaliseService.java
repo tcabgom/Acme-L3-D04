@@ -1,5 +1,6 @@
 package acme.features.student.enrolment;
 
+import acme.components.AuxiliaryService;
 import acme.entities.enrolment.Enrolment;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
@@ -15,6 +16,8 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
     @Autowired
     protected StudentEnrolmentRepository repository;
+    @Autowired
+    private AuxiliaryService auxiliaryService;
 
     @Override
     public void check() {
@@ -67,10 +70,13 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
         if(!super.getBuffer().getErrors().hasErrors("creditCardHolder")) {
             super.state(filledCardHolder, "creditCardHolder", "javax.validation.constraints.NotEmpty.message");
+            super.state(auxiliaryService.validateString(object.getCreditCardHolder()), "creditCardHolder", "acme.validation.spam" );
         }
         if(!super.getBuffer().getErrors().hasErrors("creditCardNibble")) {
             super.state(validCardNumber, "creditCardNibble", "org.hibernate.validator.constraints.CreditCardNumber.message");
             super.state(filledCardNumber, "creditCardNibble", "javax.validation.constraints.NotEmpty.message");
+            super.state(auxiliaryService.validateString(object.getCreditCardNibble()), "creditCardNibble", "acme.validation.spam" );
+
         }
 
         if(!super.getBuffer().getErrors().hasErrors("expirationDate")) {
@@ -82,6 +88,15 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
         if(!super.getBuffer().getErrors().hasErrors("securityCode")) {
             super.state(filledSecurityCode, "securityCode", "javax.validation.constraints.NotEmpty.message");
             super.state(validSecurityCode, "securityCode", "student.enrolment.form.error.invalidSecurityCode");
+        }
+
+
+        if (!super.getBuffer().getErrors().hasErrors("motivation")) {
+            super.state(auxiliaryService.validateString(object.getMotivation()), "motivation", "acme.validation.spam" );
+        }
+
+        if (!super.getBuffer().getErrors().hasErrors("goals")) {
+            super.state(auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam" );
         }
     }
 
@@ -146,7 +161,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
         try {
             parsedDate = MomentHelper.parse("MM/yy", expirationDate);
-        } catch (Exception e) {
+        } catch (AssertionError e) {
             parsedDate = MomentHelper.parse("yy/MM", expirationDate);
         }
         return parsedDate;

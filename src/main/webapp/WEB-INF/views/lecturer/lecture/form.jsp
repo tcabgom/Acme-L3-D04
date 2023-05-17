@@ -6,7 +6,7 @@
 
 <acme:form>
 	<acme:input-textbox code="lecturer.lecture.form.label.title" 					path="title"/>	
-	<acme:input-textarea code="lecturer.lecture.form.label.lecAbstract" 				path="lecAbstract"/>	
+	<acme:input-textarea code="lecturer.lecture.form.label.lecAbstract" 			path="lecAbstract"/>	
 	<acme:input-double 	code="lecturer.lecture.form.label.learningTime" 			path="learningTime"/>	
 	<acme:input-textbox code="lecturer.lecture.form.label.body" 					path="body"/>	
 	<acme:input-select 	code="lecturer.lecture.form.label.knowledge" 				path="knowledge" choices="${choices}"/>	
@@ -29,5 +29,4 @@
 			<acme:submit code="lecturer.lecture.form.button.create" 			action="/lecturer/lecture/create"/>
 		</jstl:when>		
 	</jstl:choose>
-	
 </acme:form>

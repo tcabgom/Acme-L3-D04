@@ -40,14 +40,16 @@ public class PracticumSession extends AbstractEntity {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				startWeek;
+	protected Date				start;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date				finishWeek;
+	protected Date				finish;
 
 	@URL
 	protected String			link;
+
+	protected boolean			extraSession;
 
 	// Derived attributes -----------------------------------------------------
 

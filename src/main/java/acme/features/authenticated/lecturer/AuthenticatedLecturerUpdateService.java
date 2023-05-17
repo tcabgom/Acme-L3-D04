@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.lecturer;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,8 @@ public class AuthenticatedLecturerUpdateService extends AbstractService<Authenti
 
 	@Autowired
 	protected AuthenticatedLecturerRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -55,6 +58,19 @@ public class AuthenticatedLecturerUpdateService extends AbstractService<Authenti
 	@Override
 	public void validate(final Lecturer object) {
 		assert object != null;
+
+		if(!super.getBuffer().getErrors().hasErrors("almaMater"))
+			super.state(auxiliaryService.validateString(object.getAlmaMater()), "almaMater", "acme.validation.spam");
+
+		if(!super.getBuffer().getErrors().hasErrors("resume"))
+			super.state(auxiliaryService.validateString(object.getResume()), "resume", "acme.validation.spam");
+
+		if(!super.getBuffer().getErrors().hasErrors("qualifications"))
+			super.state(auxiliaryService.validateString(object.getQualifications()), "qualifications", "acme.validation.spam");
+
+		if(!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(auxiliaryService.validateString(object.getLink()), "link", "acme.validation.spam");
+
 	}
 
 	@Override

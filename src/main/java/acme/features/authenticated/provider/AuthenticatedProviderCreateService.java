@@ -12,6 +12,7 @@
 
 package acme.features.authenticated.provider;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,8 @@ public class AuthenticatedProviderCreateService extends AbstractService<Authenti
 
 	@Autowired
 	protected AuthenticatedProviderRepository repository;
+	@Autowired
+	protected AuxiliaryService auxiliaryService;
 
 	// AbstractService<Authenticated, Provider> ---------------------------
 
@@ -76,6 +79,13 @@ public class AuthenticatedProviderCreateService extends AbstractService<Authenti
 	@Override
 	public void validate(final Provider object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("company"))
+			super.state(auxiliaryService.validateString(object.getCompany()), "company","acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("sector"))
+			super.state(auxiliaryService.validateString(object.getSector()), "sector","acme.validation.spam");
+
 	}
 
 	@Override

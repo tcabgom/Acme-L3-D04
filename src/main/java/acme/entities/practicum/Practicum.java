@@ -61,8 +61,8 @@ public class Practicum extends AbstractEntity {
 		double hoursEstimated = .0;
 
 		for (final PracticumSession ps : practicumSessions) {
-			final double thisSessionStartTime = ps.getStartWeek().getTime();
-			final double thisSessionEndTime = ps.getFinishWeek().getTime();
+			final double thisSessionStartTime = ps.getStart().getTime();
+			final double thisSessionEndTime = ps.getFinish().getTime();
 
 			final double thisSessionHours = Math.abs(thisSessionEndTime / hoursInMilliseconds - thisSessionStartTime / hoursInMilliseconds);
 			final double thisSessionMinutes = Math.abs(thisSessionEndTime / minutesInMilliseconds - thisSessionStartTime / minutesInMilliseconds) % 60 * 0.01;

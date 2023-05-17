@@ -2,9 +2,8 @@
 package acme.features.auditor.audit;
 
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +19,8 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 	@Autowired
 	protected AuditorAuditRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 
 	@Override
@@ -79,12 +80,24 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	public void validate(final Audit object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			final List<String> codes = this.repository.findAllAudits(super.getRequest().getPrincipal().getActiveRoleId()).stream().map(Audit::getCode).collect(Collectors.toList());
-			super.state(!codes.contains(object.getCode()), "code", "administrator.audit.form.error.code");
-		}
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
 			super.state(object.isDraftMode(), "draftMode", "administrator.audit.form.error.draftMode");
+
+		if(!super.getBuffer().getErrors().hasErrors("code")) {
+			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("conclusion")) {
+			super.state(auxiliaryService.validateString(object.getConclusion()), "conclusion", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("strongPoints")) {
+			super.state(auxiliaryService.validateString(object.getStrongPoints()), "strongPoints", "acme.validation.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("weakPoints")) {
+			super.state(auxiliaryService.validateString(object.getWeakPoints()), "weakPoints", "acme.validation.spam");
+		}
 	}
 
 	@Override
