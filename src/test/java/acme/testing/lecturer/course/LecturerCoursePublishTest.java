@@ -81,7 +81,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 		Collection<Course> courses;
 		String params;
 
-		super.signIn("employer1", "employer1");
+		super.signIn("assistant1", "assistant1");
 		courses = this.repository.findManyCoursesByLecturerUsername("lecturer1");
 		for (final Course course : courses)
 			if (!course.isDraftMode()) {
