@@ -11,7 +11,7 @@ public class AuditorAuditListTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String auditor, final String auditorID, final String mark, final String draftMode) {
+	public void test100Positive(final int recordIndex, final String code, final String auditor, final String auditorID, final String marks, final String draftMode) {
 		// HINT: this test authenticates as an auditor and checks that he or
 		// HINT+ she can list his or her audits.
 
@@ -24,7 +24,7 @@ public class AuditorAuditListTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, auditor);
 		super.checkColumnHasValue(recordIndex, 2, auditorID);
-		super.checkColumnHasValue(recordIndex, 3, mark);
+		super.checkColumnHasValue(recordIndex, 3, marks);
 		super.checkColumnHasValue(recordIndex, 4, draftMode);
 
 		super.signOut();

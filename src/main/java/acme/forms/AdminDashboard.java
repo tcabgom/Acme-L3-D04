@@ -1,32 +1,37 @@
+
 package acme.forms;
 
+import java.util.Map;
+
 import acme.framework.data.AbstractForm;
-import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Map;
 
 @Getter
 @Setter
 public class AdminDashboard extends AbstractForm {
 
-    // Serialisation identifier -----------------------------------------------
-    private static final long serialVersionUID = 1L;
+	// Serialisation identifier -----------------------------------------------
+	private static final long			serialVersionUID	= 1L;
 
-    // Attributes -------------------------------------------------------------
-    protected Map<AbstractRole, Integer> totalPrincipals;
+	// Attributes -------------------------------------------------------------
+	protected Integer					totalAuditors;
+	protected Integer					totalAdministrators;
+	protected Integer					totalAssistants;
+	protected Integer					totalLecturers;
+	protected Integer					totalStudents;
+	protected Integer					totalCompanys;
 
-    protected Double linkAndEmailPeepRatio;
-    protected Double criticalBulletinRatio;
+	protected Double					linkAndEmailPeepRatio;
+	protected Double					criticalBulletinRatio;
+	protected Double					nonCriticalBulletinRatio;
 
-    protected Map<String,Statistics> budgetStatisticsByCurrency;
+	protected Map<String, Statistics>	budgetStatisticsByCurrency;
 
-    protected Statistics notesPostedInLast10Weeks;
+	protected Statistics				notesPostedInLast10Weeks;
 
-    // Derived attributes -----------------------------------------------------
+	// Derived attributes -----------------------------------------------------
 
-    // Relationships ----------------------------------------------------------
-
+	// Relationships ----------------------------------------------------------
 
 }

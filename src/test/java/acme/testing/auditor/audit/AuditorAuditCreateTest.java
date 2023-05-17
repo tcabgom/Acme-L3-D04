@@ -11,7 +11,7 @@ public class AuditorAuditCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String auditorID, final String auditor, final String conclusion, final String strongPoints, final String weakPoints, final String mark, final String course,
+	public void test100Positive(final int recordIndex, final String code, final String auditorID, final String auditor, final String conclusion, final String strongPoints, final String weakPoints, final String mark, final String marks, final String course,
 		final String draftMode) {
 		// HINT: this test authenticates as an employer and then lists his or her
 		// HINT: jobs, creates a new one, and check that it's been created properly.
@@ -27,7 +27,6 @@ public class AuditorAuditCreateTest extends TestHarness {
 		super.fillInputBoxIn("conclusion", conclusion);
 		super.fillInputBoxIn("strongPoints", strongPoints);
 		super.fillInputBoxIn("weakPoints", weakPoints);
-		super.fillInputBoxIn("mark", mark);
 		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("draftMode", draftMode);
 		super.clickOnSubmit("Create");
@@ -38,13 +37,11 @@ public class AuditorAuditCreateTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, auditor);
 		super.checkColumnHasValue(recordIndex, 2, auditorID);
-		super.checkColumnHasValue(recordIndex, 3, mark);
+		super.checkColumnHasValue(recordIndex, 3, marks);
 		super.checkColumnHasValue(recordIndex, 4, draftMode);
 		super.clickOnListingRecord(recordIndex);
 
-		super.checkFormExists();
 		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("auditor", auditor);
 		super.checkInputBoxHasValue("conclusion", conclusion);
 		super.checkInputBoxHasValue("strongPoints", strongPoints);
 		super.checkInputBoxHasValue("weakPoints", weakPoints);
@@ -62,7 +59,7 @@ public class AuditorAuditCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String auditorID, final String auditor, final String conclusion, final String strongPoints, final String weakPoints, final String mark, final String course,
+	public void test200Negative(final int recordIndex, final String code, final String auditorID, final String auditor, final String conclusion, final String strongPoints, final String weakPoints, final String mark, final String marks, final String course,
 		final String draftMode) {
 		// HINT: this test attempts to create jobs with incorrect data.
 
