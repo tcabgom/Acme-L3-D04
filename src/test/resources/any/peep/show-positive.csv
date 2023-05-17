@@ -1,8 +1,6 @@
-recordIndex,moment,title,nick,message,email,link
-0,2020/01/13 09:00,Title 1,Nick 1,Message 1,email1@gmail.com,
-1,2020/01/13 09:00,Title 2,Nick 2,Message 2,email1@gmail.com,https://www.example.com
-2,2020/01/13 09:00,Title 3,Nick 3,Message 3,email1@gmail.com,https://www.example.com
-3,2020/01/13 09:00,Title 4,Nick 4,Message 4,email1@gmail.com,
-4,2020/01/13 09:00,Title 5,Nick 5,Message 5,email1@gmail.com,https://www.example.com?a=1
-5,2020/01/13 09:00,Title 6,Nick 6,Message 6,email1@gmail.com,
-6,2020/01/13 09:00,Title 7,Nick 7,Message 7,email1@gmail.com,
+recordIndex,publicationMoment,title,nick,message,email,link
+0,2020/01/13 09:00,<b>normal nick</b>,normal nick,normal message,normalemail@gmail.com,http://link.com
+1,2020/01/13 09:00,<script>alert("hi")</script>,normal nick,normal message,normalemail@gmail.com,http://link.com
+2,2020/01/13 09:00,????????? ??????,normal nick,normal message,normalemail@gmail.com,http://link.com
+3,2020/01/13 09:00,a,normal nick,normal message,normalemail@gmail.com,http://link.com
+4,2020/01/13 09:00,ab,normal nick,normal message,normalemail@gmail.com,http://link.com
