@@ -1,1 +1,11 @@
-recordIndex,title,abstract,sessionType,sessionStart,sessionEnd,moreInfo
+tutorialRecordIndex,title,tutorialSessionRecordIndex,sessionTitle,sessionAbstract,sessionType,sessionStart,sessionEnd,moreInfo
+0,A Tutorial In Draft Mode with Sessions,0,<h1>Este atributo es muy bonito</h1>,A normal Abstract,BALANCED,2022/08/30 00:00,2022/08/30 03:00,https://github.com/tcabgom/Acme-L3-D02
+0,A Tutorial In Draft Mode with Sessions,1,A normal Title,A text with 99 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,HANDS_ON,2022/08/30 00:00,2022/08/30 03:00,https://github.com/tcabgom/Acme-L3-D02
+0,A Tutorial In Draft Mode with Sessions,2,A normal Title,これは日本語です,THEORY,2022/08/30 00:00,2022/08/30 03:00,https://github.com/tcabgom/Acme-L3-D02
+0,A Tutorial In Draft Mode with Sessions,3,A normal Title,A normal Abstract,HANDS_ON,2022/08/30 00:00,2022/08/30 03:00,https://github.com/tcabgom/Acme-L3-D02
+0,A Tutorial In Draft Mode with Sessions,4,A normal Title,A normal Abstract,THEORY,2022/08/30 00:00,2022/08/30 03:00,ftp://user:pass@scme.org
+1,AB,0,A normal Title,A,THEORY,2022/08/30 00:00,2022/08/30 03:00,https://github.com/tcabgom/Acme-L3-D02
+1,AB,1,A normal Title,tHïS *I_S w{e}#@ir$%7d t)({e[x]_t,HANDS_ON,2022/08/30 00:00,2022/08/30 03:00,https://github.com/tcabgom/Acme-L3-D02
+1,AB,2,A normal Title,<script>alert('Invalid data')</script>,BALANCED,2022/08/30 00:00,2022/08/30 03:00,https://github.com/tcabgom/Acme-L3-D02
+1,AB,3,A normal Title,A normal Abstract,BALANCED,2022/08/30 00:00,2022/08/30 03:00,http://example.com/a/b/c
+1,AB,4,AB,A normal Abstract,BALANCED,2022/08/30 00:00,2022/08/30 03:00,https://github.com/tcabgom/Acme-L3-D02

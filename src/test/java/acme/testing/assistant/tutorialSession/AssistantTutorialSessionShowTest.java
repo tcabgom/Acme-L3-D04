@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.entities.tutorial.Tutorial;
+import acme.entities.tutorialSession.TutorialSession;
 import acme.testing.TestHarness;
 
 public class AssistantTutorialSessionShowTest extends TestHarness {
@@ -36,15 +36,16 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 
 		super.checkColumnHasValue(tutorialRecordIndex, 0, title);
 		super.clickOnListingRecord(tutorialRecordIndex);
-		super.checkInputBoxHasValue("Title", title);
+		super.checkInputBoxHasValue("title", title);
 		super.clickOnButton("Manage Sessions");
 
+		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(sessionRecordIndex);
 		super.checkFormExists();
 
 		super.checkInputBoxHasValue("title", sessionTitle);
-		super.checkInputBoxHasValue("abstract", sessionAbstract);
+		super.checkInputBoxHasValue("sessionAbstract", sessionAbstract);
 		super.checkInputBoxHasValue("sessionType", sessionType);
 		super.checkInputBoxHasValue("sessionStart", sessionStart);
 		super.checkInputBoxHasValue("sessionEnd", sessionEnd);
@@ -65,36 +66,35 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 		// HINT: this test tries to list the sessions of a tutorisl that is unpublished
 		// HINT+ using a principal that didn't create it.
 
-		Collection<Tutorial> tutorials;
+		Collection<TutorialSession> tutorialSessions;
 		String param;
 
-		super.signIn("assistant1", "assistant1");
-		tutorials = this.repository.findManyTutorialsByAssistantUsername("assistant1");
+		tutorialSessions = this.repository.findManyTutorialSessionsByAssistantUsername("assistant1");
 
-		for (final Tutorial tutorial : tutorials)
-			if (tutorial.isDraftMode()) {
-				param = String.format("tutorialId=%d", tutorial.getId());
+		for (final TutorialSession session : tutorialSessions) {
 
-				super.checkLinkExists("Sign in");
-				super.request("/assistant/tutorial-session/show", param);
-				super.checkPanicExists();
+			param = String.format("id=%d", session.getId());
 
-				super.signIn("administrator", "administrator");
-				super.request("/assistant/tutorial-session/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.checkLinkExists("Sign in");
+			super.request("/assistant/tutorial-session/show", param);
+			super.checkPanicExists();
 
-				super.signIn("assistant2", "assistant2");
-				super.request("/assistant/tutorial-session/show", param);
-				super.checkPanicExists();
-				super.signOut();
+			super.signIn("administrator1", "administrator1");
+			super.request("/assistant/tutorial-session/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
-				super.signIn("lecturer1", "lecturer1");
-				super.request("/assistant/tutorial-session/show", param);
-				super.checkPanicExists();
-				super.signOut();
-			}
+			super.signIn("assistant2", "assistant2");
+			super.request("/assistant/tutorial-session/show", param);
+			super.checkPanicExists();
+			super.signOut();
 
+			super.signIn("lecturer1", "lecturer1");
+			super.request("/assistant/tutorial-session/show", param);
+			super.checkPanicExists();
+			super.signOut();
+
+		}
 	}
 
 }

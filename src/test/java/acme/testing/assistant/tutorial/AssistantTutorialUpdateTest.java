@@ -23,8 +23,7 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String title, final String course, final String tutorialAbstract, final String goals, final String estimatedTotalTime, final String numberOfSessions, final String draftMode,
-		final String courseTitle) {
+	public void test100Positive(final int recordIndex, final String title, final String course, final String code, final String tutorialAbstract, final String goals) {
 		// HINT: this test logs in as an assistant, lists his or her tutorials, 
 		// HINT+ selects one of them, updates it, and then checks that 
 		// HINT+ the update has actually been performed.
@@ -35,7 +34,6 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(recordIndex, 0, title);
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
@@ -43,28 +41,28 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("tutorialAbstract", tutorialAbstract);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("estimatedTotalTime", estimatedTotalTime);
-		super.fillInputBoxIn("numberOfSessions", numberOfSessions);
-		super.fillInputBoxIn("draftMode", draftMode);
-		super.clickOnSubmit("Update");
+		super.clickOnSubmit("Update Tutorial");
+		super.checkNotErrorsExist();
 
+		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, draftMode);
-		super.checkColumnHasValue(recordIndex, 2, courseTitle);
-		super.checkColumnHasValue(recordIndex, 3, numberOfSessions);
 
-		super.clickOnListingRecord(recordIndex);
+		super.checkColumnHasValue(0, 0, title);
+		super.checkColumnHasValue(0, 1, course);
+
+		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("course", course);
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("tutorialAbstract", tutorialAbstract);
 		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("estimatedTotalTime", estimatedTotalTime);
-		super.checkInputBoxHasValue("numberOfSessions", numberOfSessions);
-		super.checkInputBoxHasValue("draftMode", draftMode);
+		super.checkInputBoxHasValue("estimatedTotalTime", "0.00");
+		super.checkInputBoxHasValue("numberOfSessions", "0");
+		super.checkInputBoxHasValue("draftMode", "true");
+
+		super.signOut();
 
 	}
 

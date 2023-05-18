@@ -31,13 +31,19 @@ public class AssistantTutorialPublishTest extends TestHarness {
 
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
-		super.sortListing(3, "desc");
+		super.sortListing(2, "desc");
 		super.checkColumnHasValue(recordIndex, 0, reference);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.clickOnSubmit("Publish Tutorial");
 		super.checkNotErrorsExist();
+
+		super.clickOnMenu("Assistant", "My Tutorials");
+		super.sortListing(2, "desc");
+		super.checkColumnHasValue(recordIndex, 0, reference);
+		super.clickOnListingRecord(recordIndex);
+		super.checkInputBoxHasValue("draftMode", "false");
 
 		super.signOut();
 	}

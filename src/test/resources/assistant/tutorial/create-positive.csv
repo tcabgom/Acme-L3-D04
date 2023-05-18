@@ -1,2 +1,29 @@
-recordIndex,code,title,course,tutorialAbstract,goals,estimatedTotalTime,numberOfSessions,draftMode,courseTitle
-0,AAA000,Tutorial Title,Course Title,Tutorial Abstract,Tutorial Goals,10.0,3,false,Course Title
+recordIndex,title,course,code,tutorialAbstract,goals
+0,!,A,ZZZ000,Tutorial Abstract,Tutorial Goals
+1,!0,A,ZZZ001,Tutorial Abstract,Tutorial Goals
+2,!002 Test,A,ZZZ002,Tutorial Abstract,Tutorial Goals
+3,!003 Test 74 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,A,ZZZ003,Tutorial Abstract,Tutorial Goals
+4,!004 Test 75 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,A,ZZZ004,Tutorial Abstract,Tutorial Goals
+5,!005 Test 変な言葉で書かれた普通のタイトル,A,ZZZ005,Tutorial Abstract,Tutorial Goals
+6,!006 Test Мне становится скучно,A,ZZZ006,Tutorial Abstract,Tutorial Goals
+7,!007 Test <script>alert('This value is invalid')</script>,A,ZZZ007,Tutorial Abstract,Tutorial Goals
+8,!008 Test <h1>Este atributo es muy bonito</h1>,A,ZZZ008,Tutorial Abstract,Tutorial Goals
+9,!009 Test ? ??rm#| ~|?T0{r}I@l,A,ZZZ009,Tutorial Abstract,Tutorial Goals
+10,!010 Test,A,ZZZ010,A,Tutorial Goals
+11,!011 Test,A,ZZZ011,AB,Tutorial Goals
+12,!012 Test,A,ZZZ012,A description that is not normal because it has 99 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,Tutorial Goals
+13,!013 Test,A,ZZZ013,A description that is not normal because it has 100 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,Tutorial Goals
+14,!014 Test,A,ZZZ014,変な言葉で書かれた普通のタイトル,Tutorial Goals
+15,!015 Test,A,ZZZ015,Мне становится скучно,Tutorial Goals
+16,!016 Test,A,ZZZ016,<script>alert('This value is invalid')</script>,Tutorial Goals
+17,!017 Test,A,ZZZ017,<h1>Este atributo es muy bonito</h1>,Tutorial Goals
+18,!018 Test,A,ZZZ018,? ??rm#| #~?6DescRIptOOON,Tutorial Goals
+19,!019 Test,A,ZZZ019,Tutorial Abstract,A
+20,!020 Test,A,ZZZ020,Tutorial Abstract,AB
+21,!021 Test,A,ZZZ021,Tutorial Abstract,Some goals that are not normal because they have 99 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+22,!022 Test,A,ZZZ022,Tutorial Abstract,Some goals that are not normal because they have 100 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+23,!023 Test,A,ZZZ023,Tutorial Abstract,変な言葉で書かれた普通のタイトル
+24,!024 Test,A,ZZZ024,Tutorial Abstract,Мне становится скучно
+25,!025 Test,A,ZZZ025,Tutorial Abstract,<script>alert('This value is invalid')</script>
+26,!026 Test,A,ZZZ026,Tutorial Abstract,<h1>Este atributo es muy bonito</h1>
+27,!027 Test,A,ZZZ027,Tutorial Abstract,? ??rm#| )=:LiStOfGoAlS

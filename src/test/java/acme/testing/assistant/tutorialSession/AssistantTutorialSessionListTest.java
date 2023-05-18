@@ -33,14 +33,13 @@ public class AssistantTutorialSessionListTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(2, "desc");
 
-		// Buscar el tutorial con las sesiones de prueba
 		super.checkColumnHasValue(tutorialRecordIndex, 0, title);
 		super.clickOnListingRecord(tutorialRecordIndex);
-		super.checkInputBoxHasValue("Title", title);
+		super.checkInputBoxHasValue("title", title);
 		super.clickOnButton("Manage Sessions");
 
-		// Comprobar valor de las sesiones de prueba
 		super.checkListingExists();
+		super.sortListing(0, "asc");
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 0, sessionTitle);
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 1, sessionType);
 
@@ -72,7 +71,7 @@ public class AssistantTutorialSessionListTest extends TestHarness {
 				super.request("/assistant/tutorial-session/list", param);
 				super.checkPanicExists();
 
-				super.signIn("administrator", "administrator");
+				super.signIn("administrator1", "administrator1");
 				super.request("/assistant/tutorial-session/list", param);
 				super.checkPanicExists();
 				super.signOut();

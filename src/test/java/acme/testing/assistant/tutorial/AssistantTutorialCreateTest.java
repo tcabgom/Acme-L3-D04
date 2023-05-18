@@ -11,27 +11,22 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String title, final String course, final String tutorialAbstract, final String goals, final String estimatedTotalTime, final String numberOfSessions, final String draftMode,
-		final String courseTitle) {
+	public void test100Positive(final int recordIndex, final String title, final String course, final String code, final String tutorialAbstract, final String goals) {
 		// HINT: this test authenticates as an assistant and then lists his or her
 		// HINT: tutorials, creates a new one, and check that it's been created properly.
 
 		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Assistant", "My Tutorials");
-		super.clickOnButton("Create");
+		super.clickOnButton("Create New Tutorial");
 		super.checkFormExists();
 
-		super.clickOnButton("Create");
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("tutorialAbstract", tutorialAbstract);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("estimatedTotalTime", estimatedTotalTime);
-		super.fillInputBoxIn("numberOfSessions", numberOfSessions);
-		super.fillInputBoxIn("draftMode", draftMode);
-		super.clickOnSubmit("Create");
+		super.clickOnSubmit("Create Tutorial");
 		super.checkNotErrorsExist();
 
 		super.clickOnMenu("Assistant", "My Tutorials");
@@ -39,9 +34,9 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, draftMode);
-		super.checkColumnHasValue(recordIndex, 2, courseTitle);
-		super.checkColumnHasValue(recordIndex, 3, numberOfSessions);
+		super.checkColumnHasValue(recordIndex, 1, course);
+		super.checkColumnHasValue(recordIndex, 2, "0");
+		super.checkColumnHasValue(recordIndex, 3, "true");
 		super.clickOnListingRecord(recordIndex);
 
 		super.checkFormExists();
@@ -50,9 +45,9 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("tutorialAbstract", tutorialAbstract);
 		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("estimatedTotalTime", estimatedTotalTime);
-		super.checkInputBoxHasValue("numberOfSessions", numberOfSessions);
-		super.checkInputBoxHasValue("draftMode", draftMode);
+		super.checkInputBoxHasValue("estimatedTotalTime", "0.00");
+		super.checkInputBoxHasValue("numberOfSessions", "0");
+		super.checkInputBoxHasValue("draftMode", "true");
 
 		super.clickOnButton("Manage Sessions");
 
@@ -65,26 +60,22 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String title, final String course, final String tutorialAbstract, final String goals, final String estimatedTotalTime, final String numberOfSessions, final String draftMode) {
+	public void test200Negative(final int recordIndex, final String title, final String course, final String code, final String tutorialAbstract, final String goals) {
 		// HINT: this test authenticates as an assistant and then lists his or her
 		// HINT: tutorials, creates a new one, and check that it's been created properly.
 
 		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Assistant", "My Tutorials");
-		super.clickOnButton("Create");
+		super.clickOnButton("Create New Tutorial");
 		super.checkFormExists();
 
-		super.clickOnButton("Create");
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("tutorialAbstract", tutorialAbstract);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("estimatedTotalTime", estimatedTotalTime);
-		super.fillInputBoxIn("numberOfSessions", numberOfSessions);
-		super.fillInputBoxIn("draftMode", draftMode);
-		super.clickOnSubmit("Create");
+		super.clickOnSubmit("Create Tutorial");
 
 		super.checkErrorsExist();
 

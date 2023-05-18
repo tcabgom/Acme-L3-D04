@@ -1,1 +1,18 @@
-recordIndex,code,title,course,tutorialAbstract,goals,estimatedTotalTime,numberOfSessions,draftMode,courseTitle
+recordIndex,title,course,code,tutorialAbstract,goals
+0,,---,,,
+1,,A,ZZZ999,Tutorial Abstract,Tutorial Goals
+2,Test 76 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,A,ZZZ999,Tutorial Abstract,Tutorial Goals
+3,viagra,A,ZZZ999,Tutorial Abstract,Tutorial Goals
+4,Test,A,,Tutorial Abstract,Tutorial Goals
+5,Test,A,estonoesuncodigo,Tutorial Abstract,Tutorial Goals
+6,Test,A,000,Tutorial Abstract,Tutorial Goals
+7,Test,A,FFFF0000,Tutorial Abstract,Tutorial Goals
+8,Test,A,SEX000,Tutorial Abstract,Tutorial Goals
+9,Test,A,ABC016,Tutorial Abstract,Tutorial Goals
+10,Test,A,ABC016,,Tutorial Goals
+11,Test,A,ABC016,A description that is not normal because it has 101 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,Tutorial Goals
+12,Test,A,ABC016,viagra,Tutorial Goals
+13,Test,A,ABC016,Tutorial Abstract,
+14,Test,A,ABC016,Tutorial Abstract,A description that is not normal because it has 101 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+15,Test,A,ABC016,Tutorial Abstract,nigeria
+16,Test,---,ZZZ999,Tutorial Abstract,Tutorial Goals
