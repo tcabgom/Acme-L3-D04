@@ -3,10 +3,10 @@ package acme.features.auditor.auditingRecords;
 
 import java.time.temporal.ChronoUnit;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.audit.Audit;
 import acme.entities.audit.AuditingRecords;
 import acme.entities.enumerates.Mark;
@@ -20,9 +20,9 @@ import acme.roles.Auditor;
 public class AuditorAuditingRecordsCreateService extends AbstractService<Auditor, AuditingRecords> {
 
 	@Autowired
-	protected AuditorAuditingRecordRepository repository;
+	protected AuditorAuditingRecordRepository	repository;
 	@Autowired
-	protected AuxiliaryService auxiliaryService;
+	protected AuxiliaryService					auxiliaryService;
 
 
 	@Override
@@ -46,13 +46,10 @@ public class AuditorAuditingRecordsCreateService extends AbstractService<Auditor
 			super.state(MomentHelper.isLongEnough(object.getAuditingPeriodInitial(), object.getAuditingPeriodEnd(), 1, ChronoUnit.HOURS), "auditingPeriodEnd", "auditor.records.form.error.not-long-enough");
 
 		if (!super.getBuffer().getErrors().hasErrors("subject"))
-			super.state(auxiliaryService.validateString(object.getSubject()), "subject", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getSubject()), "subject", "acme.validation.spam");
 
 		if (!super.getBuffer().getErrors().hasErrors("assesment"))
-			super.state(auxiliaryService.validateString(object.getAssesment()), "assesment", "acme.validation.spam");
-
-		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
-			super.state(auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getAssesment()), "assesment", "acme.validation.spam");
 
 	}
 

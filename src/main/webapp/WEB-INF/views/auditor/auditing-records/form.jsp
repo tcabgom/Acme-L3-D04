@@ -10,6 +10,7 @@
 	<acme:input-textbox code="auditor.records.form.label.assesment" path="assesment"/>
 	<acme:input-moment code="auditor.records.form.label.auditingPeriodInitial" path="auditingPeriodInitial"/>
 	<acme:input-moment code="auditor.records.form.label.auditingPeriodEnd" path="auditingPeriodEnd"/>
+	<acme:input-url code="auditor.records.form.label.furtherInformation" path="furtherInformation"/>
 	<acme:input-checkbox code="auditor.records.form.label.draftMode" path="draftMode" readonly="true"/>
 	<jstl:choose>
         <jstl:when test="${_command == 'create'}">

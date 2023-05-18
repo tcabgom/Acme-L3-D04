@@ -59,7 +59,30 @@ public class AuditorAuditingRecordsCreateTest extends TestHarness {
 	}
 
 	@Test
-	public void test200Negative() {
+	public void test200Negative(final int auditIndex, final String code, final int auditingRecordIndex, final String subject, final String mark, final String assesment, final String beginning, final String ending, final String draftmode) {
+
+		super.signIn("auditor1", "auditor1");
+
+		super.clickOnMenu("Auditor", "Manage your Audits");
+		super.checkListingExists();
+		super.sortListing(2, "desc");
+
+		super.checkColumnHasValue(auditIndex, 0, code);
+		super.clickOnListingRecord(auditIndex);
+		super.checkInputBoxHasValue("Code", code);
+		super.clickOnButton("Auditing Records");
+
+		super.clickOnButton("Create");
+		super.checkInputBoxHasValue("subject", subject);
+		super.checkInputBoxHasValue("mark", mark);
+		super.checkInputBoxHasValue("assesment", assesment);
+		super.checkInputBoxHasValue("beginning", beginning);
+		super.checkInputBoxHasValue("ending", ending);
+		super.checkInputBoxHasValue("draftmode", draftmode);
+		super.clickOnSubmit("Create");
+
+		super.checkErrorsExist();
+		super.signOut();
 
 	}
 
@@ -73,24 +96,24 @@ public class AuditorAuditingRecordsCreateTest extends TestHarness {
 
 		for (final Audit audit : audits)
 			if (audit.isDraftMode()) {
-				param = String.format("tutorialId=%d", audit.getId());
+				param = String.format("auditId=%d", audit.getId());
 
 				super.checkLinkExists("Sign in");
-				super.request("/auditor/auditing-record/show", param);
+				super.request("/auditor/auditing-record/create", param);
 				super.checkPanicExists();
 
 				super.signIn("administrator", "administrator");
-				super.request("/auditor/auditing-record/show", param);
+				super.request("/auditor/auditing-record/create", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("assistant2", "assistant2");
-				super.request("/auditor/auditing-record/show", param);
+				super.request("/auditor/auditing-record/create", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("lecturer1", "lecturer1");
-				super.request("/auditor/auditing-record/show", param);
+				super.request("/auditor/auditing-record/create", param);
 				super.checkPanicExists();
 				super.signOut();
 			}

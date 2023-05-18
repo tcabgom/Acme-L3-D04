@@ -58,7 +58,7 @@ public class AuditorAuditingRecordListTest extends TestHarness {
 
 		for (final Audit audit : audits)
 			if (audit.isDraftMode()) {
-				param = String.format("tutorialId=%d", audit.getId());
+				param = String.format("auditId=%d", audit.getId());
 
 				super.checkLinkExists("Sign in");
 				super.request("/auditor/auditing-record/list", param);
