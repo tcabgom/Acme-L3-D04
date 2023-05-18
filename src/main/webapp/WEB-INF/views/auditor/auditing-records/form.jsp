@@ -21,8 +21,7 @@
         	<acme:submit code="auditor.records.form.button.update" action="/auditor/auditing-records/update?auditId=${auditId}"/>
             <acme:submit code="auditor.records.form.button.delete" action="/auditor/auditing-records/delete?auditId=${auditId}"/>
             <acme:submit code="auditor.records.form.button.publish" action="/auditor/auditing-records/publish?auditId=${auditId}"/>
-        </jstl:if>
-            
+        </jstl:if>    
         </jstl:when>
     </jstl:choose>
 </acme:form>

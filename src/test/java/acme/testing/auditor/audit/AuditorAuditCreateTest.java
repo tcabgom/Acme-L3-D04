@@ -23,7 +23,6 @@ public class AuditorAuditCreateTest extends TestHarness {
 
 		super.clickOnButton("Create");
 		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("auditor", auditor);
 		super.fillInputBoxIn("conclusion", conclusion);
 		super.fillInputBoxIn("strongPoints", strongPoints);
 		super.fillInputBoxIn("weakPoints", weakPoints);
@@ -58,8 +57,7 @@ public class AuditorAuditCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String auditorID, final String auditor, final String conclusion, final String strongPoints, final String weakPoints, final String mark, final String marks, final String course,
-		final String draftMode) {
+	public void test200Negative(final int recordIndex, final String code, final String conclusion, final String strongPoints, final String weakPoints, final String course) {
 		// HINT: this test attempts to create jobs with incorrect data.
 
 		super.signIn("auditor1", "auditor1");
@@ -69,13 +67,10 @@ public class AuditorAuditCreateTest extends TestHarness {
 		super.checkFormExists();
 
 		super.fillInputBoxIn("code", code);
-		super.fillInputBoxIn("auditor", auditor);
 		super.fillInputBoxIn("conclusion", conclusion);
 		super.fillInputBoxIn("strongPoints", strongPoints);
 		super.fillInputBoxIn("weakPoints", weakPoints);
-		super.fillInputBoxIn("mark", mark);
 		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("draftMode", draftMode);
 		super.clickOnSubmit("Create");
 
 		super.checkErrorsExist();

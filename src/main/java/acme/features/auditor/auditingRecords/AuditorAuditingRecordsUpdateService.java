@@ -41,7 +41,7 @@ public class AuditorAuditingRecordsUpdateService extends AbstractService<Auditor
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findAuditingRecordById(id);
 
-		status = object.getAudit().getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && object.isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class);
+		status = object.getAudit().getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && object.isDraftMode() && object.getAudit().isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class);
 
 		super.getResponse().setAuthorised(status);
 	}

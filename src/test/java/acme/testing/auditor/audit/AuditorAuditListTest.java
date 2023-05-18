@@ -18,6 +18,7 @@ public class AuditorAuditListTest extends TestHarness {
 		super.signIn("auditor1", "auditor1");
 
 		super.clickOnMenu("Auditor", "Manage your Audits");
+
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
@@ -38,18 +39,18 @@ public class AuditorAuditListTest extends TestHarness {
 	public void test300Hacking() {
 
 		super.checkLinkExists("Sign in");
-		super.request("/auditor/audit/list");
+		super.request("/auditor/audit/show");
 		super.checkPanicExists();
 
 		super.checkLinkExists("Sign in");
 		super.signIn("administrator1", "administrator1");
-		super.request("/auditor/audit/list");
+		super.request("/auditor/audit/show");
 		super.checkPanicExists();
 		super.signOut();
 
 		super.checkLinkExists("Sign in");
 		super.signIn("assistant1", "assistant1");
-		super.request("/auditor/audit/list");
+		super.request("/auditor/audit/show");
 		super.checkPanicExists();
 		super.signOut();
 	}

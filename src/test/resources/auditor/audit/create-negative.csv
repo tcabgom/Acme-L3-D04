@@ -1,2 +1,10 @@
-recordIndex,code,auditorID,auditor,conclusion,strongPoints,WeakPoints,course,mark,marks,draftMode
-0,SSS222,12567SDF90,"Arroyo Mantero,Ignacio",conclusion,strong,weak,,,"Un muy buen título",true
+recordIndex,code,conclusion,strongPoints,weakPoints,course
+0,KKC432,conclusion,strong,weak,"Un muy buen título"
+1,SK0,conclusion,strong,weak,"Un muy buen título"
+2,SSS223,Esta conclusión se pasa del número máximo de palabras AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,strong,weak,"Un muy buen título"
+3,SSS224,conclusion,Estos puntos se pasa del número máximo de palabras AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,weak,"Un muy buen título"
+4,SSS225,conclusion,strong,Estos puntos se pasa del número máximo de palabras AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,"Un muy buen título"
+5,SSS226,,strong,weak,"Un muy buen título"
+6,SSS227,conclusion,,weak,"Un muy buen título"
+7,SSS228,conclusion,strong,,"Un muy buen título"
+8,,conclusion,strong,weak,"Un muy buen título"
