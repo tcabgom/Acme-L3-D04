@@ -37,13 +37,13 @@ public class LecturerLecturesInCourseCreateService extends AbstractService<Lectu
 
 	@Override
 	public void authorise() {
-		Lecture object;
-		int id;
-		id = super.getRequest().getData("lectureId", int.class);
-		object = this.repository.findLectureById(id);
+		Lecture lecture;
+		int lectureId;
+		lectureId = super.getRequest().getData("lectureId", int.class);
+		lecture = this.repository.findLectureById(lectureId);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
+		super.getResponse().setAuthorised(lecture.getLecturer().getUserAccount().getId() == userAccountId);
 	}
 
 	@Override
@@ -84,7 +84,16 @@ public class LecturerLecturesInCourseCreateService extends AbstractService<Lectu
 	@Override
 	public void perform(final LecturesInCourse object) {
 		assert object != null;
-		this.repository.save(object);
+		final Collection<LecturesInCourse> lc = this.repository.findAllLecturesInCourses();
+		boolean alreadyInBD = false;
+		for (final LecturesInCourse lc1 : lc)
+			if (lc1.getCourse() == object.getCourse() && lc1.getLecture() == object.getLecture()) {
+				alreadyInBD = true;
+				break;
+			}
+		if (!alreadyInBD)
+			this.repository.save(object);
+
 	}
 
 	@Override

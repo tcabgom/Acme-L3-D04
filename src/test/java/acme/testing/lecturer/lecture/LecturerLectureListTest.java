@@ -10,7 +10,7 @@ import acme.testing.TestHarness;
 public class LecturerLectureListTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/course/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/lecture/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int courseRecordIndex, final String code, final int lectureRecordIndex, final String title, final String lecAbstract, final String learningTime, final String knowledge, final String draftMode) {
 		// HINT: this test authenticates as a lecturer, lists his or her lectures from one course only,
 		// HINT+ and then checks that the listing has the expected data.

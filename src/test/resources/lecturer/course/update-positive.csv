@@ -1,0 +1,30 @@
+recordIndex,code,title,courseAbstract,retailPrice,furtherInformation,draftMode,activityType
+0,ABC123,Un muy buen título,Abstract1,EUR 17.65,https://www.us.es,true,HANDS_ON
+0,ABC123,Ένα καλό τίτλο,Abstract2,EUR 15.00,https://www.us.es,true,HANDS_ON
+0,ABC123,عنوان جيد,Abstract3,EUR 20.00,https://www.us.es,true,HANDS_ON
+0,ABC123,<b>A good title</b>,Abstract4,USD 3.35,https://www.us.es,true,HANDS_ON
+0,ABC123,<script> title with &lt;html&gt; tag</script>,Abstract5,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,A title with &amp; symbol,Abstract5,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,A,Abstract5,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,Es,Abstract5,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion,Abstract5,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,Este es un ejemplo de una cadena de 75 caracteres para probar la generacio,Abstract5,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,Ένα καλό απόσπασμα,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,مستخلص جيد,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,<i>A good abstract</i>,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,<script>An abstract with &lt;html&gt; tag</script>,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,An abstract with &amp; symbol,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,A,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,Es,USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c",USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres parai",USD 30.65,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,Abstract5,USD 0.00,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,Abstract5,USD 0.01,https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,Abstract5,"EUR 999,999.99",https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,Abstract5,"GBP 999,999.98",https://www.us.es,true,HANDS_ON
+0,ABC123,5Título,Abstract5,USD 30.65,,true,HANDS_ON
+0,ABC123,5Título,Abstract5,USD 30.65,http://www.acme.com/a?b,true,HANDS_ON
+0,ABC123,5Título,Abstract5,USD 30.65,http://www.acme.com/a/b,true,HANDS_ON
+0,ABC123,5Título,Abstract5,USD 30.65,ftp://user:pass@acme.org,true,HANDS_ON
+0,ABC123,5Título,Abstract5,USD 30.65,https://www.link1.com,true,HANDS_ON
+0,ABC123,5Título,Abstract5,USD 30.65,https://www.us.es,true,HANDS_ON
