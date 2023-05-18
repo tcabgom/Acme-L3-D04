@@ -28,7 +28,6 @@ public class AuditorAuditCreateTest extends TestHarness {
 		super.fillInputBoxIn("strongPoints", strongPoints);
 		super.fillInputBoxIn("weakPoints", weakPoints);
 		super.fillInputBoxIn("course", course);
-		super.fillInputBoxIn("draftMode", draftMode);
 		super.clickOnSubmit("Create");
 
 		super.clickOnMenu("Auditor", "Manage your Audits");

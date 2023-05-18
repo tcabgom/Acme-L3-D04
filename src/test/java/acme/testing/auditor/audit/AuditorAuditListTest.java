@@ -32,14 +32,10 @@ public class AuditorAuditListTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: this is a listing, which implies that no data must be entered in any forms.
-		// HINT+ Then, there are not any negative test cases for this feature.
 	}
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to list the applications of an employer as a
-		// HINT+ principal with the wrong role.
 
 		super.checkLinkExists("Sign in");
 		super.request("/auditor/audit/list");
