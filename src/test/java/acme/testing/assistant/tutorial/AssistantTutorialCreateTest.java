@@ -32,6 +32,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.fillInputBoxIn("numberOfSessions", numberOfSessions);
 		super.fillInputBoxIn("draftMode", draftMode);
 		super.clickOnSubmit("Create");
+		super.checkNotErrorsExist();
 
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();

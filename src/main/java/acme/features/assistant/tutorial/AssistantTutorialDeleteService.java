@@ -46,10 +46,12 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
+
+		final boolean userIsAssistant = super.getRequest().getPrincipal().hasRole(Assistant.class);
 		final boolean tutorialIsNotPublished = object.isDraftMode();
 		final boolean assistantOwnsTutorial = object.getAssistant().getUserAccount().getId() == userAccountId;
 
-		super.getResponse().setAuthorised(tutorialIsNotPublished && assistantOwnsTutorial);
+		super.getResponse().setAuthorised(userIsAssistant && tutorialIsNotPublished && assistantOwnsTutorial);
 	}
 
 	@Override

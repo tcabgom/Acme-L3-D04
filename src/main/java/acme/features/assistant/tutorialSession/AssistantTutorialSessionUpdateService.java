@@ -4,10 +4,10 @@ package acme.features.assistant.tutorialSession;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.enumerates.ActivityType;
 import acme.entities.tutorial.Tutorial;
 import acme.entities.tutorialSession.TutorialSession;
@@ -23,9 +23,9 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialSessionRepository repository;
+	protected AssistantTutorialSessionRepository	repository;
 	@Autowired
-	private AuxiliaryService auxiliaryService;
+	private AuxiliaryService						auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -42,13 +42,17 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int sessionId;
+		int tutorialOwnerId;
+		int assistantId;
 		Tutorial tutorial;
 
-		masterId = super.getRequest().getData("tutorialId", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
-		status = tutorial != null && (!tutorial.isDraftMode() || super.getRequest().getPrincipal().hasRole(tutorial.getAssistant()));
+		sessionId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialBySessionId(sessionId);
+		assistantId = super.getRequest().getPrincipal().getAccountId();
+		tutorialOwnerId = tutorial.getAssistant().getUserAccount().getId();
 
+		status = tutorial != null && tutorial.isDraftMode() && assistantId == tutorialOwnerId;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -84,14 +88,13 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))
-			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
 
 		if (!super.getBuffer().getErrors().hasErrors("sessionAbstract"))
-			super.state(auxiliaryService.validateString(object.getSessionAbstract()), "sessionAbstract", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getSessionAbstract()), "sessionAbstract", "acme.validation.spam");
 
 		if (!super.getBuffer().getErrors().hasErrors("moreInfo"))
-			super.state(auxiliaryService.validateString(object.getMoreInfo()), "moreInfo", "acme.validation.spam");
-
+			super.state(this.auxiliaryService.validateString(object.getMoreInfo()), "moreInfo", "acme.validation.spam");
 
 	}
 
@@ -112,7 +115,6 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 		tuple = super.unbind(object, "title", "sessionAbstract", "sessionStart", "sessionEnd", "moreInfo");
 		tuple.put("sessionType", sessionTypeChoices.getSelected().getKey());
 		tuple.put("sessionTypes", sessionTypeChoices);
-		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 		tuple.put("draftMode", object.getTutorial().isDraftMode());
 
 		super.getResponse().setData(tuple);
