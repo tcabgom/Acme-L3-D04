@@ -23,6 +23,9 @@
 			<jstl:if test="${showPublish}">
                 <acme:submit code="lecturer.course.form.button.publish" action="/lecturer/course/publish"/>     
             </jstl:if>
+            <jstl:if test="${!showPublish}">
+                <p><acme:message code="lecturer.course.form.label.hiddenButton"/></p>     
+            </jstl:if>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="lecturer.course.form.button.create" action="/lecturer/course/create"/>
