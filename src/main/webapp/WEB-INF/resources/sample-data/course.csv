@@ -1,20 +1,20 @@
 key,key:lecturer,code,title,courseAbstract,retailPrice,furtherInformation,draftMode
-curso-01,lecturer-01,ABC123,Un muy buen título,Un buen abstract,USD 5.00,https://www.link1.com,false
+curso-01,lecturer-01,ABC123,Un muy buen título,Un buen abstract,USD 5.00,https://www.link1.com,true
 curso-02,lecturer-01,ABC126,Ένα καλό τίτλο,Un buen abstract,USD 5.00,https://www.link1.com,false
 curso-03,lecturer-01,ABC127,عنوان جيد,Un buen abstract,USD 5.00,https://www.link1.com,true
-curso-04,lecturer-01,ABC128,<b>A good title</b>,Un buen abstract,USD 5.00,https://www.link1.com,true
-curso-05,lecturer-01,ABC129,<script> title with &lt;html&gt; tag</script>,Un buen abstract,USD 5.00,https://www.link1.com,false
+curso-04,lecturer-01,ABC128,<b>A good title</b>,Un buen abstract,USD 5.00,https://www.link1.com,false
+curso-05,lecturer-01,ABC129,<script> title with &lt;html&gt; tag</script>,Un buen abstract,USD 5.00,https://www.link1.com,true
 curso-06,lecturer-01,ABC130,A title with &amp; symbol,Un buen abstract,USD 5.00,https://www.link1.com,false
 curso-07,lecturer-01,ABC131,A,Un buen abstract,USD 5.00,https://www.link1.com,true
-curso-08,lecturer-02,ABC132,Es,Un buen abstract,USD 5.00,https://www.link1.com,true
-curso-09,lecturer-02,ABC133,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion,Un buen abstract,USD 5.00,https://www.link1.com,false
+curso-08,lecturer-02,ABC132,Es,Un buen abstract,USD 5.00,https://www.link1.com,false
+curso-09,lecturer-02,ABC133,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion,Un buen abstract,USD 5.00,https://www.link1.com,true
 curso-10,lecturer-02,ABC134,Este es un ejemplo de una cadena de 75 caracteres para probar la generacio,Un buen abstract,USD 5.00,https://www.link1.com,false
-curso-11,lecturer-02,ABC135,Un buen título,Ένα καλό απόσπασμα,USD 5.00,https://www.link1.com,true
-curso-12,lecturer-02,ABC136,Un buen título,مستخلص جيد,USD 5.00,https://www.link1.com,true
+curso-11,lecturer-02,ABC135,Un buen título,Ένα καλό απόσπασμα,USD 5.00,https://www.link1.com,false
+curso-12,lecturer-02,ABC136,Un buen título,مستخلص جيد,USD 5.00,https://www.link1.com,false
 curso-13,lecturer-02,ABC137,Un buen título,<i>A good abstract</i>,USD 5.00,https://www.link1.com,false
-curso-14,lecturer-03,ABC138,Un buen título,<script>An abstract with &lt;html&gt; tag</script>,USD 5.00,https://www.link1.com,false
-curso-15,lecturer-03,ABC139,Un buen título,An abstract with &amp; symbol,USD 5.00,https://www.link1.com,false
-curso-16,lecturer-03,ABC140,Un buen título,A,USD 5.00,https://www.link1.com,false
+curso-14,lecturer-03,ABC138,Un buen título,<script>An abstract with &lt;html&gt; tag</script>,USD 5.00,https://www.link1.com,true
+curso-15,lecturer-03,ABC139,Un buen título,An abstract with &amp; symbol,USD 5.00,https://www.link1.com,true
+curso-16,lecturer-03,ABC140,Un buen título,A,USD 5.00,https://www.link1.com,true
 curso-17,lecturer-03,ABC141,Un buen título,Es,USD 5.00,https://www.link1.com,false
 curso-18,lecturer-03,ABC142,Un buen título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c",USD 5.00,https://www.link1.com,false
 curso-19,lecturer-04,ABC143,Un buen título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres parai",USD 5.00,https://www.link1.com,false
