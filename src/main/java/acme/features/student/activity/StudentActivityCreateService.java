@@ -41,7 +41,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
         Student student = enrolment.getStudent();
         Student currentStudent = this.repository.findStudentById(studentRoleId);
 
-        boolean status = student.getId() == currentStudent.getId();
+        boolean status = student.getId() == currentStudent.getId() && enrolment.isFinished();
         super.getResponse().setAuthorised(status);
     }
 
@@ -57,7 +57,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
         assert object != null;
 
         if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
-            super.state(MomentHelper.isAfterOrEqual(object.getPeriodEnd(), object.getPeriodStart()), "periodEnd", "student.enrolment.form.error.periodEnd");
+            super.state(MomentHelper.isAfterOrEqual(object.getPeriodEnd(), object.getPeriodStart()), "periodEnd", "student.activity.form.error.periodEnd");
         }
 
         if (!super.getBuffer().getErrors().hasErrors("title")) {
