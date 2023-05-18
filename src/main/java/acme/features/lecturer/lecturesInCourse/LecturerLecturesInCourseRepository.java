@@ -15,6 +15,9 @@ import acme.roles.Lecturer;
 @Repository
 public interface LecturerLecturesInCourseRepository extends AbstractRepository {
 
+	@Query("select lc from LecturesInCourse lc")
+	Collection<LecturesInCourse> findAllLecturesInCourses();
+
 	@Query("select c from Course c where c.id = :id")
 	Course findCourseById(int id);
 
