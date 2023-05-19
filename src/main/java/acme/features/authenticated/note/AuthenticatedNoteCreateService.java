@@ -4,6 +4,7 @@ package acme.features.authenticated.note;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,8 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 
 	@Autowired
 	protected AuthenticatedNoteRepository repository;
+	@Autowired
+	protected AuxiliaryService auxiliaryService;
 
 	// AbstractService --------------------------------------------------------
 
@@ -66,6 +69,21 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 
 		final Date date = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
 		super.getResponse().setAuthorised(MomentHelper.isAfter(object.getInstantiationMoment(), date));
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("author"))
+			super.state(auxiliaryService.validateString(object.getAuthor()), "author", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("message"))
+			super.state(auxiliaryService.validateString(object.getMessage()), "message", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("email"))
+			super.state(auxiliaryService.validateString(object.getEmail()), "email", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(auxiliaryService.validateString(object.getLink()), "link", "acme.validation.spam");
 	}
 
 	@Override

@@ -1,0 +1,8 @@
+
+authenticated.student.form.label.statement = Statement
+authenticated.student.form.label.strongFeatures = Strong Features
+authenticated.student.form.label.weakFeatures = Weak Features
+authenticated.student.form.label.furtherInformation = Further information
+
+authenticated.student.form.button.create = Register
+authenticated.student.form.button.update = Update

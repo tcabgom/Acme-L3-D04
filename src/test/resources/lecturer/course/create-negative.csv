@@ -1,0 +1,20 @@
+recordIndex,code,title,courseAbstract,retailPrice,furtherInformation
+0,ABC123,5Título,Abstract1,EUR 17.65,https://www.us.es
+0,,5Título,Abstract1,EUR 17.65,https://www.us.es
+0,null,5Título,Abstract2,EUR 15.00,https://www.us.es
+0,CBE125,,Abstract3,EUR 20.00,https://www.us.es
+0,CBE127,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion+,Abstract5,USD 30.65,https://www.us.es
+0,CBE127,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion++,Abstract5,USD 30.65,https://www.us.es
+0,CBE128,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++,Abstract5,USD 30.65,https://www.us.es
+0,CBE129,5Título,,USD 30.65,https://www.us.es
+0,CBE131,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c+",USD 30.65,https://www.us.es
+0,CBE131,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c++",USD 30.65,https://www.us.es
+0,CBE132,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c+++++++++++++++++",USD 30.65,https://www.us.es
+0,CBE133,5Título,Abstract5,,https://www.us.es
+0,CBE134,5Título,Abstract5,null,https://www.us.es
+0,CBE135,5Título,Abstract5,EUR -0.01,https://www.us.es
+0,CBE135,5Título,Abstract5,EUR -0.02,https://www.us.es
+0,CBE136,5Título,Abstract5,EUR -32.04,https://www.us.es
+0,CBE137,5Título,Abstract5,USD 1000000.00,https://www.us.es
+0,CBE138,5Título,Abstract5,USD 1000000.01,https://www.us.es
+0,CBE139,5Título,Abstract5,USD 1000000000000000000000000000000000000.00,https://www.us.es

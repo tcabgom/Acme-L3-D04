@@ -16,3 +16,6 @@ assistant.tutorialSession.form.label.confirmation = Confirm Data Input
 assistant.tutorialSession.form.button.create = Create Session
 assistant.tutorialSession.form.button.update = Update Session
 assistant.tutorialSession.form.button.delete = Delete Session
+
+assistant.tutorialSession.form.error.sessionStart = The session must start at least one day after its creation
+assistant.tutorialSession.form.error.sessionEnd = The session should last between 1 and 5 hours

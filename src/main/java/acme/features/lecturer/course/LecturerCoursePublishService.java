@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.enumerates.ActivityType;
 import acme.entities.lecture.Course;
 import acme.entities.lecture.Lecture;
@@ -22,7 +23,9 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected LecturerCourseRepository repository;
+	protected LecturerCourseRepository	repository;
+	@Autowired
+	private AuxiliaryService			auxiliaryService;
 
 	// AbstractService Interface -------------------------------------
 
@@ -42,7 +45,11 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		object = this.repository.findCourseById(id);
 		final Principal principal = super.getRequest().getPrincipal();
 		final int userAccountId = principal.getAccountId();
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode());
+		boolean allPublished = false;
+		final Collection<Lecture> lectures = this.repository.findLecturesByCourse(object.getId());
+		if (!lectures.isEmpty())
+			allPublished = lectures.stream().allMatch(e -> e.isDraftMode() == false);
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode() && allPublished);
 	}
 
 	@Override
@@ -73,6 +80,18 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 			allPublished = lectures.stream().allMatch(x -> x.isDraftMode() == false);
 			super.state(allPublished, "draftMode", "lecturer.course.form.error.lecturenp");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(this.auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(this.auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("courseAbstract"))
+			super.state(this.auxiliaryService.validateString(object.getCourseAbstract()), "courseAbstract", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+			super.state(this.auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation", "acme.validation.spam");
 	}
 
 	@Override
@@ -92,6 +111,12 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		final ActivityType activityType = object.courseActivityType(lectures);
 
 		tuple.put("activityType", activityType);
+
+		boolean showPublish = false;
+		if (lectures.stream().allMatch(e -> e.isDraftMode() == false))
+			showPublish = true;
+
+		tuple.put("showPublish", showPublish);
 
 		super.getResponse().setData(tuple);
 	}

@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.assistant;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class AuthenticatedAssistantUpdateService extends AbstractService<Authent
 
 	@Autowired
 	protected AuthenticatedAssistantRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -60,6 +63,19 @@ public class AuthenticatedAssistantUpdateService extends AbstractService<Authent
 	@Override
 	public void validate(final Assistant object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("supervisor"))
+			super.state(auxiliaryService.validateString(object.getSupervisor()), "supervisor", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("expertiseFieldsList"))
+			super.state(auxiliaryService.validateString(object.getExpertiseFieldsList()), "expertiseFieldsList", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("resume"))
+			super.state(auxiliaryService.validateString(object.getResume()), "resume", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(auxiliaryService.validateString(object.getLink()), "link", "acme.validation.spam");
+
 	}
 
 	@Override
