@@ -67,9 +67,8 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/tutorial/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code, final String title, final String course, final String tutorialAbstract, final String goals, final String estimatedTotalTime, final String numberOfSessions, final String draftMode,
-		final String courseTitle) {
+	@CsvFileSource(resources = "/assistant/tutorial/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final String title, final String course, final String code, final String tutorialAbstract, final String goals) {
 		// HINT: this test attempts to update a tutorial with wrong data.
 
 		super.signIn("assistant1", "assistant1");
@@ -78,18 +77,14 @@ public class AssistantTutorialUpdateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(recordIndex, 0, title);
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(12);
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("code", code);
 		super.fillInputBoxIn("tutorialAbstract", tutorialAbstract);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("estimatedTotalTime", estimatedTotalTime);
-		super.fillInputBoxIn("numberOfSessions", numberOfSessions);
-		super.fillInputBoxIn("draftMode", draftMode);
-		super.clickOnSubmit("Update");
+		super.clickOnSubmit("Update Tutorial");
 
 		super.checkErrorsExist();
 

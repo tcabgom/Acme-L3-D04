@@ -79,12 +79,13 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 
 		if (!super.getBuffer().getErrors().hasErrors("sessionStart")) {
 			final Date minimunValidStartDate = MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getSessionStart(), minimunValidStartDate), "sessionStart", "assistant.tutorialSession.form.error.sessionStart");
+			super.state(MomentHelper.isAfterOrEqual(object.getSessionStart(), minimunValidStartDate), "sessionStart", "assistant.tutorialSession.form.error.sessionStart");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("sessionEnd")) {
-			final Date minimunValidEndDate = MomentHelper.deltaFromMoment(object.getSessionStart(), 5, ChronoUnit.HOURS);
-			super.state(MomentHelper.isBefore(object.getSessionEnd(), minimunValidEndDate), "sessionEnd", "assistant.tutorialSession.form.error.sessionEnd");
+			final Date minimunValidEndDate = MomentHelper.deltaFromMoment(object.getSessionStart(), 1, ChronoUnit.HOURS);
+			final Date maximunValidEndDate = MomentHelper.deltaFromMoment(object.getSessionStart(), 5, ChronoUnit.HOURS);
+			super.state(MomentHelper.isAfterOrEqual(object.getSessionEnd(), minimunValidEndDate) && MomentHelper.isBeforeOrEqual(object.getSessionEnd(), maximunValidEndDate), "sessionEnd", "assistant.tutorialSession.form.error.sessionEnd");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))

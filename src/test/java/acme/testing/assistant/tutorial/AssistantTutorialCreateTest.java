@@ -11,7 +11,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String title, final String course, final String code, final String tutorialAbstract, final String goals) {
+	public void test100Positive(final String title, final String course, final String code, final String tutorialAbstract, final String goals) {
 		// HINT: this test authenticates as an assistant and then lists his or her
 		// HINT: tutorials, creates a new one, and check that it's been created properly.
 
@@ -33,11 +33,11 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
-		super.checkColumnHasValue(recordIndex, 0, title);
-		super.checkColumnHasValue(recordIndex, 1, course);
-		super.checkColumnHasValue(recordIndex, 2, "0");
-		super.checkColumnHasValue(recordIndex, 3, "true");
-		super.clickOnListingRecord(recordIndex);
+		super.checkColumnHasValue(0, 0, title);
+		super.checkColumnHasValue(0, 1, course);
+		super.checkColumnHasValue(0, 2, "0");
+		super.checkColumnHasValue(0, 3, "true");
+		super.clickOnListingRecord(0);
 
 		super.checkFormExists();
 		super.checkInputBoxHasValue("title", title);
