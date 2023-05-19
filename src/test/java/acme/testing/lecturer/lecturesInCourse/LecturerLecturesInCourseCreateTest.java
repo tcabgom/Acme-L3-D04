@@ -44,10 +44,25 @@ public class LecturerLecturesInCourseCreateTest extends TestHarness {
 
 	}
 
-	@Test
-	public void test200Negative() {
-		// HINT: this test attempts to add lectures to a course with incorrect data.
-		//There is no negative test because you cant select a course the lecture is already in.
+	@ParameterizedTest
+	@CsvFileSource(resources = "/lecturer/lectures-in-course/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int lecRecordIndex, final String courseCode) {
+
+		super.signIn("lecturer1", "lecturer1");
+
+		super.clickOnMenu("Lecturer", "My Lectures");
+		super.checkListingExists();
+		super.sortListing(0, "asc");
+
+		super.clickOnListingRecord(lecRecordIndex);
+		super.clickOnButton("Add to a course");
+
+		super.fillInputBoxIn("course", courseCode);
+		super.clickOnSubmit("Add to the course");
+
+		super.checkErrorsExist();
+
+		super.signOut();
 
 	}
 
