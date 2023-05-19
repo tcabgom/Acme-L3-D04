@@ -26,3 +26,4 @@ audit-24,auditor-02,curso-01,KKC420,conclusion,Estos puntos fuertes tiene el má
 audit-25,auditor-02,curso-01,KKC419,conclusion,Estos puntos fuertes tiene el máximo de caracteres menos 1 que es 99 ##############################,weakPoints,true
 audit-26,auditor-02,curso-01,KKC418,conclusion,strongPoints,Estos puntos débiles tiene el máximo de caracteres que es 100 ######################################,true
 audit-27,auditor-02,curso-01,KKC417,conclusion,strongPoints,Estos puntos débiles tiene el máximo de caracteres menos 1 que es 99 ##############################,true
+audit-28,auditor-01,curso-01,KKC444,conclusion,strongPoints,weakPoints,true

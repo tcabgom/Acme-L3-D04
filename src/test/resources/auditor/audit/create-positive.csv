@@ -1,6 +1,24 @@
-recordIndex,code,auditorID,auditor,conclusion,strongPoints,WeakPoints,course,mark,marks,draftMode
-0,AAA222,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strong,weak,,,"Un muy buen título",true
-1,AAA223,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strong,weak,,,"Un muy buen título",true
-2,AAA224,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strong,weak,,,"Un muy buen título",true
-3,AAA225,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strong,weak,,,"Un muy buen título",true
-4,AAA226,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strong,weak,,,"Un muy buen título",true
+recordIndex,code,auditorID,auditor,conclusion,strongPoints,WeakPoints,mark,course,draftMode
+0,AAA222,12567SDF90,"Arroyo Mantero, Ignacio",A,strongPoints,weakPoints,,Un muy buen título,true
+1,AAA223,12567SDF90,"Arroyo Mantero, Ignacio",AB,strongPoints,weakPoints,,Un muy buen título,true
+2,AAA224,12567SDF90,"Arroyo Mantero, Ignacio",変な言葉で書かれた普通のタイトル,strongPoints,weakPoints,,Un muy buen título,true
+3,AAA225,12567SDF90,"Arroyo Mantero, Ignacio",<script>alert('This value is invalid')</script>,strongPoints,weakPoints,,Un muy buen título,true
+4,AAA226,12567SDF90,"Arroyo Mantero, Ignacio",<h1>Hello</h1>,strongPoints,weakPoints,,Un muy buen título,true
+5,AAA227,12567SDF90,"Arroyo Mantero, Ignacio",? ??rm#| ~|?T0{r}I@l,strongPoints,weakPoints,,Un muy buen título,true
+6,AAA228,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,A,weakPoints,,Un muy buen título,true
+7,AAA229,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,AB,weakPoints,,Un muy buen título,true
+8,AAA230,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,Мне становится скучно,weakPoints,,Un muy buen título,true
+9,AAA231,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,変な言葉で書かれた普通のタイトル,weakPoints,,Un muy buen título,true
+10,AAA232,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,<script>alert('This value is invalid')</script>,weakPoints,,Un muy buen título,true
+11,AAA233,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,<h1>Hello</h1>,weakPoints,,Un muy buen título,true
+12,AAA234,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,? ??rm#| ~|?T0{r}I@l,weakPoints,,Un muy buen título,true
+13,AAA235,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strongPoints,A,,Un muy buen título,true
+14,AAA236,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strongPoints,AB,,Un muy buen título,true
+15,AAA237,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strongPoints,Мне становится скучно,,Un muy buen título,true
+16,AAA238,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strongPoints,変な言葉で書かれた普通のタイトル,,Un muy buen título,true
+17,AAA239,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strongPoints,<script>alert('This value is invalid')</script>,,Un muy buen título,true
+18,AAA240,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strongPoints,<h1>Hello</h1>,,Un muy buen título,true
+19,AAA241,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,strongPoints,? ??rm#| ~|?T0{r}I@l,,Un muy buen título,true
+20,AAA242,12567SDF90,"Arroyo Mantero, Ignacio",Esta conclusión tiene el máximo de caracteres que es 100 ###########################################,strongPoints,weakPoints,,Un muy buen título,true
+21,AAA243,12567SDF90,"Arroyo Mantero, Ignacio",Esta conclusión tiene el máximo de caracteres menos 1 que es 99 ###################################,strongPoints,weakPoints,,Un muy buen título,true
+22,AAA244,12567SDF90,"Arroyo Mantero, Ignacio",conclusion,Estos puntos fuertes tiene el máximo de caracteres que es 100 ######################################,weakPoints,,Un muy buen título,true
