@@ -1,0 +1,37 @@
+recordIndex,title,lecAbstract,learningTime,body,knowledge,furtherInformation,draftMode
+9,v,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+10,v1,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+11,v2Un título,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+12,v3Ένα καλό τίτλο,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+13,v4Es es un ejemplo de una cadena de 75 caracteres para probar la generacion,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+14,v5Es es un ejemplo de una cadena de 75 caracteres para probar la generacio,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+15,v6<b>A good title</b>,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+16,v7<script> title with &lt;html&gt; tag</script>,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+17,v8A sample with &amp; symbol,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+18,v9Un título,Ένα καλό τίτλο,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+19,vaUn título,U,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+20,vbUn título,Un,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+21,vcUn título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c",5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+22,vdUn título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres parai",5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+23,veUn título,<b>A good title</b>,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+24,vfUn título,<script> title with &lt;html&gt; tag</script>,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+25,vgUn título,A sample with &amp; symbol,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+26,vhUn título,Un Abstract,0.01,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+27,viUn título,Un Abstract,0.02,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+28,vjUn título,Un Abstract,999.99,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+29,vkUn título,Un Abstract,999.98,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+30,vlUn título,Un Abstract,5.00,Ένα καλό τίτλο,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+31,vmUn título,Un Abstract,5.00,U,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+32,vnUn título,Un Abstract,5.00,Un,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+33,voUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c",HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+34,vpUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres parai",HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+35,vqUn título,Un Abstract,5.00,<b>A good title</b>,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+36,vrUn título,Un Abstract,5.00,<script> title with &lt;html&gt; tag</script>,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+37,vsUn título,Un Abstract,5.00,A sample with &amp; symbol,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true
+38,vtUn título,Un Abstract,5.00,un body válido,BALANCED,https://github.com/tcabgom/Acme-L3-D02,true
+39,vuUn título,Un Abstract,5.00,un body válido,THEORY,https://github.com/tcabgom/Acme-L3-D02,true
+40,vvUn título,Un Abstract,5.00,un body válido,HANDS_ON,,true
+41,vwUn título,Un Abstract,5.00,un body válido,HANDS_ON,http://www.acme.com/a?b,true
+42,vxUn título,Un Abstract,5.00,un body válido,HANDS_ON,http://www.acme.com/a/b,true
+43,vyUn título,Un Abstract,5.00,un body válido,HANDS_ON,ftp://user:pass@acme.org,true
+44,vzUn título,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,true

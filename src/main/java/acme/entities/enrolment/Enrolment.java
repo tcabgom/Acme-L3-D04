@@ -1,7 +1,9 @@
 package acme.entities.enrolment;
 
 
+import acme.entities.activity.Activity;
 import acme.entities.lecture.Course;
+import acme.entities.practicumSession.PracticumSession;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Student;
 import lombok.Getter;
@@ -15,6 +17,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.Collection;
 
 @Entity
 @Getter
@@ -48,7 +51,7 @@ public class Enrolment extends AbstractEntity {
 
     // Derived attributes -----------------------------------------------------
 
-
+    protected double workTime;
 
     // Relationships ----------------------------------------------------------
 
@@ -61,4 +64,16 @@ public class Enrolment extends AbstractEntity {
     @Valid
     @NotNull
     protected Course course;
+
+    public double getEstimatedTotalTimeInHours(final Collection<Activity> activities) {
+
+
+        long totalMillis = activities.stream().mapToLong(a -> (a.getPeriodEnd().getTime() - a.getPeriodStart().getTime())).sum();
+
+        System.out.println("Millis: " + totalMillis);
+        double totalHours = totalMillis/1000/60/60;
+        System.out.println("Hours: " + totalHours);
+        return Math.round(totalHours*100)/100.0;
+    }
+
 }

@@ -32,6 +32,7 @@
                 <acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
             </jstl:if>
             <jstl:if test="${readonly}">
+                <acme:input-double   code="student.enrolment.form.label.workTime" path="workTime" readonly="true"/>
                 <acme:button code="student.enrolment.form.button.showActivities" action="/student/activity/list?enrolmentId=${id}"/>
             </jstl:if>
         </jstl:when>
