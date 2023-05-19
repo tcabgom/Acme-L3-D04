@@ -1,0 +1,31 @@
+recordIndex,code,title,courseAbstract,retailPrice,furtherInformation,draftMode,activityType
+7,ABE123,Un muy buen título,Abstract1,EUR 17.65,https://www.us.es,true,BALANCED
+8,ABE124,Ένα καλό τίτλο,Abstract2,EUR 15.00,https://www.us.es,true,BALANCED
+9,ABE125,عنوان جيد,Abstract3,EUR 20.00,https://www.us.es,true,BALANCED
+10,ABE126,<b>A good title</b>,Abstract4,USD 3.35,https://www.us.es,true,BALANCED
+11,ABE127,<script> title with &lt;html&gt; tag</script>,Abstract5,USD 30.65,https://www.us.es,true,BALANCED
+12,ABE128,A title with &amp; symbol,Abstract5,USD 30.65,https://www.us.es,true,BALANCED
+13,ABE129,A,Abstract5,USD 30.65,https://www.us.es,true,BALANCED
+14,ABE130,Es,Abstract5,USD 30.65,https://www.us.es,true,BALANCED
+15,ABE131,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion,Abstract5,USD 30.65,https://www.us.es,true,BALANCED
+16,ABE132,Este es un ejemplo de una cadena de 75 caracteres para probar la generacio,Abstract5,USD 30.65,https://www.us.es,true,BALANCED
+17,ABE133,5Título,Ένα καλό απόσπασμα,USD 30.65,https://www.us.es,true,BALANCED
+18,ABE134,5Título,مستخلص جيد,USD 30.65,https://www.us.es,true,BALANCED
+19,ABE135,5Título,<i>A good abstract</i>,USD 30.65,https://www.us.es,true,BALANCED
+20,ABE136,5Título,<script>An abstract with &lt;html&gt; tag</script>,USD 30.65,https://www.us.es,true,BALANCED
+21,ABE137,5Título,An abstract with &amp; symbol,USD 30.65,https://www.us.es,true,BALANCED
+22,ABE138,5Título,A,USD 30.65,https://www.us.es,true,BALANCED
+23,ABE139,5Título,Es,USD 30.65,https://www.us.es,true,BALANCED
+24,ABE140,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c",USD 30.65,https://www.us.es,true,BALANCED
+25,ABE141,5Título,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres parai",USD 30.65,https://www.us.es,true,BALANCED
+26,ABE142,5Título,Abstract5,USD 0.00,https://www.us.es,true,BALANCED
+27,ABE143,5Título,Abstract5,USD 0.01,https://www.us.es,true,BALANCED
+28,ABE144,5Título,Abstract5,"EUR 999,999.99",https://www.us.es,true,BALANCED
+29,ABE145,5Título,Abstract5,"GBP 999,999.98",https://www.us.es,true,BALANCED
+30,ABE146,5Título,Abstract5,USD 30.65,,true,BALANCED
+31,ABE147,5Título,Abstract5,USD 30.65,null,true,BALANCED
+32,ABE148,5Título,Abstract5,USD 30.65,http://www.acme.com/a?b,true,BALANCED
+33,ABE149,5Título,Abstract5,USD 30.65,http://www.acme.com/a/b,true,BALANCED
+34,ABE150,5Título,Abstract5,USD 30.65,ftp://user:pass@acme.org,true,BALANCED
+35,ABE151,5Título,Abstract5,USD 30.65,https://www.link1.com,true,BALANCED
+36,ABE152,5Título,Abstract5,USD 30.65,https://www.us.es,true,BALANCED

@@ -36,7 +36,7 @@ public class StudentActivityListService extends AbstractService<Student, Activit
         Student student = enrolment.getStudent();
         Student currentStudent = this.repository.findStudentById(studentRoleId);
 
-        boolean status = student.getId() == currentStudent.getId();
+        boolean status = student.getId() == currentStudent.getId() && enrolment.isFinished();
         super.getResponse().setAuthorised(status);
     }
 

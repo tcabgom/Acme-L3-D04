@@ -23,7 +23,12 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
     public void authorise() {
         int id = super.getRequest().getData("id", int.class);
         Activity activity = this.repository.findById(id);
-        boolean status = activity.getEnrolment().isFinished();
+
+        int studentRoleId = super.getRequest().getPrincipal().getActiveRoleId();
+        Student student = activity.getEnrolment().getStudent();
+        Student currentStudent = this.repository.findStudentById(studentRoleId);
+
+        boolean status = activity.getEnrolment().isFinished() && student.getId() == currentStudent.getId();
         super.getResponse().setAuthorised(status);
     }
 

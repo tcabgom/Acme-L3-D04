@@ -1,6 +1,8 @@
-recordIndex,code,title,courseAbstract,retailPrice,furtherInformation,draftMode
-0,ABC123,Titulo1,Abstract1,EUR 17.65,https://www.us.es,true
-1,ABC124,Título2,Abstract2,EUR 15.00,https://www.us.es,false
-2,ABC125,tercerTitulo,Abstract3,EUR 20.00,https://www.us.es,true
-3,ABC126,TituloCuarto,Abstract4,USD 3.35,https://www.us.es,false
-4,ABC127,5Título,Abstract5,USD 30.65,https://www.us.es,true
+recordIndex,code,title,courseAbstract,retailPrice,furtherInformation,activityType
+0,ABC123,Un muy buen título,Un buen abstract,USD 5.00,https://www.link1.com,HANDS_ON
+1,ABC126,Ένα καλό τίτλο,Un buen abstract,USD 5.00,https://www.link1.com,HANDS_ON
+2,ABC127,عنوان جيد,Un buen abstract,USD 5.00,https://www.link1.com,HANDS_ON
+3,ABC128,<b>A good title</b>,Un buen abstract,USD 5.00,https://www.link1.com,HANDS_ON
+4,ABC129,<script> title with &lt;html&gt; tag</script>,Un buen abstract,USD 5.00,https://www.link1.com,BALANCED
+5,ABC130,A title with &amp; symbol,Un buen abstract,USD 5.00,https://www.link1.com,BALANCED
+6,ABC131,A,Un buen abstract,USD 5.00,https://www.link1.com,BALANCED

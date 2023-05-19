@@ -80,13 +80,11 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
         }
 
         if(!super.getBuffer().getErrors().hasErrors("expirationDate")) {
-            super.state(filledExpirationDate, "expirationDate", "javax.validation.constraints.NotEmpty.message");
             super.state(validExpirationDate, "expirationDate", "student.enrolment.form.error.invalidExpirationDate");
             super.state(expirationDateInFuture, "expirationDate", "javax.validation.constraints.Future.message");
         }
 
         if(!super.getBuffer().getErrors().hasErrors("securityCode")) {
-            super.state(filledSecurityCode, "securityCode", "javax.validation.constraints.NotEmpty.message");
             super.state(validSecurityCode, "securityCode", "student.enrolment.form.error.invalidSecurityCode");
         }
 
@@ -118,6 +116,11 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
         tuple = super.unbind(object, "code", "motivation", "goals", "creditCardHolder", "creditCardNibble");
         tuple.put("readonly", object.isFinished());
+
+        if(super.getRequest().hasData("expirationDate"))
+            tuple.put("expirationDate", super.getRequest().getData("expirationDate", String.class));
+        if(super.getRequest().hasData("securityCode"))
+            tuple.put("securityCode", super.getRequest().getData("securityCode", String.class));
 
         super.getResponse().setData(tuple);
     }

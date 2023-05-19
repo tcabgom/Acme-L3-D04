@@ -45,11 +45,19 @@ public class Statistics {
 	}
 
 	public void obtainValues(final Collection<Double> values) {
-		this.obtainCount(values);
-		this.obtainMax(values);
-		this.obtainMin(values);
-		this.obtainAverage(values);
-		this.obtainDeviation(values);
+		if (values.isEmpty()) {
+			this.setCount(0);
+			this.setMaximum(0.);
+			this.setMinimum(0.);
+			this.setAverage(0.);
+			this.setStdDeviation(0.);
+		} else {
+			this.obtainCount(values);
+			this.obtainMax(values);
+			this.obtainMin(values);
+			this.obtainAverage(values);
+			this.obtainDeviation(values);
+		}
 	}
 
 }
