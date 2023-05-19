@@ -1,6 +1,7 @@
 
 package acme.features.student.enrolment;
 
+import acme.entities.activity.Activity;
 import acme.entities.enrolment.Enrolment;
 import acme.entities.lecture.Course;
 import acme.framework.components.jsp.SelectChoices;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class StudentEnrolmentShowService extends AbstractService<Student, Enrolment> {
@@ -32,23 +34,25 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		super.getResponse().setAuthorised(true);
 	}
 
-	@Override
-	public void bind(final Enrolment object) {
-		assert object != null;
-
-		final int courseId = super.getRequest().getData("course", int.class);
-		final Course course = this.repository.findCourseById(courseId);
-		object.setCourse(course);
-
-		super.bind(object, "code", "motivation", "goals");
-
-	}
+//	@Override
+//	public void bind(final Enrolment object) {
+//		assert object != null;
+//
+//		final int courseId = super.getRequest().getData("course", int.class);
+//		final Course course = this.repository.findCourseById(courseId);
+//		object.setCourse(course);
+//
+//		super.bind(object, "code", "motivation", "goals");
+//
+//	}
 
 	@Override
 	public void load() {
 		int id = super.getRequest().getData("id", int.class);
 		Enrolment object = this.repository.findById(id);
 
+		List<Activity> activities = this.repository.findActivitiesByEnrolment(object.getId());
+		object.setWorkTime(object.getEstimatedTotalTimeInHours(activities));
 		super.getBuffer().setData(object);
 	}
 
@@ -59,7 +63,7 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		Collection<Course> courses = this.repository.findAllPublishedCourses();
 		SelectChoices choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		Tuple tuple = super.unbind(object, "code", "motivation", "goals");
+		Tuple tuple = super.unbind(object, "code", "motivation", "goals", "workTime");
 		tuple.put("readonly", object.isFinished());
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
