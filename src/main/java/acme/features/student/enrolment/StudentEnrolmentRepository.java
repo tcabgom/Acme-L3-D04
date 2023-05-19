@@ -1,6 +1,7 @@
 
 package acme.features.student.enrolment;
 
+import acme.entities.activity.Activity;
 import acme.entities.banner.Banner;
 import acme.entities.enrolment.Enrolment;
 import acme.entities.lecture.Course;
@@ -10,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.List;
 
 @Repository
 public interface StudentEnrolmentRepository extends AbstractRepository {
@@ -32,5 +34,6 @@ public interface StudentEnrolmentRepository extends AbstractRepository {
 	@Query("select c from Course c where c.draftMode = false")
 	Collection<Course> findAllPublishedCourses();
 
-
+	@Query("select a from Activity a where a.enrolment.id = :enrolmentId")
+    List<Activity> findActivitiesByEnrolment(int enrolmentId);
 }
