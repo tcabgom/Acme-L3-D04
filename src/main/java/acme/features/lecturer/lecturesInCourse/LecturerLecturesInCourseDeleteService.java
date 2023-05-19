@@ -77,9 +77,9 @@ public class LecturerLecturesInCourseDeleteService extends AbstractService<Lectu
 	@Override
 	public void perform(final LecturesInCourse object) {
 		assert object != null;
-		final LecturesInCourse cl = this.repository.findCourseLectureByCourseAndLecture(object.getCourse(), object.getLecture());
-
-		this.repository.delete(cl);
+		final LecturesInCourse lc = this.repository.findCourseLectureByCourseAndLecture(object.getCourse(), object.getLecture());
+		if (lc.getCourse().isDraftMode())
+			this.repository.delete(lc);
 	}
 
 	@Override
