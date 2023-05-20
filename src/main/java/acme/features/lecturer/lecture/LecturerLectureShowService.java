@@ -61,6 +61,9 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		tuple.put("choices", choices);
 		tuple.put("knowledge", choices.getSelected().getKey());
 
+		final boolean showDeleteFromCourse = !this.repository.findLecturesInCourseByLecture(object).isEmpty();
+		tuple.put("showDeleteFromCourse", showDeleteFromCourse);
+
 		super.getResponse().setData(tuple);
 	}
 }
