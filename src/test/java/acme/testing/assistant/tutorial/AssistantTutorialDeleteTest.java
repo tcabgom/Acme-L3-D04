@@ -4,6 +4,8 @@ package acme.testing.assistant.tutorial;
 import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.tutorial.Tutorial;
@@ -19,18 +21,19 @@ public class AssistantTutorialDeleteTest extends TestHarness {
 	// Test data --------------------------------------------------------------
 
 
-	@Test
-	public void test100Positive() {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/assistant/tutorial/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int firstRecordIndex, final String firstTitle, final int secondRecordIndex, final String secondTitle) {
 
 		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(12, 0, "A Normal Tutorial That is Not in Draft Mode");
-		super.checkColumnHasValue(13, 0, "A title that is not normal because it has 74 characters FFFFFFFFFFFFFFFFFF");
+		super.checkColumnHasValue(firstRecordIndex, 0, firstTitle);
+		super.checkColumnHasValue(secondRecordIndex, 0, secondTitle);
 
-		super.clickOnListingRecord(12);
+		super.clickOnListingRecord(firstRecordIndex);
 		super.checkFormExists();
 		super.clickOnSubmit("Delete Tutorial");
 		super.checkNotErrorsExist();
@@ -38,7 +41,7 @@ public class AssistantTutorialDeleteTest extends TestHarness {
 		super.clickOnMenu("Assistant", "My Tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(12, 0, "A title that is not normal because it has 74 characters FFFFFFFFFFFFFFFFFF");
+		super.checkColumnHasValue(secondRecordIndex - 1, 0, secondTitle);
 
 		super.signOut();
 
