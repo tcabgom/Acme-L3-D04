@@ -15,6 +15,7 @@ assistant.tutorial.form.label.goals = Goals
 assistant.tutorial.form.label.estimatedTotalTime = Estimated Total Hours
 assistant.tutorial.form.label.draftMode = Draft Mode
 assistant.tutorial.form.label.numberOfSessions = Number Of Sessions
+assistant.tutorial.form.label.hiddenButton = Course cannot be published until at least one session is created
 
 assistant.tutorial.form.button.create = Create Tutorial
 assistant.tutorial.form.button.update = Update Tutorial
