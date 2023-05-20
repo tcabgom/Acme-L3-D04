@@ -70,8 +70,8 @@ public class AuditorAuditingRecordsUpdateService extends AbstractService<Auditor
 	@Override
 	public void perform(final AuditingRecords object) {
 		assert object != null;
-		object.setSubject("*" + object.getSubject());
-
+		if (object.getSubject().charAt(0) != '*')
+			object.setSubject("*" + object.getSubject());
 		this.repository.save(object);
 
 	}

@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.audit.Audit;
 import acme.testing.TestHarness;
 
-public class AuditorAuditingRecordsPublishTest extends TestHarness {
+public class AuditorAuditingRecordsDeleteTest extends TestHarness {
 
 	@Autowired
 	protected AuditorAuditingRecordsTestRepository repository;
@@ -20,8 +20,8 @@ public class AuditorAuditingRecordsPublishTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/auditor/auditing-records/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int auditIndex, final String code, final int auditingRecordIndex, final String subject) {
+	@CsvFileSource(resources = "/auditor/auditing-records/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int auditIndex, final int auditingRecordIndex, final String mark1, final String mark2) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -29,16 +29,23 @@ public class AuditorAuditingRecordsPublishTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "desc");
 
-		super.checkColumnHasValue(auditIndex, 0, code);
 		super.clickOnListingRecord(auditIndex);
 		super.clickOnButton("Auditing Records");
 
 		super.sortListing(0, "asc");
+		super.checkColumnHasValue(auditingRecordIndex, 1, mark1);
 		super.clickOnListingRecord(auditingRecordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("subject", subject);
-		super.clickOnSubmit("Publish");
-		super.checkNotErrorsExist();
+		super.clickOnSubmit("Delete");
+
+		super.clickOnMenu("Auditor", "Manage your Audits");
+		super.checkListingExists();
+		super.sortListing(0, "desc");
+		super.clickOnListingRecord(auditIndex);
+		super.clickOnButton("Auditing Records");
+		super.sortListing(0, "asc");
+
+		super.checkColumnHasValue(auditingRecordIndex, 1, mark2);
 
 		super.signOut();
 
