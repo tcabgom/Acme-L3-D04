@@ -45,7 +45,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
     public void validate(Activity object) {
         assert object != null;
         if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
-            super.state(MomentHelper.isAfterOrEqual(object.getPeriodEnd(), object.getPeriodStart()), "periodEnd", "student.enrolment.form.error.periodEnd");
+            super.state(MomentHelper.isAfterOrEqual(object.getPeriodEnd(), object.getPeriodStart()), "periodEnd", "student.activity.form.error.periodEnd");
         }
     }
 
