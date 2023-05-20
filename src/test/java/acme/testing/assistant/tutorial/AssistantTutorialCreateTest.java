@@ -60,7 +60,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String title, final String course, final String code, final String tutorialAbstract, final String goals) {
+	public void test200Negative(final String title, final String course, final String code, final String tutorialAbstract, final String goals) {
 		// HINT: this test authenticates as an assistant and then lists his or her
 		// HINT: tutorials, creates a new one, and check that it's been created properly.
 
