@@ -31,7 +31,7 @@ public class LecturerLectureCreateTest extends TestHarness {
 
 		super.clickOnMenu("Lecturer", "My Lectures");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(0, "desc");
 		super.checkColumnHasValue(recordIndex, 0, title);
 		super.checkColumnHasValue(recordIndex, 1, lecAbstract);
 		super.checkColumnHasValue(recordIndex, 2, learningTime);
