@@ -12,6 +12,7 @@
 	<acme:input-moment code="auditor.records.form.label.auditingPeriodEnd" path="auditingPeriodEnd"/>
 	<acme:input-url code="auditor.records.form.label.furtherInformation" path="furtherInformation"/>
 	<acme:input-checkbox code="auditor.records.form.label.draftMode" path="draftMode" readonly="true"/>
+	<acme:input-checkbox code="auditor.records.form.label.confirmation" path="confirmation"/>
 	<jstl:choose>
         <jstl:when test="${_command == 'create'}">
             <acme:submit code="auditor.records.form.button.create" action="/auditor/auditing-records/create?auditId=${auditId }"/>

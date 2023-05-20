@@ -1,4 +1,4 @@
-auditIndex,auditingRecordIndex,subject,mark,assesment,beginning,ending,furtherInformation
-1,0,zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz,A_plus,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com
-1,0,subject,A,zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz,2022/07/20 00:00,2022/07/29 00:00,https://link.com
-1,0,subject,B,assesment,2022/07/20 00:00,2022/07/20 00:05,https://link.com
+auditIndex,auditingRecordIndex,subject,mark,assesment,beginning,ending,furtherInformation,confirmation
+2,0,zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz,A_plus,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true
+2,0,subject,A,zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true
+2,0,subject,B,assesment,2022/07/20 00:00,2022/07/20 00:05,https://link.com,true

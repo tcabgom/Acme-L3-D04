@@ -8,6 +8,7 @@ auditor.records.form.label.assesment= Assesment
 auditor.records.form.label.auditingPeriodInitial= Beginning Auditing Period
 auditor.records.form.label.auditingPeriodEnd= Ending Auditing Period
 auditor.records.form.label.furtherInformation= Further Information
+auditor.records.form.label.confirmation= Confirmation
 auditor.records.form.label.draftMode= Not Published?
 
 auditor.records.form.button.create= Create

@@ -22,7 +22,7 @@ public class AuditorAuditingRecordsUpdateTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/auditing-records/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int auditIndex, final String code, final int auditingRecordIndex, final String subject, final String mark, final String assesment, final String beginning, final String ending, final String furtherInformation,
-		final String draftmode) {
+		final String draftmode, final String confirmation) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -44,17 +44,18 @@ public class AuditorAuditingRecordsUpdateTest extends TestHarness {
 		super.fillInputBoxIn("auditingPeriodInitial", beginning);
 		super.fillInputBoxIn("auditingPeriodEnd", ending);
 		super.fillInputBoxIn("furtherInformation", furtherInformation);
+		super.fillInputBoxIn("confirmation", confirmation);
 		super.clickOnSubmit("Update");
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(auditingRecordIndex, 0, subject);
+		super.checkColumnHasValue(auditingRecordIndex, 0, "*" + subject);
 		super.checkColumnHasValue(auditingRecordIndex, 1, mark);
 		super.checkColumnHasValue(auditingRecordIndex, 2, draftmode);
 
 		super.clickOnListingRecord(auditingRecordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("subject", subject);
+		super.checkInputBoxHasValue("subject", "*" + subject);
 		super.checkInputBoxHasValue("mark", mark);
 		super.checkInputBoxHasValue("assesment", assesment);
 		super.checkInputBoxHasValue("auditingPeriodInitial", beginning);
@@ -68,7 +69,7 @@ public class AuditorAuditingRecordsUpdateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/auditing-records/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int auditIndex, final int auditingRecordIndex, final String subject, final String mark, final String assesment, final String beginning, final String ending, final String furtherInformation) {
+	public void test200Negative(final int auditIndex, final int auditingRecordIndex, final String subject, final String mark, final String assesment, final String beginning, final String ending, final String furtherInformation, final String confirmation) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -89,6 +90,7 @@ public class AuditorAuditingRecordsUpdateTest extends TestHarness {
 		super.fillInputBoxIn("auditingPeriodInitial", beginning);
 		super.fillInputBoxIn("auditingPeriodEnd", ending);
 		super.fillInputBoxIn("furtherInformation", furtherInformation);
+		super.fillInputBoxIn("confirmation", confirmation);
 		super.clickOnSubmit("Update");
 
 		super.checkErrorsExist();
