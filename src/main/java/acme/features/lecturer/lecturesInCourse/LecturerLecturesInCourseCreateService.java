@@ -93,6 +93,8 @@ public class LecturerLecturesInCourseCreateService extends AbstractService<Lectu
 			}
 		if (!alreadyInBD)
 			this.repository.save(object);
+		else
+			super.getResponse().setAuthorised(false);
 
 	}
 

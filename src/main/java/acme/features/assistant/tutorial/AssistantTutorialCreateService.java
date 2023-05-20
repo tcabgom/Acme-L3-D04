@@ -3,10 +3,10 @@ package acme.features.assistant.tutorial;
 
 import java.util.Collection;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.lecture.Course;
 import acme.entities.tutorial.Tutorial;
 import acme.framework.components.jsp.SelectChoices;
@@ -20,10 +20,9 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialRepository repository;
+	protected AssistantTutorialRepository	repository;
 	@Autowired
-	protected AuxiliaryService auxiliaryService;
-
+	protected AuxiliaryService				auxiliaryService;
 
 	// Abstract Service interface ----------------------------------------------
 
@@ -35,7 +34,9 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Assistant.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -70,22 +71,17 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			final Tutorial potentialDuplicate = this.repository.findOneTutorialByCode(object.getCode());
 			super.state(potentialDuplicate == null, "code", "assistant.tutorial.form.error.code");
-			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("title")) {
-			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(this.auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
 
-		if (!super.getBuffer().getErrors().hasErrors("tutorialAbstract")) {
-			super.state(auxiliaryService.validateString(object.getTutorialAbstract()), "tutorialAbstract", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("tutorialAbstract"))
+			super.state(this.auxiliaryService.validateString(object.getTutorialAbstract()), "tutorialAbstract", "acme.validation.spam");
 
-		if (!super.getBuffer().getErrors().hasErrors("goals")) {
-			super.state(auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
-		}
-
-
+		if (!super.getBuffer().getErrors().hasErrors("goals"))
+			super.state(this.auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
 
 	}
 

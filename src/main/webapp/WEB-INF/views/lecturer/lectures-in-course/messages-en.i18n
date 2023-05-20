@@ -7,3 +7,4 @@ lecturer.lecturesInCourse.form.button.create = Add to the course
 
 lecturer.lecturesInCourse.form.error.lecture = Already in the course
 lecturer.lecturesInCourse.form.error.course = Course must be in draft mode
+lecturer.lecturesInCourse.form.error.courseNull = Course must not be null

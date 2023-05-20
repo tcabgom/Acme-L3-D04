@@ -56,7 +56,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 		Collection<Course> courses;
 		String param;
 
-		courses = this.repository.findManyCoursesByLecturerUsername("auditor1");
+		courses = this.repository.findManyCoursesByLecturerUsername("lecturer1");
 		for (final Course course : courses) {
 			param = String.format("id=%d", course.getId());
 

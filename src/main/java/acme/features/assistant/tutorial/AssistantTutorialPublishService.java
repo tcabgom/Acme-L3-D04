@@ -3,12 +3,12 @@ package acme.features.assistant.tutorial;
 
 import java.util.Collection;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.lecture.Course;
 import acme.entities.tutorial.Tutorial;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -21,8 +21,6 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 
 	@Autowired
 	protected AssistantTutorialRepository repository;
-	@Autowired
-	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -39,19 +37,22 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 	@Override
 	public void authorise() {
 		final boolean status;
-		final int tutorialId;
+		final int id;
 		Tutorial tutorial;
-		Assistant assistant;
+		final Assistant assistant;
 
-		tutorialId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(tutorialId);
-		assistant = tutorial == null ? null : tutorial.getAssistant();
-		final boolean assistantOwnsTutorial = tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
-		final int numberOfSessions = this.repository.findManyTutorialSessionsByTutorialId(tutorial).size();
+		id = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialById(id);
+		final Principal principal = super.getRequest().getPrincipal();
+		final int userAccountId = principal.getAccountId();
 
-		status = tutorial != null && numberOfSessions > 0 && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(assistant) && assistantOwnsTutorial;
+		final boolean userIsAssistant = super.getRequest().getPrincipal().hasRole(Assistant.class);
+		final boolean tutorialIsNotPublished = tutorial.isDraftMode();
+		final boolean assistantOwnsTutorial = tutorial.getAssistant().getUserAccount().getId() == userAccountId;
+		final boolean tutorialHasSessions = this.repository.findManyTutorialSessionsByTutorialId(tutorial).size() > 0;
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(userIsAssistant && tutorialIsNotPublished && assistantOwnsTutorial && tutorialHasSessions);
+
 	}
 
 	@Override
@@ -82,22 +83,6 @@ public class AssistantTutorialPublishService extends AbstractService<Assistant, 
 	@Override
 	public void validate(final Tutorial object) {
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("title")) {
-			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("tutorialAbstract")) {
-			super.state(auxiliaryService.validateString(object.getTutorialAbstract()), "tutorialAbstract", "acme.validation.spam");
-		}
-
-		if (!super.getBuffer().getErrors().hasErrors("goals")) {
-			super.state(auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
-		}
 
 	}
 

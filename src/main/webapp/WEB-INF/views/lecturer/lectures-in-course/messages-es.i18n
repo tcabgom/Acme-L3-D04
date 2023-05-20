@@ -7,3 +7,4 @@ lecturer.lecturesInCourse.form.button.create = Añadir al curso
 
 lecturer.lecturesInCourse.form.error.lecture = Ya pertenece al curso
 lecturer.lecturesInCourse.form.error.course = El curso debe estar en modo borrador
+lecturer.lecturesInCourse.form.error.courseNull = El curso no debe ser nulo
