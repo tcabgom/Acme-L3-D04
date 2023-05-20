@@ -11,7 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.lecture.Lecture;
 import acme.testing.TestHarness;
 
-public class LecturerLecturePublishTest extends TestHarness {
+public class LecturerLectureDeleteTest extends TestHarness {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -21,11 +22,10 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/lecture/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/lecture/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String title) {
-		// HINT: this test logs in as a lecturer, lists his or her courses, 
-		// HINT+ selects one of them, updates it, and then checks that 
-		// HINT+ the update has actually been performed.
+		// HINT: this test authenticates as a lecturer and then lists his or her
+		// HINT: lectures, creates a new one, and check that it's been created properly.
 
 		super.signIn("lecturer1", "lecturer1");
 
@@ -36,16 +36,17 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.clickOnSubmit("Publish");
+		super.clickOnSubmit("Delete");
 		super.checkNotErrorsExist();
 
 		super.signOut();
+
 	}
 
 	@Test
 	public void test200Negative() {
 		// HINT: there aren't any negative tests for this feature because
-		// HINT+ there is no button when it can't be published.
+		// HINT+ there is no button when it can't be deleted.
 	}
 
 	@Test
@@ -61,16 +62,16 @@ public class LecturerLecturePublishTest extends TestHarness {
 			param = String.format("id=%d", lecture.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/lecturer/lecture/publish", param);
+			super.request("/lecturer/lecture/delete", param);
 			super.checkPanicExists();
 
 			super.signIn("administrator1", "administrator1");
-			super.request("/lecturer/lecture/publish", param);
+			super.request("/lecturer/lecture/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("assistant1", "assistant1");
-			super.request("/lecturer/lecture/publish", param);
+			super.request("/lecturer/lecture/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 		}
@@ -86,7 +87,7 @@ public class LecturerLecturePublishTest extends TestHarness {
 		for (final Lecture lecture : lectures)
 			if (!lecture.isDraftMode()) {
 				params = String.format("id=%d", lecture.getId());
-				super.request("/lecturer/lecture/publish", params);
+				super.request("/lecturer/lecture/delete", params);
 			}
 		super.signOut();
 	}
@@ -103,7 +104,7 @@ public class LecturerLecturePublishTest extends TestHarness {
 		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer1");
 		for (final Lecture lecture : lectures) {
 			params = String.format("id=%d", lecture.getId());
-			super.request("/lecturer/lecture/publish", params);
+			super.request("/lecturer/lecture/delete", params);
 		}
 		super.signOut();
 	}

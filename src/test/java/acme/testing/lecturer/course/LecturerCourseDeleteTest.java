@@ -11,7 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.entities.lecture.Course;
 import acme.testing.TestHarness;
 
-public class LecturerCoursePublishTest extends TestHarness {
+public class LecturerCourseDeleteTest extends TestHarness {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -21,7 +22,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/lecturer/course/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/lecturer/course/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int recordIndex, final String code) {
 		// HINT: this test logs in as a lecturer, lists his or her courses, 
 		// HINT+ selects one of them, updates it, and then checks that 
@@ -36,7 +37,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.clickOnSubmit("Publish");
+		super.clickOnSubmit("Delete");
 		super.checkNotErrorsExist();
 
 		super.signOut();
@@ -61,16 +62,16 @@ public class LecturerCoursePublishTest extends TestHarness {
 			param = String.format("id=%d", course.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/lecturer/course/publish", param);
+			super.request("/lecturer/course/delete", param);
 			super.checkPanicExists();
 
 			super.signIn("administrator1", "administrator1");
-			super.request("/lecturer/course/publish", param);
+			super.request("/lecturer/course/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("assistant1", "assistant1");
-			super.request("/lecturer/course/publish", param);
+			super.request("/lecturer/course/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 		}
@@ -86,7 +87,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 		for (final Course course : courses)
 			if (!course.isDraftMode()) {
 				params = String.format("id=%d", course.getId());
-				super.request("/lecturer/course/publish", params);
+				super.request("/lecturer/course/delete", params);
 			}
 		super.signOut();
 	}
@@ -103,7 +104,7 @@ public class LecturerCoursePublishTest extends TestHarness {
 		courses = this.repository.findManyCoursesByLecturerUsername("lecturer1");
 		for (final Course course : courses) {
 			params = String.format("id=%d", course.getId());
-			super.request("/auditor/audit/publish", params);
+			super.request("/auditor/audit/delete", params);
 		}
 		super.signOut();
 	}
