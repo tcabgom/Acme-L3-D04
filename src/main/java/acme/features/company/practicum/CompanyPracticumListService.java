@@ -42,7 +42,9 @@ public class CompanyPracticumListService extends AbstractService<Company, Practi
 	@Override
 	public void unbind(final Practicum object) {
 		assert object != null;
+
 		final Tuple tuple = super.unbind(object, "code", "title", "abstractPracticum", "goals", "draftMode");
+
 		super.getResponse().setData(tuple);
 	}
 

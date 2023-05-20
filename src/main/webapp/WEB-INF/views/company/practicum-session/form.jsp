@@ -14,9 +14,12 @@
 	
 	<jstl:choose>
         <jstl:when test="${_command == 'create'}">
+        	<jstl:if test="${extraSession}">
+        			<acme:input-checkbox code="authenticated.note.form.label.confirmation" path="confirmation"/>
+        	</jstl:if>
             <acme:submit code="company.practicumSession.form.button.create" action="/company/practicum-session/create?practicumId=${practicumId}"/>
         </jstl:when>
-        <jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+        <jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode==true}">
             <acme:submit code="company.practicumSession.form.button.update" action="/company/practicum-session/update?practicumId=${practicumId}"/>
             <acme:submit code="company.practicumSession.form.button.delete" action="/company/practicum-session/delete?practicumId=${practicumId}"/>
         </jstl:when>

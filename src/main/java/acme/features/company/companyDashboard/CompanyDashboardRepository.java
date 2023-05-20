@@ -20,8 +20,8 @@ public interface CompanyDashboardRepository extends AbstractRepository {
 	@Query("select p from Practicum p where p.company.id = :id")
 	Collection<Practicum> findPracticumsByCompanyId(int id);
 
-	@Query("select COUNT(ps) from PracticumSession ps where MONTH(ps.start) = :month and ps.practicum.company.id = :id")
-	Integer findNumberOfPracticaByMonthAndCompany(int month, int id);
+	@Query("select COUNT(ps) from PracticumSession ps where MONTH(ps.start) = :month and ps.practicum.company.id = :id and YEAR(ps.start) > :year-1")
+	Integer findNumberOfPracticaByMonthAndCompany(int month, int year, int id);
 
 	@Query("select COUNT(ps) from PracticumSession ps where ps.practicum.company.id = :id")
 	int findNumberOfSessionByCompany(int id);

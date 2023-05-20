@@ -1,0 +1,28 @@
+practicumRecordIndex,practicumSessionRecordIndex,title,abstractSession,start,finish,link,extraSession
+2,0,<b>normal title</b>,normal summary,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,1,a,normal summary,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,2,ab,normal summary,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,3,normal title,ab,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,4,normal title,a,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,5,normal title,normal summary,2021/12/31 23:59,2023/06/03 09:00,http://normalLink.com,false
+2,6,normal title,normal summary,2023/01/01 12:00,2023/06/03 09:00,http://normalLink.com,false
+2,7,normal title,normal summary,2022/01/13 12:00,2023/06/03 09:00,http://normalLink.com,false
+2,8,normal title,normal summary,2022/01/01 00:00,2023/06/03 09:00,http://normalLink.com,false
+2,9,normal title,"<script>alert(""hi"")</script>",2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,10,normal title,κανονική περίληψη,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,11,normal title,Normal summary with 99 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,12,normal title,Normal summary with 100 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,13,normal title,normal summary,2023/12/31 00:00,2023/06/03 09:00,http://normalLink.com,false
+2,14,normal title,normal summary,2023/11/03 09:00,2024/01/13 12:00,http://normalLink.com,false
+2,15,normal title,normal summary,2023/11/03 09:00,2024/01/01 00:00,http://normalLink.com,false
+2,16,normal title,normal summary,2023/01/03 09:00,2023/06/03 09:00,,false
+2,17,normal title,normal summary,2023/01/03 09:00,2023/06/03 09:00,ftp://user:pass@acme.org,false
+2,18,normal title,normal summary,2023/01/03 09:00,2023/06/03 09:00,http://www.acme.com/a?b,false
+2,19,normal title,normal summary,2023/01/03 09:00,2023/06/03 09:00,http://www.acme.com/a/b,false
+2,20,normal title,normal summary,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,21,normal title,normal summary,2023/11/03 09:00,2024/12/31 00:00,http://normalLink.com,false
+2,22,normal title,normal summary,2023/01/03 09:00,2023/06/03 09:00,,false
+2,23,normal title,normal summary,2023/11/03 09:00,2023/12/31 23:59,http://normalLink.com,false
+2,24,normal title,normal summary,2023/11/03 09:00,2024/01/01 12:00,http://normalLink.com,false
+2,25,Normal title with 74 characterssssssssssssssssssssssssssssssssssssssssssss,normal summary,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
+2,26,Normal title with 75 charactersssssssssssssssssssssssssssssssssssssssssssss,normal summary,2023/01/03 09:00,2023/06/03 09:00,http://normalLink.com,false
