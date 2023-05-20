@@ -2,16 +2,20 @@
 package acme.features.administrator.administratorDashboard;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
 import acme.entities.bulletin.Bulletin;
 import acme.entities.configuration.Configuration;
+import acme.entities.lecture.Course;
+import acme.entities.lecture.Lecture;
 import acme.entities.note.Note;
 import acme.entities.offer.Offer;
 import acme.entities.peep.Peep;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Lecturer;
 
 public interface AdministratorDashboardRepository extends AbstractRepository {
 
@@ -48,16 +52,16 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select a from Administrator a where a.userAccount.id = :id")
 	Administrator findOneAdministratorByUserAccountId(int id);
 
-	@Query("select c from Configuration c where c.id = 0")
-	Configuration findConfiguration();
+	@Query("select c from Configuration c ")
+	List<Configuration> findConfiguration();
 
-	//	@Query("select l from Lecture l where l.lecturer = :lecturer")
-	//	Collection<Lecture> findLecturesByLecturer(Lecturer lecturer);
-	//
-	//	@Query("select c from Course c where c.lecturer.id = :id")
-	//	Collection<Course> findManyCoursesByLecturerId(int id);
-	//
-	//	@Query("select l from Lecture l join LecturesInCourse lc on lc.course.id = :id and lc.lecture.id = l.id")
-	//	Collection<Lecture> findManyLecturesByCourseId(int id);
+	@Query("select l from Lecture l where l.lecturer = :lecturer")
+	Collection<Lecture> findLecturesByLecturer(Lecturer lecturer);
+
+	@Query("select c from Course c where c.lecturer.id = :id")
+	Collection<Course> findManyCoursesByLecturerId(int id);
+
+	@Query("select l from Lecture l join LecturesInCourse lc on lc.course.id = :id and lc.lecture.id = l.id")
+	Collection<Lecture> findManyLecturesByCourseId(int id);
 
 }
