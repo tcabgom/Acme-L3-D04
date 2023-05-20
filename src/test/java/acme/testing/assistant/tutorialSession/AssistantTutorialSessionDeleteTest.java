@@ -4,6 +4,8 @@ package acme.testing.assistant.tutorialSession;
 import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.entities.tutorialSession.TutorialSession;
@@ -19,8 +21,9 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 	// Test data --------------------------------------------------------------
 
 
-	@Test
-	public void test100Positive() {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/assistant/tutorial-session/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test100Positive(final int firstRecordIndex, final String firstTitle, final int secondRecordIndex, final String secondTitle) {
 
 		super.signIn("assistant1", "assistant1");
 
@@ -34,10 +37,10 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(0, 0, "<h1>Este atributo es muy bonito</h1>");
-		super.checkColumnHasValue(1, 0, "A normal Title ");
+		super.checkColumnHasValue(firstRecordIndex, 0, firstTitle);
+		super.checkColumnHasValue(secondRecordIndex, 0, secondTitle);
 
-		super.clickOnListingRecord(0);
+		super.clickOnListingRecord(firstRecordIndex);
 		super.checkFormExists();
 		super.clickOnSubmit("Delete Session");
 		super.checkNotErrorsExist();
@@ -49,10 +52,11 @@ public class AssistantTutorialSessionDeleteTest extends TestHarness {
 		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.clickOnButton("Manage Sessions");
-		super.checkColumnHasValue(1, 0, "A normal Title");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(0, 0, "A normal Title");
+		super.checkColumnHasValue(secondRecordIndex - 1, 0, secondTitle);
+
+		super.signOut();
 
 	}
 
