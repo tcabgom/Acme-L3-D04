@@ -1,0 +1,14 @@
+code,motivation,goals,course
+# Code restrictions
+AAAA123,valid,valid,A title with &amp; symbol
+AAA1233,valid,valid,A title with &amp; symbol
+abc126,valid,valid,A title with &amp; symbol
+ABC,valid,valid,A title with &amp; symbol
+A123,valid,valid,A title with &amp; symbol
+123,valid,valid,A title with &amp; symbol
+#Motivation restrictions
+A678,,valid,A title with &amp; symbol
+A678,76charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,valid,A title with &amp; symbol
+#Goals restrictions
+A678,valid,,A title with &amp; symbol
+A678,valid,101charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,A title with &amp; symbol
