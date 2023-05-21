@@ -32,7 +32,9 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -53,7 +55,7 @@ public class AdministratorOfferShowService extends AbstractService<Administrator
 		Tuple tuple;
 
 		tuple = super.unbind(object, "instantiatiation", "header", "summary", "availabilityPeriodStart", "availabilityPeriodEnd", "price", "moreInfo");
-		final boolean readonly = MomentHelper.getCurrentMoment().after(object.getAvailabilityPeriodStart());
+		final boolean readonly = MomentHelper.getCurrentMoment().after(object.getAvailabilityPeriodStart()) || MomentHelper.getCurrentMoment().equals(object.getAvailabilityPeriodStart());
 		tuple.put("readonly", readonly);
 
 		super.getResponse().setData(tuple);

@@ -40,7 +40,10 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 
 		object = this.repository.findOneOfferById(id);
 
-		super.getResponse().setAuthorised(now.compareTo(object.getAvailabilityPeriodEnd()) < 0);
+		final boolean availabilityPeriodEnded = now.compareTo(object.getAvailabilityPeriodEnd()) < 0;
+		final boolean authenticated = super.getRequest().getPrincipal().isAuthenticated();
+
+		super.getResponse().setAuthorised(availabilityPeriodEnded && authenticated);
 	}
 
 	@Override

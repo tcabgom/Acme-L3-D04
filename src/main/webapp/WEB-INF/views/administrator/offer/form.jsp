@@ -17,7 +17,7 @@
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit         code="administrator.offer.form.button.create"        action="/administrator/offer/create"/>
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && !readonly}"> 
 			<acme:submit code="administrator.offer.form.button.update" action="/administrator/offer/update"/>
 			<acme:submit code="administrator.offer.form.button.delete" action="/administrator/offer/delete"/>
 		</jstl:when>
