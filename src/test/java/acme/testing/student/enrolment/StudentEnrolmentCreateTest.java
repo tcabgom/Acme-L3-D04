@@ -9,12 +9,12 @@ public class StudentEnrolmentCreateTest extends TestHarness {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/student/enrolment/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test100Positive(final int recordIndex, final String haveRole, final String role, final String code, final String motivation, final String goals) {
+    public void test100Positive(final String code, final String motivation, final String goals, final String course) {
         // HINT: this test authenticates as a role or doesnt authenticate, and then lists all enrolments
         // HINT: , creates a new one, and check that it's been created properly.
 
-        if (Integer.parseInt(haveRole) != 0)
-            super.signIn(role, role);
+
+        super.signIn("student1", "student1");
         //on test roles, username and pass are equal
         super.clickOnMenu("Student", "See your enrolments");
         super.checkListingExists();
@@ -23,32 +23,29 @@ public class StudentEnrolmentCreateTest extends TestHarness {
         super.fillInputBoxIn("code", code);
         super.fillInputBoxIn("motivation", motivation);
         super.fillInputBoxIn("goals", goals);
-        // Select menu?
+        super.fillInputBoxIn("course", course);
         super.clickOnSubmit("Create");
 
         super.clickOnMenu("Student", "See your enrolments");
-        super.checkListingExists();
-        super.sortListing(0, "asc");
-        super.checkColumnHasValue(recordIndex, 1, code);
-        super.checkColumnHasValue(recordIndex, 2, motivation);
-        super.clickOnListingRecord(recordIndex);
+        super.sortListing(1,"desc");
+        super.checkColumnHasValue(0, 1, code);
+        super.checkColumnHasValue(0, 2, motivation);
+        super.clickOnListingRecord(0);
 
-        super.checkFormExists();
         super.checkInputBoxHasValue("code", code);
         super.checkInputBoxHasValue("motivation", motivation);
         super.checkInputBoxHasValue("goals", goals);
+        super.checkInputBoxHasValue("course", course);
 
-        if (Integer.parseInt(haveRole) != 0)
-            super.signOut();
+        super.signOut();
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/student/enrolment/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test200Negative(final int recordIndex, final String haveRole, final String role, final String code, final String motivation, final String goals) {
+    public void test200Negative(final String code, final String motivation, final String goals, final String course) {
         // HINT: this test attempts to create enrolments with incorrect data.
 
-        if (Integer.parseInt(haveRole) != 0)
-            super.signIn(role, role);
+        super.signIn("student1", "student1");
         //on test roles, username and pass are equal
         super.clickOnMenu("Student", "See your enrolments");
         super.clickOnButton("Create enrolment");
@@ -57,20 +54,18 @@ public class StudentEnrolmentCreateTest extends TestHarness {
         super.fillInputBoxIn("code", code);
         super.fillInputBoxIn("motivation", motivation);
         super.fillInputBoxIn("goals", goals);
-        // Select menu?
+        super.fillInputBoxIn("course", course);
         super.clickOnSubmit("Create");
 
         super.checkErrorsExist();
 
-        if (Integer.parseInt(haveRole) != 0)
-            super.signOut();
+        super.signOut();
 
     }
 
     @Test
     public void test300Hacking() {
 
-        super.checkLinkExists("Sign in");
         super.request("/student/enrolment/create");
         super.checkPanicExists();
 

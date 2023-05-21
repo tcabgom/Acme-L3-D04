@@ -3,6 +3,7 @@ package acme.testing.student.enrolment;
 import acme.entities.enrolment.Enrolment;
 import acme.entities.lecture.Course;
 import acme.testing.TestHarness;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,13 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
     @ParameterizedTest
     @CsvFileSource(resources = "/student/enrolment/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 
-    public void test100Positive(final int recordIndex, final String haveRole, final String role, final String code, final String motivation, final String goals, final String course) {
+    public void test100Positive(final String code, final String motivation, final String goals, final String course) {
         // HINT: this test updates an enrolment
+
+        super.signIn("student1", "student1");
         super.clickOnMenu("Student", "See your enrolments");
-        super.sortListing(0, "asc");
-        super.clickOnListingRecord(recordIndex);
+        super.sortListing(1, "desc");
+        super.clickOnListingRecord(0);
         super.checkFormExists();
 
         super.fillInputBoxIn("code", code);
@@ -35,28 +38,29 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
         super.clickOnSubmit("Update");
 
         super.clickOnMenu("Student", "See your enrolments");
-        super.checkListingExists();
-        super.sortListing(0, "asc");
-        super.checkColumnHasValue(recordIndex, 1, code);
-        super.checkColumnHasValue(recordIndex, 2, motivation);
-        super.clickOnListingRecord(recordIndex);
+        super.sortListing(1, "desc");
+        super.checkColumnHasValue(0, 1, code);
+        super.checkColumnHasValue(0, 2, motivation);
+        super.clickOnListingRecord(0);
 
         super.checkFormExists();
         super.checkInputBoxHasValue("code", code);
         super.checkInputBoxHasValue("motivation", motivation);
         super.checkInputBoxHasValue("goals", goals);
+        super.checkInputBoxHasValue("course", course);
 
-        if (Integer.parseInt(haveRole) != 0)
-            super.signOut();
+        super.signOut();
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/student/enrolment/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test200Negative(final int recordIndex, final String haveRole, final String role, final String code, final String motivation, final String goals, String course) {
+    public void test200Negative(final String code, final String motivation, final String goals, String course) {
         // HINT: this test attempts to update enrolments with incorrect data.
+        super.signIn("student1", "student1");
+
         super.clickOnMenu("Student", "See your enrolments");
-        super.sortListing(0, "asc");
-        super.clickOnListingRecord(recordIndex);
+        super.sortListing(0, "desc");
+        super.clickOnListingRecord(0);
         super.checkFormExists();
 
         super.fillInputBoxIn("code", code);
@@ -67,10 +71,10 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
 
         super.checkErrorsExist();
 
-        if (Integer.parseInt(haveRole) != 0)
-            super.signOut();
+        super.signOut();
     }
 
+    @Test
     public void test300Hacking() {
         // HINT: this test attempts to update enrolments that are already finalised
 
@@ -86,20 +90,34 @@ public class StudentEnrolmentUpdateTest extends TestHarness {
         super.signOut();
     }
 
+    @Test
     public void test301Hacking() {
         // HINT: this test tries to update an enrolment that wasn't registered by the principal,
-        // HINT+ be it published or unpublished.
 
         Collection<Enrolment> enrolments = this.repository.findByStudentUsername("student1");
         String param;
 
-        super.signIn("student2", "student2");
         for (final Enrolment enrolment : enrolments) {
+
             param = String.format("id=%d", enrolment.getId());
             super.request("/student/enrolment/update", param);
             super.checkPanicExists();
+
+            super.signIn("student2", "student2");
+            super.request("/student/enrolment/update", param);
+            super.checkPanicExists();
+            super.signOut();
+
+            super.signIn("lecturer1", "lecturer1");
+            super.request("/student/enrolment/update", param);
+            super.checkPanicExists();
+            super.signOut();
+
+            super.signIn("administrator1", "administrator1");
+            super.request("/student/enrolment/update", param);
+            super.checkPanicExists();
+            super.signOut();
         }
-        super.signOut();
     }
 
 }

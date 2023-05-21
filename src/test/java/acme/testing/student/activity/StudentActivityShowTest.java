@@ -20,14 +20,14 @@ public class StudentActivityShowTest extends TestHarness {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/student/activity/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test100positive(final int enrolmentRecordIndex, final int activityRecordIndex, final String title, final String activityAbstract, final String type, final String periodStart, final String periodEnd, final String furtherInformation) {
+    public void test100positive(final int activityRecordIndex, final String title, final String activityAbstract, final String type, final String periodStart, final String periodEnd, final String furtherInformation) {
         // HINT: lists the activities, clicks on
         // HINT+ one of them, and then checks that the listing has the expected data.
 
         super.signIn("student1", "student1");
         super.clickOnMenu("Student", "See your enrolments");
-        super.sortListing(1, "asc");
-        super.clickOnListingRecord(enrolmentRecordIndex);
+        super.sortListing(0, "asc");
+        super.clickOnListingRecord(0);
         super.clickOnButton("Show workbook");
 
         super.sortListing(0, "asc");

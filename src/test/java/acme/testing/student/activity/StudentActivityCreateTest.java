@@ -20,13 +20,13 @@ public class StudentActivityCreateTest extends TestHarness {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/student/activity/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test100positive(final int enrolmentRecordIndex, final int activityRecord, final String title, final String activityAbstract, final String type, final String periodStart, final String periodEnd, final String furtherInformation) {
+    public void test100positive(final String title, final String activityAbstract, final String type, final String periodStart, final String periodEnd, final String furtherInformation) {
         // HINT: Creates a new activity, and then checks that the form has the expected data.
 
         super.signIn("student1", "student1");
         super.clickOnMenu("Student", "See your enrolments");
-        super.sortListing(1, "asc");
-        super.clickOnListingRecord(enrolmentRecordIndex);
+        super.sortListing(0, "asc");
+        super.clickOnListingRecord(0);
         super.clickOnButton("Show workbook");
 
         super.clickOnButton("Create activity in this workbook");
@@ -40,15 +40,15 @@ public class StudentActivityCreateTest extends TestHarness {
         super.clickOnSubmit("Create activity");
 
         super.clickOnMenu("Student", "See your enrolments");
-        super.sortListing(1, "asc");
-        super.clickOnListingRecord(enrolmentRecordIndex);
+        super.sortListing(0, "asc");
+        super.clickOnListingRecord(0);
         super.clickOnButton("Show workbook");
 
-        super.sortListing(0, "asc");
-        super.checkColumnHasValue(activityRecord, 0, title);
-        super.checkColumnHasValue(activityRecord, 1, type);
+        super.sortListing(0, "desc");
+        super.checkColumnHasValue(0, 0, title);
+        super.checkColumnHasValue(0, 1, type);
 
-        super.clickOnListingRecord(activityRecord);
+        super.clickOnListingRecord(0);
         super.checkInputBoxHasValue("title", title);
         super.checkInputBoxHasValue("activityAbstract", activityAbstract);
         super.checkInputBoxHasValue("type", type);
@@ -61,12 +61,12 @@ public class StudentActivityCreateTest extends TestHarness {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/student/activity/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test200negative(final int enrolmentRecordIndex, final String title, final String activityAbstract, final String type, final String periodStart, final String periodEnd, final String furtherInformation) {
+    public void test200negative(final String title, final String activityAbstract, final String type, final String periodStart, final String periodEnd, final String furtherInformation) {
 
         super.signIn("student1", "student1");
         super.clickOnMenu("Student", "See your enrolments");
-        super.sortListing(1, "asc");
-        super.clickOnListingRecord(enrolmentRecordIndex);
+        super.sortListing(0, "asc");
+        super.clickOnListingRecord(0);
         super.clickOnButton("Show workbook");
 
         super.clickOnButton("Create activity in this workbook");

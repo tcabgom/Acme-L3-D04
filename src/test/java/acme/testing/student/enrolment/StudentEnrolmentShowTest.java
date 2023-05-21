@@ -19,20 +19,23 @@ public class StudentEnrolmentShowTest extends TestHarness {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/student/enrolment/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test100positive(final int recordIndex, final String code, final String motivation, final String goals, final String creditCardHolder, final String creditCardNibble) {
+    public void test100positive(final int recordIndex, final String code, final String motivation, final String goals, final String course) {
         // HINT: lists the enrolments, clicks on
         // HINT+ one of them, and then checks that the enrolment has the expected data.
 
+        super.signIn("student1", "student1");
+
         super.clickOnMenu("Student", "See your enrolments");
-        super.sortListing(0, "asc");
+        super.sortListing(1, "asc");
         super.clickOnListingRecord(recordIndex);
         super.checkFormExists();
 
         super.checkInputBoxHasValue("code", code);
         super.checkInputBoxHasValue("motivation", motivation);
         super.checkInputBoxHasValue("goals", goals);
-        super.checkInputBoxHasValue("creditCardHolder", creditCardHolder);
-        super.checkInputBoxHasValue("creditCardNibble", creditCardNibble);
+        super.checkInputBoxHasValue("course", course);
+
+        super.signOut();
     }
 
     @Test

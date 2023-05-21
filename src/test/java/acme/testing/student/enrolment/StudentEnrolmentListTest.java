@@ -35,7 +35,17 @@ public class StudentEnrolmentListTest extends TestHarness {
 
     @Test
     public void test300Hacking() {
-        // HINT: There are no inappropriate roles to test this feature
+
+        super.signIn("administrator1", "administrator1");
+        super.request("/student/enrolment/list");
+        super.checkPanicExists();
+        super.signOut();
+
+        super.signIn("lecturer1", "lecturer1");
+        super.request("/student/enrolment/list");
+        super.checkPanicExists();
+        super.signOut();
+
     }
 
 }

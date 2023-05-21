@@ -19,12 +19,12 @@ public class StudentActivityListTest extends TestHarness {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/student/activity/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-    public void test100Positive(final int enrolmentRecordIndex, final int activityRecordIndex, final String title, final String type) {
+    public void test100Positive(final int activityRecordIndex, final String title, final String type) {
         super.signIn("student1", "student1");
 
         super.clickOnMenu("Student", "See your enrolments");
         super.sortListing(0, "asc");
-        super.clickOnListingRecord(enrolmentRecordIndex);
+        super.clickOnListingRecord(0);
         super.clickOnButton("Show workbook");
 
         super.checkListingExists();
@@ -48,7 +48,7 @@ public class StudentActivityListTest extends TestHarness {
         super.signIn("student2", "student2");
         String param;
 
-        Collection<Enrolment> enrolments = this.repository.findUnfinishedEnrolmentsByStudent("student1");
+        Collection<Enrolment> enrolments = this.repository.findFinishedEnrolmentsByStudent("student1");
 
         for(Enrolment enrolment : enrolments) {
             param = String.format("enrolmentId=%d", enrolment.getId());
@@ -69,7 +69,7 @@ public class StudentActivityListTest extends TestHarness {
 
         for (Enrolment enrolment : enrolments) {
             param = String.format("enrolmentId=%d", enrolment.getId());
-            super.request("/student/activity/list" + param);
+            super.request("/student/activity/list", param);
             super.checkPanicExists();
         }
 
