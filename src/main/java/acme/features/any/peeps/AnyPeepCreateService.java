@@ -3,6 +3,7 @@ package acme.features.any.peeps;
 
 import java.util.Date;
 
+import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,8 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 
 	@Autowired
 	protected AnyPeepRepository repository;
+	@Autowired
+	private AuxiliaryService auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -67,6 +70,19 @@ public class AnyPeepCreateService extends AbstractService<Any, Peep> {
 	@Override
 	public void validate(final Peep object) {
 		assert object != null;
+
+		if(!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+
+		if(!super.getBuffer().getErrors().hasErrors("nick"))
+			super.state(auxiliaryService.validateString(object.getNick()), "nick", "acme.validation.spam");
+
+		if(!super.getBuffer().getErrors().hasErrors("message"))
+			super.state(auxiliaryService.validateString(object.getMessage()), "message", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("link")) {
+			super.state(auxiliaryService.validateString(object.getLink()), "link", "acme.validation.spam");
+		}
 	}
 
 	@Override
