@@ -57,7 +57,7 @@ public class LecturerLectureShowTest extends TestHarness {
 		Collection<Lecture> lectures;
 		String param;
 
-		lectures = this.repository.findManyLecturesByLecturerUsername("employer1");
+		lectures = this.repository.findManyLecturesByLecturerUsername("lecturer1");
 		for (final Lecture lecture : lectures)
 			if (lecture.isDraftMode()) {
 				param = String.format("id=%d", lecture.getId());

@@ -33,8 +33,14 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 
 	@Override
 	public void authorise() {
+
+		Lecture object;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findLectureById(id);
 		final Principal principal = super.getRequest().getPrincipal();
-		super.getResponse().setAuthorised(principal.hasRole(Lecturer.class));
+		final int userAccountId = principal.getAccountId();
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId);
 	}
 
 	@Override
@@ -60,6 +66,9 @@ public class LecturerLectureShowService extends AbstractService<Lecturer, Lectur
 		tuple.put("confirmation", false);
 		tuple.put("choices", choices);
 		tuple.put("knowledge", choices.getSelected().getKey());
+
+		final boolean showDeleteFromCourse = !this.repository.findLecturesInCourseByLecture(object).isEmpty();
+		tuple.put("showDeleteFromCourse", showDeleteFromCourse);
 
 		super.getResponse().setData(tuple);
 	}

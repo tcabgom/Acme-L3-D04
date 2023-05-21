@@ -1,10 +1,10 @@
 
 package acme.features.authenticated.lecturer;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
@@ -18,9 +18,9 @@ public class AuthenticatedLecturerUpdateService extends AbstractService<Authenti
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedLecturerRepository repository;
+	protected AuthenticatedLecturerRepository	repository;
 	@Autowired
-	private AuxiliaryService auxiliaryService;
+	private AuxiliaryService					auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -59,24 +59,27 @@ public class AuthenticatedLecturerUpdateService extends AbstractService<Authenti
 	public void validate(final Lecturer object) {
 		assert object != null;
 
-		if(!super.getBuffer().getErrors().hasErrors("almaMater"))
-			super.state(auxiliaryService.validateString(object.getAlmaMater()), "almaMater", "acme.validation.spam");
+		if (!super.getBuffer().getErrors().hasErrors("almaMater"))
+			super.state(this.auxiliaryService.validateString(object.getAlmaMater()), "almaMater", "acme.validation.spam");
 
-		if(!super.getBuffer().getErrors().hasErrors("resume"))
-			super.state(auxiliaryService.validateString(object.getResume()), "resume", "acme.validation.spam");
+		if (!super.getBuffer().getErrors().hasErrors("resume"))
+			super.state(this.auxiliaryService.validateString(object.getResume()), "resume", "acme.validation.spam");
 
-		if(!super.getBuffer().getErrors().hasErrors("qualifications"))
-			super.state(auxiliaryService.validateString(object.getQualifications()), "qualifications", "acme.validation.spam");
+		if (!super.getBuffer().getErrors().hasErrors("qualifications"))
+			super.state(this.auxiliaryService.validateString(object.getQualifications()), "qualifications", "acme.validation.spam");
 
-		if(!super.getBuffer().getErrors().hasErrors("link"))
-			super.state(auxiliaryService.validateString(object.getLink()), "link", "acme.validation.spam");
+		if (!super.getBuffer().getErrors().hasErrors("link"))
+			super.state(this.auxiliaryService.validateString(object.getLink()), "link", "acme.validation.spam");
 
 	}
 
 	@Override
 	public void perform(final Lecturer object) {
 		assert object != null;
-		this.repository.save(object);
+		if (object.getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId())
+			this.repository.save(object);
+		else
+			super.getResponse().setAuthorised(false);
 	}
 
 	@Override

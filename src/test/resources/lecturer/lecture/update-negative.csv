@@ -1,23 +1,23 @@
-recordIndex,title1,title,lecAbstract,learningTime,body,knowledge,furtherInformation,
-5,U,,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,U
-5,U,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion+,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,U
-5,U,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion++,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion++++++++++++++++++++++++++,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,v4Es es un ejemplo de una cadena de 75 caracteres para probar la generacion,,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,v5Es es un ejemplo de una cadena de 75 caracteres para probar la generacio,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c+",5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,v6<b>A good title</b>,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c++",5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,v7<script> title with &lt;html&gt; tag</scr,Un Abstract,null,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,v6<script> title with &lt;html&gt; tag</script>,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c+++++++++++++++++++++",5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,v8A sample with &amp; symbol,Un Abstract,,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,v8A sample with &amp; symbol,Un Abstract,0.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,v9Un título,Un Abstract,-0.01,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,vaUn título,Un Abstract,-288.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,vbUn título,Un Abstract,1000.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,vcUn título,Un Abstract,1000.01,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,vdUn título,Un Abstract,99999.99,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,veUn título,Un Abstract,5.00,,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,vfUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c+",HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,vgUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c++",HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,vhUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c++++++++++++++++++++++++++++++++++",HANDS_ON,https://github.com/tcabgom/Acme-L3-D02,
-5,U,vhUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c++++++++++++++++++++++++++++++++++",---,https://github.com/tcabgom/Acme-L3-D02,
-5,U,viUn título,Un Abstract,5.00,un body válido,HANDS_ON,manuel,
+recordIndex,title1,title,lecAbstract,learningTime,body,knowledge,furtherInformation
+5,U,,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion+,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion++,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,Este es un ejemplo de una cadena de 75 caracteres para probar la generacion++++++++++++++++++++++++++,Un Abstract,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,v4Es es un ejemplo de una cadena de 75 caracteres para probar la generacion,,5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,v5Es es un ejemplo de una cadena de 75 caracteres para probar la generacio,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c+",5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,v6<b>A good title</b>,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c++",5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,v7<script> title with &lt;html&gt; tag</scr,Un Abstract,null,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,v6<script> title with &lt;html&gt; tag</script>,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c+++++++++++++++++++++",5.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,v8A sample with &amp; symbol,Un Abstract,,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,v8A sample with &amp; symbol,Un Abstract,0.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,v9Un título,Un Abstract,-0.01,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,vaUn título,Un Abstract,-288.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,vbUn título,Un Abstract,1000.00,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,vcUn título,Un Abstract,1000.01,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,vdUn título,Un Abstract,99999.99,un body válido,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,veUn título,Un Abstract,5.00,,HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,vfUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c+",HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,vgUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c++",HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,vhUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c++++++++++++++++++++++++++++++++++",HANDS_ON,https://github.com/tcabgom/Acme-L3-D02
+5,U,vhUn título,Un Abstract,5.00,"Esta es otra cadena de prueba un poco más larga, pero aún dentro del límite de 100 caracteres para c++++++++++++++++++++++++++++++++++",---,https://github.com/tcabgom/Acme-L3-D02
+5,U,viUn título,Un Abstract,5.00,un body válido,HANDS_ON,manuel

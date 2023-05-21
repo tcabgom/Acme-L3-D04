@@ -15,6 +15,7 @@ assistant.tutorial.form.label.goals = Objetivos
 assistant.tutorial.form.label.estimatedTotalTime = Horas Totales Estimadas
 assistant.tutorial.form.label.draftMode = Modo Borrador
 assistant.tutorial.form.label.numberOfSessions = Número de Sesiones
+assistant.tutorial.form.label.hiddenButton = No se puede publicar el curso hasta que se cree al menos una sesión
 
 assistant.tutorial.form.button.create = Crear Tutorial
 assistant.tutorial.form.button.update = Modificar Tutorial
@@ -25,3 +26,4 @@ assistant.tutorial.form.button.sessions = Administrar Sesiones
 assistant.tutorial.form.error.code = Este código ya está en uso
 assistant.tutorial.form.error.emptyTutorial = El tutorial debe tener al menos una sesión antes de poder publicarse
 assistant.tutorial.form.error.spam = Este campo contiene lenguaje inapropiado
+
