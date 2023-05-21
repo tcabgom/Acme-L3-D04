@@ -1,1 +1,5 @@
 acme.validation.spam = Must not exceed the spam threshold
+javax.validation.constraints.AssertTrue.message = Must be true
+org.hibernate.validator.constraints.CreditCardNumber.message = Invalid credit card number
+javax.validation.constraints.Future.message = Must be in the future
+javax.validation.constraints.NotEmpty.message = Must not be empty

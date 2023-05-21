@@ -37,7 +37,13 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 		int id = super.getRequest().getData("id", int.class);
 		Enrolment object = this.repository.findById(id);
 
-		boolean status = !object.isFinished();
+		Enrolment enrolment = this.repository.findById(id);
+
+		int studentRoleId = super.getRequest().getPrincipal().getActiveRoleId();
+		Student student = enrolment.getStudent();
+		Student currentStudent = this.repository.findStudentById(studentRoleId);
+
+		boolean status = !enrolment.isFinished() && student.getId() == currentStudent.getId();
 		super.getResponse().setAuthorised(status);
 	}
 

@@ -41,14 +41,14 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	public void authorise() {
 
 		int id = super.getRequest().getData("id", int.class);
-		Enrolment object = this.repository.findById(id);
+		Enrolment enrolment = this.repository.findById(id);
 
-		final Principal principal = super.getRequest().getPrincipal();
-		final int userAccountId = principal.getAccountId();
-		final boolean enrolmentIsNotFinalised = !object.isFinished();
-		final boolean assistantOwnsTutorial = object.getStudent().getUserAccount().getId() == userAccountId;
+		int studentRoleId = super.getRequest().getPrincipal().getActiveRoleId();
+		Student student = enrolment.getStudent();
+		Student currentStudent = this.repository.findStudentById(studentRoleId);
 
-		super.getResponse().setAuthorised(enrolmentIsNotFinalised && assistantOwnsTutorial);
+		boolean status = !enrolment.isFinished() && student.getId() == currentStudent.getId();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

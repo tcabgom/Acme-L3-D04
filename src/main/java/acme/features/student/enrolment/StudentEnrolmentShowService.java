@@ -31,20 +31,17 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 	}
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
-	}
+		int id = super.getRequest().getData("id", int.class);
+		Enrolment enrolment = this.repository.findById(id);
 
-//	@Override
-//	public void bind(final Enrolment object) {
-//		assert object != null;
-//
-//		final int courseId = super.getRequest().getData("course", int.class);
-//		final Course course = this.repository.findCourseById(courseId);
-//		object.setCourse(course);
-//
-//		super.bind(object, "code", "motivation", "goals");
-//
-//	}
+		int studentRoleId = super.getRequest().getPrincipal().getActiveRoleId();
+		Student student = enrolment.getStudent();
+		Student currentStudent = this.repository.findStudentById(studentRoleId);
+
+		boolean status = student.getId() == currentStudent.getId();
+
+		super.getResponse().setAuthorised(status);
+	}
 
 	@Override
 	public void load() {
