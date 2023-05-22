@@ -35,13 +35,17 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int sessionId;
+		int tutorialOwnerId;
+		int assistantId;
 		Tutorial tutorial;
 
-		masterId = super.getRequest().getData("tutorialId", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
-		status = tutorial != null && tutorial.isDraftMode() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		sessionId = super.getRequest().getData("id", int.class);
+		tutorial = this.repository.findOneTutorialBySessionId(sessionId);
+		assistantId = super.getRequest().getPrincipal().getAccountId();
+		tutorialOwnerId = tutorial.getAssistant().getUserAccount().getId();
 
+		status = tutorial != null && tutorial.isDraftMode() && assistantId == tutorialOwnerId;
 		super.getResponse().setAuthorised(status);
 	}
 

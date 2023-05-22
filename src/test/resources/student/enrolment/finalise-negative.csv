@@ -1,0 +1,22 @@
+creditCardNibble,creditCardHolder,expirationDate,securityCode
+# Date restrictions
+4929974991859626,valid,22/07,123
+4929974991859626,valid,07/22,123
+4929974991859626,valid,22/22,123
+4929974991859626,valid,,123
+# Card holder restrictions
+4929974991859626,notvaliddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd,22/08,123
+4929974991859626,notvalidddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd,22/08,123
+4929974991859626,sex,22/08,123
+4929974991859626,,22/08,123
+# Code restrictions
+4929974991859626,valid,22/08,1234
+4929974991859626,valid,22/08,
+4929974991859626,valid,22/08,12
+4929974991859626,valid,22/08,1
+# Credit card restrictions
+not a number,valid,22/08,123
+,valid,22/08,123
+1234123412341234,valid,22/08,123
+
+

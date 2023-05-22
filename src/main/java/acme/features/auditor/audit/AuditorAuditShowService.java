@@ -34,8 +34,9 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void authorise() {
 		boolean status;
+		final Audit object = this.repository.findAuditById(super.getRequest().getData("id", int.class));
 
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
+		status = object.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && super.getRequest().getPrincipal().hasRole(Auditor.class);
 
 		super.getResponse().setAuthorised(status);
 	}

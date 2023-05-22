@@ -1,0 +1,4 @@
+auditIndex,code,auditingRecordIndex,subject,mark,assesment,beginningAuditingPeriod,endingAuditingPeriod,furtherInformation,draftmode
+2,KKC442,0,subject,A_plus,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true
+2,KKC442,1,subject,A,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true
+2,KKC442,2,subject,B,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true

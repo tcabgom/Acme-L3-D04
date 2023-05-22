@@ -43,8 +43,10 @@ public class Enrolment extends AbstractEntity {
     @Length(max = 100)
     protected String goals;
 
+    @Length(max = 75)
     protected String creditCardHolder;
 
+    @Length(max = 75)
     protected String creditCardNibble;
 
     protected boolean isFinished;
@@ -70,9 +72,7 @@ public class Enrolment extends AbstractEntity {
 
         long totalMillis = activities.stream().mapToLong(a -> (a.getPeriodEnd().getTime() - a.getPeriodStart().getTime())).sum();
 
-        System.out.println("Millis: " + totalMillis);
         double totalHours = totalMillis/1000/60/60;
-        System.out.println("Hours: " + totalHours);
         return Math.round(totalHours*100)/100.0;
     }
 

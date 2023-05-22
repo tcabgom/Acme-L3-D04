@@ -1,1 +1,40 @@
-recordIndex,haveRole,role,moment,title,initialNick,nick,message,email,link
+haveRole,role,publicationMoment,title,initialNick,nick,message,email,moreInfo
+0,,2020/01/13 09:00,!AAA FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!999 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!998 Test 変な言葉で書かれた普通のタイトル,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!997 Test Мне становится скучно,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!996 Test <script>alert('This value is invalid')</script>,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!995 Test <h1>Este atributo es muy bonito</h1>,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!994 Test ? ??rm#| ~|?T0{r}I@l,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!993,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2022/07/29 23:59,!992,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2022/07/30 00:00,!991,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!990,,A,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!989,,AB,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!988,,A description that is not normal because it has 99 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!987,,A description that is not normal because it has 100 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!986,,変な言葉で書かれた普通のタイトル,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!985,,Мне становится скучно,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!984,,<script>alert('This value is invalid')</script>,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!983,,<h1>Este atributo es muy bonito</h1>,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!982,,? ??rm#| #~?6DescRIptOOON,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!981,,normal nick,A,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!980,,normal nick,AB,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!979,,normal nick,A description that is not normal because it has 99 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!978,,normal nick,A description that is not normal because it has 100 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!977,,normal nick,変な言葉で書かれた普通のタイトル,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!976,,normal nick,Мне становится скучно,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!975,,normal nick,<script>alert('This value is invalid')</script>,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!974,,normal nick,<h1>Este atributo es muy bonito</h1>,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!973,,normal nick,? ??rm#| #~?6DescRIptOOON,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!972,,normal nick,normal message,,http://link.com
+0,,2020/01/13 09:00,!971,,normal nick,normal message,arealemail@yahoo.jap,http://link.com
+0,,2020/01/13 09:00,!970,,normal nick,normal message,normalemail@gmail.com,
+0,,2020/01/13 09:00,!969,,normal nick,normal message,normalemail@gmail.com,http://example.com/a?b
+0,,2020/01/13 09:00,!968,,normal nick,normal message,normalemail@gmail.com,http://example.com/a/b/c
+0,,2020/01/13 09:00,!967,,normal nick,normal message,normalemail@gmail.com,ftp://user:pass@scme.org
+1,administrator1,20201/1/13 09:00,!966,Administrator Acme,normal nick,normal message,normalemail@gmail.com,http://link.com
+1,assistant1,2020/01/13 09:00,!965,Tadeo Cabrera,normal nick,normal message,normalemail@gmail.com,http://link.com
+1,lecturer1,2020/01/13 09:00,!964,Profe Sor,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!0,,normal nick,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!,,normal nick,normal message,normalemail@gmail.com,http://link.com

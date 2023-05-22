@@ -22,13 +22,8 @@ public class AuditorAuditingRecordsDeleteService extends AbstractService<Auditor
 	@Override
 	public void check() {
 		boolean status;
-		AuditingRecords object;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findAuditingRecordById(id);
-
-		status = object.getAudit().getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && object.isDraftMode() && super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -36,8 +31,13 @@ public class AuditorAuditingRecordsDeleteService extends AbstractService<Auditor
 	@Override
 	public void authorise() {
 		boolean status;
+		AuditingRecords object;
+		int id;
 
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findAuditingRecordById(id);
+
+		status = object.getAudit().getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && object.isDraftMode() && object.getAudit().isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class);
 
 		super.getResponse().setAuthorised(status);
 	}

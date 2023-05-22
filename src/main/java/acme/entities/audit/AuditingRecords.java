@@ -41,10 +41,12 @@ public class AuditingRecords extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
+	@NotNull
 	protected Date				auditingPeriodInitial;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
+	@NotNull
 	protected Date				auditingPeriodEnd;
 
 	@NotNull

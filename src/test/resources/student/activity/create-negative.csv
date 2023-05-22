@@ -1,0 +1,16 @@
+title,activityAbstract,type,periodStart,periodEnd,furtherInformation
+# Title restrictions
+76charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,valid,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,https://valid.org
+,valid,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,https://valid.org
+sex,valid,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,https://valid.org
+# Abstract restrictions
+valid,101charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,https://valid.org
+valid,,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,https://valid.org
+valid,sex,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,https://valid.org
+# Period restrictions
+valid,valid,HANDS_ON,,2022/01/02 16:00,https://valid.org
+valid,valid,HANDS_ON,2022/01/02 14:00,2022/01/02 14:00,https://valid.org
+valid,valid,HANDS_ON,2022/01/02 14:00,2022/01/02 13:00,https://valid.org
+# Link restrictions
+valid,valid,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,https://sex.org
+valid,valid,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,not valid

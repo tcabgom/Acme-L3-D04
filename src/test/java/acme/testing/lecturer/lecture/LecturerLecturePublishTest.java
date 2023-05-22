@@ -22,7 +22,7 @@ public class LecturerLecturePublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/lecturer/lecture/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code) {
+	public void test100Positive(final int recordIndex, final String title) {
 		// HINT: this test logs in as a lecturer, lists his or her courses, 
 		// HINT+ selects one of them, updates it, and then checks that 
 		// HINT+ the update has actually been performed.
@@ -32,7 +32,7 @@ public class LecturerLecturePublishTest extends TestHarness {
 		super.clickOnMenu("Lecturer", "My Lectures");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(recordIndex, 0, code);
+		super.checkColumnHasValue(recordIndex, 0, title);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();

@@ -10,7 +10,9 @@
 	<acme:input-textbox code="auditor.records.form.label.assesment" path="assesment"/>
 	<acme:input-moment code="auditor.records.form.label.auditingPeriodInitial" path="auditingPeriodInitial"/>
 	<acme:input-moment code="auditor.records.form.label.auditingPeriodEnd" path="auditingPeriodEnd"/>
+	<acme:input-url code="auditor.records.form.label.furtherInformation" path="furtherInformation"/>
 	<acme:input-checkbox code="auditor.records.form.label.draftMode" path="draftMode" readonly="true"/>
+	<acme:input-checkbox code="auditor.records.form.label.confirmation" path="confirmation"/>
 	<jstl:choose>
         <jstl:when test="${_command == 'create'}">
             <acme:submit code="auditor.records.form.button.create" action="/auditor/auditing-records/create?auditId=${auditId }"/>
@@ -20,8 +22,7 @@
         	<acme:submit code="auditor.records.form.button.update" action="/auditor/auditing-records/update?auditId=${auditId}"/>
             <acme:submit code="auditor.records.form.button.delete" action="/auditor/auditing-records/delete?auditId=${auditId}"/>
             <acme:submit code="auditor.records.form.button.publish" action="/auditor/auditing-records/publish?auditId=${auditId}"/>
-        </jstl:if>
-            
+        </jstl:if>    
         </jstl:when>
     </jstl:choose>
 </acme:form>

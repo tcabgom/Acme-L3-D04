@@ -15,16 +15,19 @@
 	<acme:input-checkbox code="assistant.tutorial.form.label.draftMode"          path="draftMode"          readonly="true"/>
 
     <jstl:choose>
-        <jstl:when test="${_command == 'create'}">
-            <acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
-        </jstl:when>
+        <jstl:when test="${_command == 'create'}"> <acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/> </jstl:when>
         <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+        
             <acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorial-session/list?tutorialId=${id}"/>
             <jstl:if test="${draftMode}">
                 <acme:submit code="assistant.tutorial.form.button.update"   action="/assistant/tutorial/update"/>
            		<acme:submit code="assistant.tutorial.form.button.delete"   action="/assistant/tutorial/delete"/>
-                <acme:submit code="assistant.tutorial.form.button.publish"  action="/assistant/tutorial/publish"/>
+           		<jstl:choose>
+           			<jstl:when test="${numberOfSessions > 0}"> <acme:submit code="assistant.tutorial.form.button.publish"  action="/assistant/tutorial/publish"/> </jstl:when>
+            		<jstl:otherwise> <p><acme:message code="assistant.tutorial.form.label.hiddenButton"/></p> </jstl:otherwise>
+            	</jstl:choose>
             </jstl:if>
+            
         </jstl:when>
     </jstl:choose>
 

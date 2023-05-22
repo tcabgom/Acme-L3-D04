@@ -34,7 +34,11 @@ public class AdministratorOfferDeleteService extends AbstractService<Administrat
 	public void authorise() {
 		final int id = super.getRequest().getData("id", int.class);
 		final Offer object = this.repository.findOneOfferById(id);
-		super.getResponse().setAuthorised(MomentHelper.getCurrentMoment().before(object.getAvailabilityPeriodStart()));
+
+		final boolean isAdmin = super.getRequest().getPrincipal().hasRole(Administrator.class);
+		final boolean canBeModified = MomentHelper.getCurrentMoment().before(object.getAvailabilityPeriodStart());
+
+		super.getResponse().setAuthorised(canBeModified && isAdmin);
 	}
 
 	@Override
