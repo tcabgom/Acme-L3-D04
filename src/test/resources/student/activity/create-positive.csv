@@ -1,0 +1,4 @@
+title,activityAbstract,type,periodStart,periodEnd,furtherInformation
+z,2,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,https://example.org
+zTitle with 74 chars limittttttttttttttttttttttttttttttttttttttttttttttttt,Abstract with 99 chars limitttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt,THEORY,2022/01/01 08:00,2022/01/01 10:00,https://example.com
+zTitle with 75 chars limitttttttttttttttttttttttttttttttttttttttttttttttttt,Abstract with 100 chars limitttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt,HANDS_ON,2022/01/02 14:00,2022/01/02 16:00,https://example.org

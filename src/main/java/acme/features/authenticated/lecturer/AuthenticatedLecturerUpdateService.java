@@ -78,8 +78,6 @@ public class AuthenticatedLecturerUpdateService extends AbstractService<Authenti
 		assert object != null;
 		if (object.getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId())
 			this.repository.save(object);
-		else
-			super.getResponse().setAuthorised(false);
 	}
 
 	@Override

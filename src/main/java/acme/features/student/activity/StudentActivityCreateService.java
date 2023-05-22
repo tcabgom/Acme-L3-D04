@@ -56,8 +56,12 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
     public void validate(Activity object) {
         assert object != null;
 
+        Date periodStart = object.getPeriodStart();
+        Date periodEnd = object.getPeriodEnd();
+        boolean validPeriod = periodStart == null && periodEnd == null && MomentHelper.isAfterOrEqual(object.getPeriodEnd(), object.getPeriodStart());
+
         if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
-            super.state(MomentHelper.isAfterOrEqual(object.getPeriodEnd(), object.getPeriodStart()), "periodEnd", "student.activity.form.error.periodEnd");
+            super.state(validPeriod, "periodEnd", "student.activity.form.error.periodEnd");
         }
 
         if (!super.getBuffer().getErrors().hasErrors("title")) {

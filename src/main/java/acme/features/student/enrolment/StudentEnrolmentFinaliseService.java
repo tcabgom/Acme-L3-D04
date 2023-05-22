@@ -31,9 +31,13 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
     @Override
     public void authorise() {
         int id = super.getRequest().getData("id", int.class);
-        Enrolment object = this.repository.findById(id);
+        Enrolment enrolment = this.repository.findById(id);
 
-        boolean status = !object.isFinished();
+        int studentRoleId = super.getRequest().getPrincipal().getActiveRoleId();
+        Student student = enrolment.getStudent();
+        Student currentStudent = this.repository.findStudentById(studentRoleId);
+
+        boolean status = !enrolment.isFinished() && student.getId() == currentStudent.getId();
         super.getResponse().setAuthorised(status);
     }
 
@@ -88,7 +92,6 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
             super.state(validSecurityCode, "securityCode", "student.enrolment.form.error.invalidSecurityCode");
         }
 
-
         if (!super.getBuffer().getErrors().hasErrors("motivation")) {
             super.state(auxiliaryService.validateString(object.getMotivation()), "motivation", "acme.validation.spam" );
         }
@@ -126,7 +129,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
     }
 
     public static boolean isValidCreditCardNumber(String number) {
-        if (number == null || number.isEmpty()) {
+        if (number == null || number.isEmpty() || !number.matches("\\d*")) {
             return false;
         }
 

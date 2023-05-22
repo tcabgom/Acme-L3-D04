@@ -4,10 +4,10 @@ package acme.features.administrator.offer;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.offer.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
@@ -20,9 +20,9 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorOfferRepository repository;
+	protected AdministratorOfferRepository	repository;
 	@Autowired
-	protected AuxiliaryService auxiliaryService;
+	protected AuxiliaryService				auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -34,7 +34,9 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Administrator.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -74,15 +76,12 @@ public class AdministratorOfferCreateService extends AbstractService<Administrat
 			final Double amount = object.getPrice().getAmount();
 			super.state(amount < 1000000000 && amount >= 0, "price", "administrator.offer.form.error.price");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("header")) {
-			super.state(auxiliaryService.validateString(object.getHeader()), "header", "acme.validation.spam");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("summary")) {
-			super.state(auxiliaryService.validateString(object.getSummary()), "summary", "acme.validation.spam");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("moreInfo")) {
-			super.state(auxiliaryService.validateString(object.getMoreInfo()), "moreInfo", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("header"))
+			super.state(this.auxiliaryService.validateString(object.getHeader()), "header", "acme.validation.spam");
+		if (!super.getBuffer().getErrors().hasErrors("summary"))
+			super.state(this.auxiliaryService.validateString(object.getSummary()), "summary", "acme.validation.spam");
+		if (!super.getBuffer().getErrors().hasErrors("moreInfo"))
+			super.state(this.auxiliaryService.validateString(object.getMoreInfo()), "moreInfo", "acme.validation.spam");
 	}
 
 	@Override
