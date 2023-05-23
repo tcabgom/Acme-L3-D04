@@ -37,6 +37,7 @@
 			<acme:menu-suboption code="master.menu.administrator.show-configuration" action="/administrator/configuration/show"/>
 			<acme:menu-suboption code="master.menu.administrator.banner" action="/administrator/banner/list"/>
 			<acme:menu-suboption code="master.menu.administrator.offer" action="/administrator/offer/list"/>
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/admin-dashboard/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			

@@ -1,0 +1,27 @@
+administrator.dashboard.form.totalRoles= Cantidad Total de Usuarios por Rol
+administrator.dashboard.form.label.totalAdministrators=Total Administradores
+administrator.dashboard.form.label.totalAuditors=Total Auditores
+administrator.dashboard.form.label.totalAssistants=Total Asistentes
+administrator.dashboard.form.label.totalLecturers=Total Profesores
+administrator.dashboard.form.label.totalStudents=Total Estudiantes
+administrator.dashboard.form.label.totalCompanys=Total Compañías
+
+administrator.dashboard.form.title.ratios=Porcentajes Estadísticos
+administrator.dashboard.form.label.linkAndEmailPeepRatio=Porcentaje de 
+administrator.dashboard.form.label.criticalBulletinRatio=Porcentaje de Boletines Críticos
+administrator.dashboard.form.label.nonCriticalBulletinRatio=Porcentaje de Boletines No Críticos
+
+administrator.dashboard.form.title.budgetStatisticsByCurrency=Presupuesto Ofertas por Moneda
+administrator.dashboard.form.label.budgetStatisticsByCurrency.currency=Moneda
+administrator.dashboard.form.label.budgetStatisticsByCurrency.maximum=Máximo
+administrator.dashboard.form.label.budgetStatisticsByCurrency.minimum=Mínimo
+administrator.dashboard.form.label.budgetStatisticsByCurrency.average=Media
+administrator.dashboard.form.label.budgetStatisticsByCurrency.deviation=Desviación típica
+
+administrator.dashboard.form.title.notesPostedInLast10Weeks=Estadísticas de Notas en las Últimas 10 Semanas
+administrator.dashboard.form.label.notesPostedInLast10Weeks.maximum=Máximo
+administrator.dashboard.form.label.notesPostedInLast10Weeks.minimum=Mínimo
+administrator.dashboard.form.label.notesPostedInLast10Weeks.average=Media
+administrator.dashboard.form.label.notesPostedInLast10Weeks.deviation=Desviación típica
+
+administrator.dashboard.form.title.summary=Resumen de los Totales Por Rol

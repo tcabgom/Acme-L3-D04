@@ -39,7 +39,7 @@ master.menu.administrator.create-bulletin = Publicar boletín
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.banner= Gestionar Pancartas
 master.menu.administrator.show-configuration = Mostrar configuración
-
+master.menu.administrator.dashboard= Panel de Administrador
 
 # master.menu.provider ########################################################
 

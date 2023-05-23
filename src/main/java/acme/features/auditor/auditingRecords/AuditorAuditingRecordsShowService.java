@@ -27,15 +27,20 @@ public class AuditorAuditingRecordsShowService extends AbstractService<Auditor, 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findAuditingRecordById(id);
 
-		status = object.getAudit().getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
 	@Override
 	public void authorise() {
 		boolean status;
+		AuditingRecords object;
+		int id;
 
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findAuditingRecordById(id);
+
+		status = object.getAudit().getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && super.getRequest().getPrincipal().hasRole(Auditor.class);
 
 		super.getResponse().setAuthorised(status);
 	}
