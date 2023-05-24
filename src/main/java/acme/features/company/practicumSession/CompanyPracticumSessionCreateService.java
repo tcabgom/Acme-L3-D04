@@ -88,11 +88,11 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 		if (!super.getBuffer().getErrors().hasErrors("start"))
 			super.state(MomentHelper.isAfter(object.getStart(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS)), "start", "company.practicumSession.form.error.sessionStart");
 
-		if (!super.getBuffer().getErrors().hasErrors("finish"))
-			super.state(!MomentHelper.isPresentOrPast(object.getStart()), "finish", "company.pacticumSession.form.error.last-date");
-
 		if (!super.getBuffer().getErrors().hasErrors("start"))
-			super.state(!MomentHelper.isPresentOrPast(object.getFinish()), "start", "company.pacticumSession.form.error.last-date");
+			super.state(!MomentHelper.isPresentOrPast(object.getStart()), "start", "company.pacticumSession.form.error.last-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("finish"))
+			super.state(!MomentHelper.isPresentOrPast(object.getFinish()), "finish", "company.pacticumSession.form.error.last-date");
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))
 			super.state(this.auxiliaryService.validateString("title"), "title", "acme.validation.spam");

@@ -27,14 +27,19 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
+		final Practicum object = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
 
-		status = super.getRequest().getPrincipal().hasRole(Company.class);
+		status = object != null && super.getRequest().getPrincipal().hasRole(Company.class);
 
 		super.getResponse().setAuthorised(status);
 	}

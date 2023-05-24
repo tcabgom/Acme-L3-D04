@@ -10,9 +10,7 @@ import acme.components.AuxiliaryService;
 import acme.entities.practicum.Practicum;
 import acme.entities.practicumSession.PracticumSession;
 import acme.framework.components.models.Tuple;
-import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.MomentHelper;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -68,9 +66,8 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		final Practicum practicum = this.repository.findPracticumById(super.getRequest().getData("practicumId", int.class));
 
 		object.setPracticum(practicum);
-		object.setExtraSession(practicum.isDraftMode() ? false : true);
 
-		super.bind(object, "title", "abstractSession", "start", "finish", "link");
+		super.bind(object, "title", "abstractSession", "start", "finish", "link", "extraSession");
 	}
 
 	@Override
@@ -83,11 +80,11 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		if (!super.getBuffer().getErrors().hasErrors("start"))
 			super.state(MomentHelper.isAfter(object.getStart(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS)), "start", "company.practicumSession.form.error.sessionStart");
 
-		if (!super.getBuffer().getErrors().hasErrors("finish"))
-			super.state(!MomentHelper.isPresentOrPast(object.getStart()), "finish", "company.pacticumSession.form.error.last-date");
-
 		if (!super.getBuffer().getErrors().hasErrors("start"))
-			super.state(!MomentHelper.isPresentOrPast(object.getFinish()), "start", "company.pacticumSession.form.error.last-date");
+			super.state(!MomentHelper.isPresentOrPast(object.getStart()), "start", "company.pacticumSession.form.error.last-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("finish"))
+			super.state(!MomentHelper.isPresentOrPast(object.getFinish()), "finish", "company.pacticumSession.form.error.last-date");
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))
 			super.state(this.auxiliaryService.validateString("title"), "title", "acme.validation.spam");
@@ -117,12 +114,6 @@ public class CompanyPracticumSessionUpdateService extends AbstractService<Compan
 		tuple.put("practicumId", super.getRequest().getData("practicumId", int.class));
 
 		super.getResponse().setData(tuple);
-	}
-
-	@Override
-	public void onSuccess() {
-		if (super.getRequest().getMethod().equals(HttpMethod.POST))
-			PrincipalHelper.handleUpdate();
 	}
 
 }

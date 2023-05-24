@@ -32,12 +32,16 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Company.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
