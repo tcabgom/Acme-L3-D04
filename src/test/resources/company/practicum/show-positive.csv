@@ -1,0 +1,33 @@
+recordIndex,code,title,abstractPracticum,goals,course,draftMode
+0,A000,Normal title,Normal summary,Normal goals,Un muy buen título,true
+1,AB000,Normal title,Normal summary,Normal goals,Un muy buen título,true
+2,ABC000,Normal title,Normal summary,Normal goals,Un muy buen título,true
+3,ABC009,a,Normal summary,Normal goals,Un muy buen título,true
+4,ABC010,ab,Normal summary,Normal goals,Un muy buen título,true
+5,ABC011,Normal title with 74 characterssssssssssssssssssssssssssssssssssssssssssss,Normal summary,Normal goals,Un muy buen título,true
+6,ABC012,Normal title with 75 charactersssssssssssssssssssssssssssssssssssssssssssss,Normal summary,Normal goals,Un muy buen título,true
+7,ABC013,<b>normal title</b>,Normal summary,Normal goals,Un muy buen título,true
+8,ABC014,"<script>alert(""hi"")</script>",Normal summary,Normal goals,Un muy buen título,true
+9,ABC015,κανονικός τίτλος,Normal summary,Normal goals,Un muy buen título,true
+10,ABC016,Normal title,a,Normal goals,Un muy buen título,true
+11,ABC017,Normal title,ab,Normal goals,Un muy buen título,true
+12,ABC018,Normal title,Normal summary with 99 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Normal goals,Un muy buen título,true
+13,ABC019,Normal title,Normal summary with 100 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Normal goals,Un muy buen título,true
+14,ABC020,Normal title,<b>Normal summary</b>,Normal goals,Un muy buen título,true
+15,ABC021,Normal title,"<script>alert(""hi"")</script>",Normal goals,Un muy buen título,true
+16,ABC022,Normal title,κανονική περίληψη,Normal goals,Un muy buen título,true
+17,ABC023,Normal title,Normal summary,a,Un muy buen título,true
+18,ABC024,Normal title,Normal summary,ab,Un muy buen título,true
+19,ABC025,Normal title,Normal summary,Normal goals with 99 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Un muy buen título,true
+20,ABC026,Normal title,Normal summary,Normal goals with 100 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Un muy buen título,true
+21,ABC027,Normal title,Normal summary,<b>Normal goals</b>,Un muy buen título,true
+22,ABC028,Normal title,Normal summary,"<script>alert(""hi"")</script>",Un muy buen título,true
+23,ABC029,Normal title,Normal summary,κανονικούς στόχους,Un muy buen título,true
+24,ABC030,Normal title,Normal summary,Normal goals,Ένα καλό τίτλο,true
+25,ABC031,Normal title,Normal summary,Normal goals,Ένα καλό τίτλο,true
+26,ABC032,Normal title,Normal summary,Normal goals,Un muy buen título,false
+27,ABC999,Normal title,Normal summary,Normal goals,Un muy buen título,true
+28,Z999,Normal title,Normal summary,Normal goals,Un muy buen título,true
+29,ZZ999,Normal title,Normal summary,Normal goals,Un muy buen título,true
+30,ZZZ000,Normal title,Normal summary,Normal goals,Un muy buen título,true
+31,ZZZ999,Normal title,Normal summary,Normal goals,Un muy buen título,true

@@ -27,7 +27,11 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -36,7 +40,7 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 		final int id = super.getRequest().getData("id", int.class);
 		final Practicum object = this.repository.findPracticumById(id);
 
-		status = super.getRequest().getPrincipal().hasRole(Company.class) && object.isDraftMode();
+		status = object != null && super.getRequest().getPrincipal().hasRole(Company.class) && object.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}

@@ -1,0 +1,33 @@
+recordIndex,code,title,abstractPracticum,goals,draftMode
+0,A000,Normal title,Normal summary,Normal goals,true
+1,AB000,Normal title,Normal summary,Normal goals,true
+2,ABC000,Normal title,Normal summary,Normal goals,true
+3,ABC009,a,Normal summary,Normal goals,true
+4,ABC010,ab,Normal summary,Normal goals,true
+5,ABC011,Normal title with 74 characterssssssssssssssssssssssssssssssssssssssssssss,Normal summary,Normal goals,true
+6,ABC012,Normal title with 75 charactersssssssssssssssssssssssssssssssssssssssssssss,Normal summary,Normal goals,true
+7,ABC013,<b>normal title</b>,Normal summary,Normal goals,true
+8,ABC014,"<script>alert(""hi"")</script>",Normal summary,Normal goals,true
+9,ABC015,κανονικός τίτλος,Normal summary,Normal goals,true
+10,ABC016,Normal title,a,Normal goals,true
+11,ABC017,Normal title,ab,Normal goals,true
+12,ABC018,Normal title,Normal summary with 99 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Normal goals,true
+13,ABC019,Normal title,Normal summary with 100 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Normal goals,true
+14,ABC020,Normal title,<b>Normal summary</b>,Normal goals,true
+15,ABC021,Normal title,"<script>alert(""hi"")</script>",Normal goals,true
+16,ABC022,Normal title,κανονική περίληψη,Normal goals,true
+17,ABC023,Normal title,Normal summary,a,true
+18,ABC024,Normal title,Normal summary,ab,true
+19,ABC025,Normal title,Normal summary,Normal goals with 99 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,true
+20,ABC026,Normal title,Normal summary,Normal goals with 100 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,true
+21,ABC027,Normal title,Normal summary,<b>Normal goals</b>,true
+22,ABC028,Normal title,Normal summary,"<script>alert(""hi"")</script>",true
+23,ABC029,Normal title,Normal summary,κανονικούς στόχους,true
+24,ABC030,Normal title,Normal summary,Normal goals,true
+25,ABC031,Normal title,Normal summary,Normal goals,true
+26,ABC032,Normal title,Normal summary,Normal goals,false
+27,ABC999,Normal title,Normal summary,Normal goals,true
+28,Z999,Normal title,Normal summary,Normal goals,true
+29,ZZ999,Normal title,Normal summary,Normal goals,true
+30,ZZZ000,Normal title,Normal summary,Normal goals,true
+31,ZZZ999,Normal title,Normal summary,Normal goals,true

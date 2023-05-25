@@ -15,3 +15,5 @@ company.practicumSession.form.button.delete=Borrar
 
 company.pacticumSession.form.error.not-long-enough=La sesión debe durar al menos una semana
 company.practicumSession.form.error.sessionStart=La sesión debe empedar al menos dentro de una semana
+company.practicumSession.form.error.confirmation=Debes confirmar para poder continuar
+company.pacticumSession.form.error.last-date=La fecha data ya ha pasado

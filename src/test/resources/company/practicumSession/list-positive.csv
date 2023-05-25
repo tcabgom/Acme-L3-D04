@@ -1,0 +1,31 @@
+practicumRecordIndex,practicumSessionRecordIndex,code,draftMode,title,abstractSession,extraSession
+2,0,ABC000,true,<b>normal title</b>,normal summary,false
+2,1,ABC000,true,a,normal summary,false
+2,2,ABC000,true,ab,normal summary,false
+2,3,ABC000,true,normal title,ab,false
+2,4,ABC000,true,normal title,a,false
+2,5,ABC000,true,normal title,normal summary,false
+2,6,ABC000,true,normal title,normal summary,false
+2,7,ABC000,true,normal title,normal summary,false
+2,8,ABC000,true,normal title,normal summary,false
+2,9,ABC000,true,normal title,"<script>alert(""hi"")</script>",false
+2,10,ABC000,true,normal title,κανονική περίληψη,false
+2,11,ABC000,true,normal title,Normal summary with 99 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,false
+2,12,ABC000,true,normal title,Normal summary with 100 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,false
+2,13,ABC000,true,normal title,normal summary,false
+2,14,ABC000,true,normal title,normal summary,false
+2,15,ABC000,true,normal title,normal summary,false
+2,16,ABC000,true,normal title,normal summary,false
+2,17,ABC000,true,normal title,normal summary,false
+2,18,ABC000,true,normal title,normal summary,false
+2,19,ABC000,true,normal title,normal summary,false
+2,20,ABC000,true,normal title,normal summary,false
+2,21,ABC000,true,normal title,normal summary,false
+2,22,ABC000,true,normal title,normal summary,false
+2,23,ABC000,true,normal title,normal summary,false
+2,24,ABC000,true,normal title,normal summary,false
+2,25,ABC000,true,Normal title with 74 characterssssssssssssssssssssssssssssssssssssssssssss,normal summary,false
+2,26,ABC000,true,Normal title with 75 charactersssssssssssssssssssssssssssssssssssssssssssss,normal summary,false
+
+
+

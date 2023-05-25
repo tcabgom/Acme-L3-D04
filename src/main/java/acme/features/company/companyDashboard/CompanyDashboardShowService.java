@@ -15,6 +15,7 @@ import acme.entities.practicumSession.PracticumSession;
 import acme.forms.CompanyDashboard;
 import acme.forms.Statistics;
 import acme.framework.components.models.Tuple;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
@@ -31,12 +32,16 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Company.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -57,7 +62,7 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 		final int minutesInMilliseconds = 60000;
 
 		for (int i = 1; i < 13; i++)
-			practicaNumberPerMonth.put(Month.of(i).toString(), this.repository.findNumberOfPracticaByMonthAndCompany(i, company.getId()));
+			practicaNumberPerMonth.put(Month.of(i).toString(), this.repository.findNumberOfPracticaByMonthAndCompany(i, MomentHelper.getCurrentMoment().getYear(), company.getId()));
 
 		for (final PracticumSession ps : practicumSession) {
 
