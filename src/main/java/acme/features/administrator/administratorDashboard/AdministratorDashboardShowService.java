@@ -186,7 +186,7 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 		tuple.put("totalAssistants", object.getTotalAssistants());
 		tuple.put("totalLecturers", object.getTotalLecturers());
 		tuple.put("totalStudents", object.getTotalStudents());
-		tuple.put("totalCompanys", object.getTotalStudents());
+		tuple.put("totalCompanys", object.getTotalCompanys());
 
 		tuple.put("budgetStatisticsByCurrency", object.getBudgetStatisticsByCurrency());
 		tuple.put("linkAndEmailPeepRatio", object.getLinkAndEmailPeepRatio());
