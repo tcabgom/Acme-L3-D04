@@ -59,12 +59,24 @@ user-account-assistant-30,true,"UserIdentity{name: 'Francisco Javier3', surname:
 user-account-assistant-31,true,"UserIdentity{name: 'Francisco Javier3', surname: 'Larrondobuno3', email: 'javilarrondo3@acme.com'}",assistant21,assistant31
 user-account-auditor-01,true,"UserIdentity{name: 'Ignacio', surname: 'Arroyo Mantero', email: 'auditor1@acme.com'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'Paquito', surname: 'El Chocolatero', email: 'auditor2@acme.com'}",auditor2,auditor2
-user-account-auditor-03,true,"UserIdentity{name: 'Test1', surname: 'Apellido1', email: 'auditor3@acme.com'}",auditor3,auditor3
-user-account-auditor-04,true,"UserIdentity{name: 'Test2', surname: 'Apellido2', email: 'auditor4@acme.com'}",auditor4,auditor4
-user-account-auditor-05,true,"UserIdentity{name: 'Test3', surname: 'Apellido3', email: 'auditor5@acme.com'}",auditor5,auditor5
-user-account-auditor-06,true,"UserIdentity{name: 'Test4', surname: 'Apellido4', email: 'auditor6@acme.com'}",auditor6,auditor6
-user-account-auditor-07,true,"UserIdentity{name: 'Test5', surname: 'Apellido5', email: 'auditor7@acme.com'}",auditor7,auditor7
-user-account-auditor-08,true,"UserIdentity{name: 'πατάτα', surname: 'Apellido5', email: 'auditor7@acme.com'}",auditor8,auditor8
+user-account-auditor-03,true,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor3,auditor3
+user-account-auditor-04,true,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor4,auditor4
+user-account-auditor-05,true,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor5,auditor5
+user-account-auditor-06,true,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor6,auditor6
+user-account-auditor-07,true,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor7,auditor7
+user-account-auditor-08,true,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor8,auditor8
+user-account-auditor-09,true,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor9,auditor9
+user-account-auditor-10,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor10,auditor10
+user-account-auditor-11,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor11,auditor11
+user-account-auditor-12,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor13,auditor12
+user-account-auditor-13,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor14,auditor13
+user-account-auditor-14,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor15,auditor14
+user-account-auditor-15,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor16,auditor15
+user-account-auditor-16,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor17,auditor16
+user-account-auditor-17,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor18,auditor17
+user-account-auditor-18,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor19,auditor18
+user-account-auditor-19,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor20,auditor19
+user-account-auditor-20,false,"UserIdentity{name: 'NombreEjemplo', surname: 'ApellidoEjemplo', email: 'auditor@acme.com'}",auditor20,auditor20
 user-account-student-01,true,"UserIdentity{name: 'Fulanito', surname: 'De Tal', email: 'student1@acme.com'}",student1,student1
 user-account-student-02,true,"UserIdentity{name: 'Menganito', surname: 'De las Nieves', email: 'student2@acme.com'}",student2,student2
 user-account-company-01,true,"UserIdentity{name:'Red Bull', surname:'Racing', email:'redbullracing@gmail.com'}",company1,company1
