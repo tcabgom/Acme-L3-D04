@@ -21,7 +21,7 @@ public class AuditorAuditShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String auditor, final String conclusion, final String strongPoints, final String weakPoints, final String mark, final String course, final String draftMode) {
+	public void test100Positive(final int recordIndex, final String code, final String conclusion, final String strongPoints, final String weakPoints, final String mark, final String course, final String draftMode) {
 		// HINT: this test checks that an employer can list and display his or
 		// HINT+ her applications.
 
@@ -34,7 +34,6 @@ public class AuditorAuditShowTest extends TestHarness {
 		super.checkFormExists();
 
 		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("auditor", auditor);
 		super.checkInputBoxHasValue("conclusion", conclusion);
 		super.checkInputBoxHasValue("strongPoints", strongPoints);
 		super.checkInputBoxHasValue("weakPoints", weakPoints);

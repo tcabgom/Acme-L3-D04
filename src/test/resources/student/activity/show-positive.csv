@@ -1,0 +1,6 @@
+activityRecord,title,activityAbstract,type,periodStart,periodEnd,furtherInformation,
+0,<script>alert("Hello");</script>,'; DROP TABLE users; --,THEORY,2022/01/04 16:00,2022/01/04 18:00,https://example.com/workshop
+1,an activity,an abstact,HANDS_ON,1998/05/12 21:34,1999/05/12 21:34,
+2,an activity,an abstact,HANDS_ON,1998/05/12 21:34,1999/05/12 21:34,
+3,aこんにちは,😊🚀🎉,HANDS_ON,2022/01/05 09:00,2022/01/05 11:00,https://example.org/seminar
+4,Title with 74 chars limitttttttttttttttttttttttttttttttttttttttttttttttttt,Abstract with 99 chars limitttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt,THEORY,2022/01/01 08:00,2022/01/01 10:00,https://example.com

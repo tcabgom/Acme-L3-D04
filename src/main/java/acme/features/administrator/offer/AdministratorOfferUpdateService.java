@@ -4,10 +4,10 @@ package acme.features.administrator.offer;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.offer.Offer;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
@@ -20,9 +20,9 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorOfferRepository repository;
+	protected AdministratorOfferRepository	repository;
 	@Autowired
-	protected AuxiliaryService auxiliaryService;
+	protected AuxiliaryService				auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -40,7 +40,11 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 	public void authorise() {
 		final int id = super.getRequest().getData("id", int.class);
 		final Offer object = this.repository.findOneOfferById(id);
-		super.getResponse().setAuthorised(MomentHelper.getCurrentMoment().before(object.getAvailabilityPeriodStart()));
+
+		final boolean isAdmin = super.getRequest().getPrincipal().hasRole(Administrator.class);
+		final boolean canBeModified = MomentHelper.getCurrentMoment().before(object.getAvailabilityPeriodStart());
+
+		super.getResponse().setAuthorised(canBeModified && isAdmin);
 	}
 
 	@Override
@@ -81,13 +85,13 @@ public class AdministratorOfferUpdateService extends AbstractService<Administrat
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("header"))
-			super.state(auxiliaryService.validateString(object.getHeader()), "header", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getHeader()), "header", "acme.validation.spam");
 
 		if (!super.getBuffer().getErrors().hasErrors("summary"))
-			super.state(auxiliaryService.validateString(object.getSummary()), "summary", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getSummary()), "summary", "acme.validation.spam");
 
 		if (!super.getBuffer().getErrors().hasErrors("moreInfo"))
-			super.state(auxiliaryService.validateString(object.getMoreInfo()), "moreInfo", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getMoreInfo()), "moreInfo", "acme.validation.spam");
 
 	}
 

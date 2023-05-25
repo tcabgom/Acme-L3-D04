@@ -1,5 +1,32 @@
 key,key:userAccount,supervisor,expertiseFieldsList,resume,link
-assistant-01,user-account-assistant-01,No one,Graphic Design,I am a test resume,
-assistant-02,user-account-assistant-02,No one,"German, English, Spanish, French",I am another test resume,https://github.com/tcabgom/Acme-L3-D02
-assistant-03,user-account-assistant-03,a,bc,efg,https://github.com/tcabgom/Acme-L3-D02
-assistant-04,user-account-assistant-04,Lorem ipsum dolor sit amet. consectetur adipiscing elit. Sed at ante velit,astringof100charactersopanocwuobwuobbqwj2113@|@#~€43áïasnienoèwneiweweeewew12213444242442240''¡´´zzz,<h1>Stop</h1>,https://github.com/tcabgom/Acme-L3-D02
+assistant-01,user-account-assistant-01,A user,Some fields,A resume,https://ev.us.es
+assistant-02,user-account-assistant-02,A,Some fields,A resume,https://ev.us.es
+assistant-03,user-account-assistant-03,AB,Some fields,A resume,https://ev.us.es
+assistant-04,user-account-assistant-04,A title that is not normal because it has 74 characters FFFFFFFFFFFFFFFFFF,Some fields,A resume,https://ev.us.es
+assistant-05,user-account-assistant-05,A title that is not normal because it has 75 characters FFFFFFFFFFFFFFFFFFF,Some fields,A resume,https://ev.us.es
+assistant-06,user-account-assistant-06,変な言葉で書かれた普通のタイトル,Some fields,A resume,https://ev.us.es
+assistant-07,user-account-assistant-07,Мне становится скучно,Some fields,A resume,https://ev.us.es
+assistant-08,user-account-assistant-08,<script>alert('This value is invalid')</script>,Some fields,A resume,https://ev.us.es
+assistant-09,user-account-assistant-09,<h1>Este atributo es muy bonito</h1>,Some fields,A resume,https://ev.us.es
+assistant-10,user-account-assistant-10,? ??rm#| ~|?T0{r}I@l,Some fields,A resume,https://ev.us.es
+assistant-11,user-account-assistant-11,A user,A,A resume,https://ev.us.es
+assistant-12,user-account-assistant-12,A user,AB,A resume,https://ev.us.es
+assistant-13,user-account-assistant-13,A user,A description that is not normal because it has 99 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,A resume,https://ev.us.es
+assistant-14,user-account-assistant-14,A user,A description that is not normal because it has 100 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,A resume,https://ev.us.es
+assistant-15,user-account-assistant-15,A user,変な言葉で書かれた普通のタイトル,A resume,https://ev.us.es
+assistant-16,user-account-assistant-16,A user,Мне становится скучно,A resume,https://ev.us.es
+assistant-17,user-account-assistant-17,A user,<script>alert('This value is invalid')</script>,A resume,https://ev.us.es
+assistant-18,user-account-assistant-18,A user,<h1>Este atributo es muy bonito</h1>,A resume,https://ev.us.es
+assistant-19,user-account-assistant-19,A user,? ??rm#| ~|?T0{r}I@l,A resume,https://ev.us.es
+assistant-20,user-account-assistant-20,A user,Some fields,A,https://ev.us.es
+assistant-21,user-account-assistant-21,A user,Some fields,AB,https://ev.us.es
+assistant-22,user-account-assistant-22,A user,Some fields,A description that is not normal because it has 99 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,https://ev.us.es
+assistant-23,user-account-assistant-23,A user,Some fields,A description that is not normal because it has 100 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,https://ev.us.es
+assistant-24,user-account-assistant-24,A user,Some fields,変な言葉で書かれた普通のタイトル,https://ev.us.es
+assistant-25,user-account-assistant-25,A user,Some fields,Мне становится скучно,https://ev.us.es
+assistant-26,user-account-assistant-26,A user,Some fields,<script>alert('This value is invalid')</script>,https://ev.us.es
+assistant-27,user-account-assistant-27,A user,Some fields,<h1>Este atributo es muy bonito</h1>,https://ev.us.es
+assistant-28,user-account-assistant-28,A user,Some fields,? ??rm#| ~|?T0{r}I@l,https://ev.us.es
+assistant-29,user-account-assistant-29,A user,Some fields,A resume,
+assistant-30,user-account-assistant-30,A user,Some fields,A resume,http://example.com/a?b
+assistant-31,user-account-assistant-31,A user,Some fields,A resume,ftp://user:pass@scme.org

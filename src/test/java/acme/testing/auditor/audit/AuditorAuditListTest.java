@@ -11,20 +11,21 @@ public class AuditorAuditListTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/audit/list-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String auditor, final String auditorID, final String mark, final String draftMode) {
+	public void test100Positive(final int recordIndex, final String code, final String auditor, final String auditorID, final String marks, final String draftMode) {
 		// HINT: this test authenticates as an auditor and checks that he or
 		// HINT+ she can list his or her audits.
 
 		super.signIn("auditor1", "auditor1");
 
 		super.clickOnMenu("Auditor", "Manage your Audits");
+
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, auditor);
 		super.checkColumnHasValue(recordIndex, 2, auditorID);
-		super.checkColumnHasValue(recordIndex, 3, mark);
+		super.checkColumnHasValue(recordIndex, 3, marks);
 		super.checkColumnHasValue(recordIndex, 4, draftMode);
 
 		super.signOut();
@@ -32,28 +33,24 @@ public class AuditorAuditListTest extends TestHarness {
 
 	@Test
 	public void test200Negative() {
-		// HINT: this is a listing, which implies that no data must be entered in any forms.
-		// HINT+ Then, there are not any negative test cases for this feature.
 	}
 
 	@Test
 	public void test300Hacking() {
-		// HINT: this test tries to list the applications of an employer as a
-		// HINT+ principal with the wrong role.
 
 		super.checkLinkExists("Sign in");
-		super.request("/auditor/audit/list");
+		super.request("/auditor/audit/show");
 		super.checkPanicExists();
 
 		super.checkLinkExists("Sign in");
 		super.signIn("administrator1", "administrator1");
-		super.request("/auditor/audit/list");
+		super.request("/auditor/audit/show");
 		super.checkPanicExists();
 		super.signOut();
 
 		super.checkLinkExists("Sign in");
 		super.signIn("assistant1", "assistant1");
-		super.request("/auditor/audit/list");
+		super.request("/auditor/audit/show");
 		super.checkPanicExists();
 		super.signOut();
 	}

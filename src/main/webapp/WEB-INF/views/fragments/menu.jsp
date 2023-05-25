@@ -37,6 +37,7 @@
 			<acme:menu-suboption code="master.menu.administrator.show-configuration" action="/administrator/configuration/show"/>
 			<acme:menu-suboption code="master.menu.administrator.banner" action="/administrator/banner/list"/>
 			<acme:menu-suboption code="master.menu.administrator.offer" action="/administrator/offer/list"/>
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/admin-dashboard/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/populate-sample"/>			
@@ -108,7 +109,6 @@
 			<acme:menu-suboption code="master.menu.user-account.bulletin" action="/authenticated/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.user-account.offer" action="/authenticated/offer/list"/>
 			<acme:menu-suboption code="master.menu.user-account.note" action="/authenticated/note/list"/>
-			<acme:menu-suboption code="master.menu.user-account.tutorial" action="/authenticated/tutorial/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>

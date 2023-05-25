@@ -31,7 +31,9 @@ public class AuthenticatedTutorialListService extends AbstractService<Authentica
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().isAuthenticated();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

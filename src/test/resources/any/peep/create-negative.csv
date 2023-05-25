@@ -1,1 +1,18 @@
-recordIndex,haveRole,role,moment,title,initialNick,nick,message,email,link
+title,nick,message,email,moreInfo
+"",,,,
+"",A nick,A message,anemail@gmail.com,https://link.es
+76 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,A nick,A message,anemail@gmail.com,https://link.es
+viagra,A nick,A message,anemail@gmail.com,https://link.es
+Another title,,A message,anemail@gmail.com,https://link.es
+Another title,76 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,A message,anemail@gmail.com,https://link.es
+Another title,sex,A message,anemail@gmail.com,https://link.es
+Another title,,A message,anemail@gmail.com,https://link.es
+Another title,76 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,A message,anemail@gmail.com,https://link.es
+Another title,VIAGRA,A message,anemail@gmail.com,https://link.es
+Another title,A nick,,anemail@gmail.com,https://link.es
+Another title,A nick,101 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,anemail@gmail.com,https://link.es
+Another title,A nick,NIGERIA,anemail@gmail.com,https://link.es
+Another title,A nick,A message,this is not an email,https://link.es
+Another title,A nick,A message,viagra@nigeria.sex,https://link.es
+Another title,A nick,A message,anemail@gmail.com,thisIsNotAnUrl
+Another title,A nick,A message,anemail@gmail.com,https://nigeria.com

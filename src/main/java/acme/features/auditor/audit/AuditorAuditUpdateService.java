@@ -3,10 +3,10 @@ package acme.features.auditor.audit;
 
 import java.util.Collection;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.audit.Audit;
 import acme.entities.lecture.Course;
 import acme.framework.components.jsp.SelectChoices;
@@ -18,21 +18,16 @@ import acme.roles.Auditor;
 public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 	@Autowired
-	protected AuditorAuditRepository repository;
+	protected AuditorAuditRepository	repository;
 	@Autowired
-	private AuxiliaryService auxiliaryService;
+	private AuxiliaryService			auxiliaryService;
 
 
 	@Override
 	public void check() {
 		boolean status;
-		Audit object;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findAuditById(id);
-
-		status = object.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && object.isDraftMode() && super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -40,8 +35,13 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void authorise() {
 		boolean status;
+		Audit object;
+		int id;
 
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findAuditById(id);
+
+		status = object.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && object.isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -83,21 +83,17 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
 			super.state(object.isDraftMode(), "draftMode", "administrator.audit.form.error.draftMode");
 
-		if(!super.getBuffer().getErrors().hasErrors("code")) {
-			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(this.auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
 
-		if (!super.getBuffer().getErrors().hasErrors("conclusion")) {
-			super.state(auxiliaryService.validateString(object.getConclusion()), "conclusion", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("conclusion"))
+			super.state(this.auxiliaryService.validateString(object.getConclusion()), "conclusion", "acme.validation.spam");
 
-		if (!super.getBuffer().getErrors().hasErrors("strongPoints")) {
-			super.state(auxiliaryService.validateString(object.getStrongPoints()), "strongPoints", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("strongPoints"))
+			super.state(this.auxiliaryService.validateString(object.getStrongPoints()), "strongPoints", "acme.validation.spam");
 
-		if (!super.getBuffer().getErrors().hasErrors("weakPoints")) {
-			super.state(auxiliaryService.validateString(object.getWeakPoints()), "weakPoints", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("weakPoints"))
+			super.state(this.auxiliaryService.validateString(object.getWeakPoints()), "weakPoints", "acme.validation.spam");
 	}
 
 	@Override

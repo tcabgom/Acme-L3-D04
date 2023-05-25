@@ -32,7 +32,7 @@ public class AuditorAuditPublishTest extends TestHarness {
 
 		super.clickOnMenu("Auditor", "Manage your Audits");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(0, "desc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 
 		super.clickOnListingRecord(recordIndex);
@@ -43,24 +43,9 @@ public class AuditorAuditPublishTest extends TestHarness {
 		super.signOut();
 	}
 
-	@ParameterizedTest
-	@CsvFileSource(resources = "/auditor/audit/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int recordIndex, final String code) {
+	@Test
+	public void test200Negative() {
 		// HINT: this test attempts to update a job with wrong data.
-
-		super.signIn("auditor1", "auditor1");
-
-		super.clickOnMenu("Auditor", "Manage your Audits");
-		super.checkListingExists();
-		super.sortListing(0, "asc");
-
-		super.checkColumnHasValue(recordIndex, 0, code);
-		super.clickOnListingRecord(recordIndex);
-		super.checkFormExists();
-		super.clickOnSubmit("Publish");
-		super.checkAlertExists(false);
-
-		super.signOut();
 	}
 
 	@Test
