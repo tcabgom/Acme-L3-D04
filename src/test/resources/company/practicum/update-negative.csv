@@ -1,0 +1,15 @@
+recordIndex,code,title,abstractPracticum,goals,course
+0,,Normal title,Normal summary,Normal goals,A
+0,null,Normal title,Normal summary,Normal goals,A
+0,B101,Normal title with 76 characterssssssssssssssssssssssssssssssssssssssssssssss,Normal summary,Normal goals,A
+0,B102,Normal title with 77 charactersssssssssssssssssssssssssssssssssssssssssssssss,Normal summary,Normal goals,A
+0,B103,Normal title with 100 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Normal summary,Normal goals,A
+0,B104,Normal title,,Normal goals,A
+0,B106,Normal title,Normal summary with 101 characterssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Normal goals,A
+0,B107,Normal title,Normal summary with 102 characterssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Normal goals,A
+0,B108,Normal title,Normal summary with 110 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,Normal goals,A
+0,B109,Normal title,Normal summary,,A
+0,B111,Normal title,Normal summary,Normal goals with 100 characterssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,A
+0,B112,Normal title,Normal summary,Normal goals with 101 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,A
+0,B113,Normal title,Normal summary,Normal goals with 110 charactersssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss,A
+0,B114,Normal title,Normal summary,Normal goals,---

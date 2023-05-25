@@ -61,7 +61,6 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		Tuple tuple;
 
 		tuple = super.unbind(object, "title", "abstractSession", "extraSession");
-
 		super.getResponse().setData(tuple);
 	}
 
@@ -73,7 +72,7 @@ public class CompanyPracticumSessionListService extends AbstractService<Company,
 		final boolean showCreate;
 
 		practicum = this.repository.findPracticumById(super.getRequest().getData("practicumId", int.class));
-		showCreate = practicum.isDraftMode() && super.getRequest().getPrincipal().hasRole(practicum.getCompany());
+		showCreate = super.getRequest().getPrincipal().hasRole(practicum.getCompany()) && this.repository.findExtraSessionByPracticum(super.getRequest().getData("practicumId", int.class)).isEmpty();
 
 		super.getResponse().setGlobal("practicumId", super.getRequest().getData("practicumId", int.class));
 		super.getResponse().setGlobal("showCreate", showCreate);
