@@ -2,5 +2,5 @@ activityRecordIndex,title,type
 0,<script>alert("Hello");</script>,THEORY
 1,an activity,HANDS_ON
 2,an activity,HANDS_ON
-3,Title with 74 chars limitttttttttttttttttttttttttttttttttttttttttttttttttt,THEORY
-4,Title with 75 chars limittttttttttttttttttttttttttttttttttttttttttttttttttt,HANDS_ON
+3,aこんにちは,HANDS_ON
+4,Title with 74 chars limitttttttttttttttttttttttttttttttttttttttttttttttttt,THEORY
