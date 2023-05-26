@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.components.AuxiliaryService;
 import acme.entities.audit.Audit;
+import acme.entities.audit.AuditingRecords;
 import acme.entities.lecture.Course;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -36,10 +37,16 @@ public class AuditorAuditPublishService extends AbstractService<Auditor, Audit> 
 	public void authorise() {
 		boolean status;
 		final Audit object = this.repository.findAuditById(super.getRequest().getData("id", int.class));
+		final Collection<AuditingRecords> records = this.repository.findAllAuditingRecordsFromAudit(object.getId());
+		boolean allRecordsPublished = true;
 
-		status = object.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && object.isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class);
-
-		super.getResponse().setAuthorised(status);
+		status = object.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId() && object.isDraftMode() && super.getRequest().getPrincipal().hasRole(Auditor.class) && records.size() > 0;
+		for (final AuditingRecords record : records)
+			if (record.isDraftMode()) {
+				allRecordsPublished = false;
+				break;
+			}
+		super.getResponse().setAuthorised(status && allRecordsPublished);
 	}
 
 	@Override

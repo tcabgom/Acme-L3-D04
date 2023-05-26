@@ -1,2 +1,2 @@
-auditIndex,code,auditingRecordIndex,subject
-2,KKC442,0,subject
+auditIndex,code,auditingRecordIndex,subject,confirmation
+2,KKC442,0,subject,true

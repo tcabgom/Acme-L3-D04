@@ -4,10 +4,10 @@ package acme.features.administrator.banner;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.banner.Banner;
 import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
@@ -18,9 +18,10 @@ import acme.framework.services.AbstractService;
 public class AdministratorBannerCreateService extends AbstractService<Administrator, Banner> {
 
 	@Autowired
-	protected AdministratorBannerRepository repository;
+	protected AdministratorBannerRepository	repository;
 	@Autowired
-	protected AuxiliaryService auxiliaryService;
+	protected AuxiliaryService				auxiliaryService;
+
 
 	@Override
 	public void check() {
@@ -39,15 +40,15 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("displayPeriodInitial"))
-			super.state(MomentHelper.isAfter(object.getDisplayPeriodInitial(), object.getInstantiation()), "displayPeriodInitial", "administrator.banner.form.error.beginning-close");
+			super.state(MomentHelper.isAfter(object.getDisplayPeriodInitial(), object.getInstantiation()) || object.getDisplayPeriodInitial().equals(object.getInstantiation()), "displayPeriodInitial", "administrator.banner.form.error.beginning-close");
 		if (!super.getBuffer().getErrors().hasErrors("displayPeriodEnding"))
 			super.state(MomentHelper.isLongEnough(object.getDisplayPeriodInitial(), object.getDisplayPeriodEnding(), 7, ChronoUnit.DAYS), "displayPeriodEnding", "administrator.banner.form.error.ending-not-long-enough");
 		if (!super.getBuffer().getErrors().hasErrors("linkToPicture"))
-			super.state(auxiliaryService.validateString(object.getLinkToPicture()), "linkToPicture", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getLinkToPicture()), "linkToPicture", "acme.validation.spam");
 		if (!super.getBuffer().getErrors().hasErrors("slogan"))
-			super.state(auxiliaryService.validateString(object.getSlogan()), "slogan", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getSlogan()), "slogan", "acme.validation.spam");
 		if (!super.getBuffer().getErrors().hasErrors("linWebDocument"))
-			super.state(auxiliaryService.validateString(object.getLinWebDocument()), "linWebDocument", "acme.validation.spam");
+			super.state(this.auxiliaryService.validateString(object.getLinWebDocument()), "linWebDocument", "acme.validation.spam");
 	}
 
 	@Override

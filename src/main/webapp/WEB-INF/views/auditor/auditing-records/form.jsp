@@ -13,11 +13,12 @@
 	<acme:input-url code="auditor.records.form.label.furtherInformation" path="furtherInformation"/>
 	<acme:input-checkbox code="auditor.records.form.label.draftMode" path="draftMode" readonly="true"/>
 	<acme:input-checkbox code="auditor.records.form.label.confirmation" path="confirmation"/>
+	<p><acme:print value="La confirmación solo es necesaria en la actualización y publicación"></acme:print></p>
 	<jstl:choose>
         <jstl:when test="${_command == 'create'}">
             <acme:submit code="auditor.records.form.button.create" action="/auditor/auditing-records/create?auditId=${auditId }"/>
         </jstl:when>
-        <jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+        <jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
         <jstl:if test="${published}">
         	<acme:submit code="auditor.records.form.button.update" action="/auditor/auditing-records/update?auditId=${auditId}"/>
             <acme:submit code="auditor.records.form.button.delete" action="/auditor/auditing-records/delete?auditId=${auditId}"/>
