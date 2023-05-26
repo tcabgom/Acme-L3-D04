@@ -8,9 +8,11 @@ student.dashboard.form.label.activity.maximum = Hours of Longest Activity
 student.dashboard.form.label.activity.minimum = Hours of Shortest Activity
 student.dashboard.form.label.activity.average = Average number of Activity Hours
 student.dashboard.form.label.activity.deviation = Deviation of Activity Hours
+student.dashboard.form.no-activity = You don't have any activities
 
 student.dashboard.form.label.lecture.count = Number of Lectures
 student.dashboard.form.label.lecture.maximum = Hours of Longest Lecture
 student.dashboard.form.label.lecture.minimum = Hours of Shortest Lecture
 student.dashboard.form.label.lecture.average = Average number of Lecture Hours
 student.dashboard.form.label.lecture.deviation = Deviation of Lecture Hours
+student.dashboard.form.no-lecture = You don't have any lectures
