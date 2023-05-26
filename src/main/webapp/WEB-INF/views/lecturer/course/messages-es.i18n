@@ -20,4 +20,6 @@ lecturer.course.list.button.create = Crear
 
 lecturer.course.form.error.code = El código ya existe
 lecturer.course.form.error.retailPrice = No puede costar más de 1 000 000 ni menos de 0
-lecturer.course.form.label.hiddenButton = Para publicar el curso, todas sus lecciones deben estar publicadas y tener al menos una lección.
+lecturer.course.form.label.hiddenButton = Para publicar el curso, todas sus lecciones deben estar publicadas y tener al menos una lección no teorica.
+lecturer.course.form.error.nohandson = Debe haber al menos una lección no teórica
+lecturer.course.form.error.lecturenotpublished = Hay lecciones no publicadas

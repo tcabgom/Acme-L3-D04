@@ -52,7 +52,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		tutorial = this.repository.findOneTutorialById(masterId);
 		assistantId = super.getRequest().getPrincipal().getAccountId();
 		tutorialOwnerId = tutorial.getAssistant().getUserAccount().getId();
-		status = tutorial != null && assistantId == tutorialOwnerId;
+		status = tutorial != null && assistantId == tutorialOwnerId && tutorial.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -80,12 +80,16 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	public void validate(final TutorialSession object) {
 		assert object != null;
 
+		boolean validSessionStart = true;
+
 		if (!super.getBuffer().getErrors().hasErrors("sessionStart")) {
 			final Date minimunValidStartDate = MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfterOrEqual(object.getSessionStart(), minimunValidStartDate), "sessionStart", "assistant.tutorialSession.form.error.sessionStart");
+			validSessionStart = MomentHelper.isAfterOrEqual(object.getSessionStart(), minimunValidStartDate);
+			super.state(validSessionStart, "sessionStart", "assistant.tutorialSession.form.error.sessionStart");
+			super.state(validSessionStart, "sessionEnd", "assistant.tutorialSession.form.error.sessionStartIsAlreadyBad");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("sessionEnd")) {
+		if (!super.getBuffer().getErrors().hasErrors("sessionEnd") && !super.getBuffer().getErrors().hasErrors("sessionStart")) {
 			final Date minimunValidEndDate = MomentHelper.deltaFromMoment(object.getSessionStart(), 1, ChronoUnit.HOURS);
 			final Date maximunValidEndDate = MomentHelper.deltaFromMoment(object.getSessionStart(), 5, ChronoUnit.HOURS);
 			super.state(MomentHelper.isAfterOrEqual(object.getSessionEnd(), minimunValidEndDate) && MomentHelper.isBeforeOrEqual(object.getSessionEnd(), maximunValidEndDate), "sessionEnd", "assistant.tutorialSession.form.error.sessionEnd");

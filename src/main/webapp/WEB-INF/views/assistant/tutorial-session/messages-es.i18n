@@ -19,3 +19,4 @@ assistant.tutorialSession.form.button.delete = Borrar Sesión
 
 assistant.tutorialSession.form.error.sessionStart = La sesión debe empezar por lo menos un día después de su creación
 assistant.tutorialSession.form.error.sessionEnd = La sesión debe durar entre 1 y 5 horas
+assistant.tutorialSession.form.error.sessionStartIsAlreadyBad = La fecha de inicio de sesión es incorrecta

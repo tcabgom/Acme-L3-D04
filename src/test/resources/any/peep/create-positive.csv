@@ -11,8 +11,8 @@ haveRole,role,publicationMoment,title,initialNick,nick,message,email,moreInfo
 0,,2022/07/30 00:00,!991,,normal nick,normal message,normalemail@gmail.com,http://link.com
 0,,2020/01/13 09:00,!990,,A,normal message,normalemail@gmail.com,http://link.com
 0,,2020/01/13 09:00,!989,,AB,normal message,normalemail@gmail.com,http://link.com
-0,,2020/01/13 09:00,!988,,A description that is not normal because it has 99 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,normal message,normalemail@gmail.com,http://link.com
-0,,2020/01/13 09:00,!987,,A description that is not normal because it has 100 characters FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!988,,A description that is not normal because it has 74 charactesssssssssssssss,normal message,normalemail@gmail.com,http://link.com
+0,,2020/01/13 09:00,!987,,A description that is not normal because it has 75 charactessssssssssssssss,normal message,normalemail@gmail.com,http://link.com
 0,,2020/01/13 09:00,!986,,変な言葉で書かれた普通のタイトル,normal message,normalemail@gmail.com,http://link.com
 0,,2020/01/13 09:00,!985,,Мне становится скучно,normal message,normalemail@gmail.com,http://link.com
 0,,2020/01/13 09:00,!984,,<script>alert('This value is invalid')</script>,normal message,normalemail@gmail.com,http://link.com

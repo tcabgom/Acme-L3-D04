@@ -1,6 +1,8 @@
 package acme.features.student.activity;
 
 import acme.entities.activity.Activity;
+import acme.entities.enumerates.ActivityType;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -58,7 +60,13 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
     @Override
     public void unbind(Activity object) {
         assert object != null;
+
+        SelectChoices choices = SelectChoices.from(ActivityType.class, object.getType());
+
         Tuple tuple = super.unbind(object, "title", "activityAbstract", "type", "periodStart", "periodEnd", "furtherInformation");
+
+        tuple.put("types", choices);
+        tuple.put("type", choices.getSelected());
 
         super.getResponse().setData(tuple);
     }

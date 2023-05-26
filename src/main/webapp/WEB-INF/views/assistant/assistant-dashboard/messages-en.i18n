@@ -14,3 +14,6 @@ assistant.dashboard.form.label.session.maximum = Hours of Longest Session
 assistant.dashboard.form.label.session.minimum = Hours of Shortest Session
 assistant.dashboard.form.label.session.average = Average number of Session Hours
 assistant.dashboard.form.label.session.deviation = Deviation of Session Hours
+
+assistant.dashboard.form.noTutorials = You don't have any Tutorials
+assistant.dashboard.form.noSessions = You don't have any Tutorial Sessions

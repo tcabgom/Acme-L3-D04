@@ -9,8 +9,11 @@ assistant.dashboard.form.label.tutorial.minimum = Horas del Tutorial Más Corto
 assistant.dashboard.form.label.tutorial.average = Media de Horas de Tutoriales
 assistant.dashboard.form.label.tutorial.deviation = Desviación de Horas de Tutoriales
 
-assistant.dashboard.form.label.session.count = Número de Cursos
-assistant.dashboard.form.label.session.maximum = Horas del Curso Más Largo
-assistant.dashboard.form.label.session.minimum = Horas del Curso Más Corto
-assistant.dashboard.form.label.session.average = Media de Horas de Cursos
-assistant.dashboard.form.label.session.deviation = Desviación de Horas de Cursos
+assistant.dashboard.form.label.session.count = Número de Sesiones
+assistant.dashboard.form.label.session.maximum = Horas de la Sesión Más Larga
+assistant.dashboard.form.label.session.minimum = Horas de la Sesión Más Corta
+assistant.dashboard.form.label.session.average = Media de Horas de Sesiones
+assistant.dashboard.form.label.session.deviation = Desviación de Horas de Sesión
+
+assistant.dashboard.form.noTutorials = No tienes Tutoriales
+assistant.dashboard.form.noSessions = No tienes Sesiones

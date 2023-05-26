@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 public class Statistics {
 
+	protected boolean	empty;
 	protected int		count;
 	protected Double	average;
 	protected Double	minimum;
@@ -51,12 +52,14 @@ public class Statistics {
 			this.setMinimum(0.);
 			this.setAverage(0.);
 			this.setStdDeviation(0.);
+			this.setEmpty(true);
 		} else {
 			this.obtainCount(values);
 			this.obtainMax(values);
 			this.obtainMin(values);
 			this.obtainAverage(values);
 			this.obtainDeviation(values);
+			this.setEmpty(false);
 		}
 	}
 

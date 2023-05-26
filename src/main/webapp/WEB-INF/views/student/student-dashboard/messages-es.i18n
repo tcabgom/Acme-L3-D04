@@ -8,9 +8,11 @@ student.dashboard.form.label.activity.maximum = Horas de la Actividad Más Larga
 student.dashboard.form.label.activity.minimum = Horas de la Actividad Más Corta
 student.dashboard.form.label.activity.average = Media de Horas de Actividades
 student.dashboard.form.label.activity.deviation = Desviación de Horas de Actividades
+student.dashboard.form.no-activity = No tienes ninguna actividad
 
 student.dashboard.form.label.lecture.count = Número de Lecciones
 student.dashboard.form.label.lecture.maximum = Horas de la Lección Más Larga
 student.dashboard.form.label.lecture.minimum = Horas de la Lección Más Corta
 student.dashboard.form.label.lecture.average = Media de Horas de Lecciones
 student.dashboard.form.label.lecture.deviation = Desviación de Horas de Lecciones
+student.dashboard.form.no-lecture = No tienes ninguna lección
