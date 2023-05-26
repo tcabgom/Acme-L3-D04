@@ -14,3 +14,6 @@ lecturer.dashboard.form.label.lecture.maximum = Hours of the longest Course
 lecturer.dashboard.form.label.lecture.minimum = Hours of the shortest lecture
 lecturer.dashboard.form.label.lecture.average = Average Lecture Hours
 lecturer.dashboard.form.label.lecture.deviation = Standard Deviation of Lecture Hours
+
+lecturer.dashboard.form.noCourses = You don't have any Course
+lecturer.dashboard.form.noLectures = You don't have any Lecture
