@@ -39,18 +39,18 @@ public class AuditorAuditListTest extends TestHarness {
 	public void test300Hacking() {
 
 		super.checkLinkExists("Sign in");
-		super.request("/auditor/audit/show");
+		super.request("/auditor/audit/list");
 		super.checkPanicExists();
 
 		super.checkLinkExists("Sign in");
 		super.signIn("administrator1", "administrator1");
-		super.request("/auditor/audit/show");
+		super.request("/auditor/audit/list");
 		super.checkPanicExists();
 		super.signOut();
 
 		super.checkLinkExists("Sign in");
 		super.signIn("assistant1", "assistant1");
-		super.request("/auditor/audit/show");
+		super.request("/auditor/audit/list");
 		super.checkPanicExists();
 		super.signOut();
 	}

@@ -69,21 +69,21 @@ public class AuditorAuditingRecordsDeleteTest extends TestHarness {
 				param = String.format("auditId=%d", audit.getId());
 
 				super.checkLinkExists("Sign in");
-				super.request("/auditor/auditing-records/publish", param);
+				super.request("/auditor/auditing-records/delete", param);
 				super.checkPanicExists();
 
 				super.signIn("administrator1", "administrator1");
-				super.request("/auditor/auditing-records/publish", param);
+				super.request("/auditor/auditing-records/delete", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("assistant2", "assistant2");
-				super.request("/auditor/auditing-records/publish", param);
+				super.request("/auditor/auditing-records/delete", param);
 				super.checkPanicExists();
 				super.signOut();
 
 				super.signIn("lecturer1", "lecturer1");
-				super.request("/auditor/auditing-record/publish", param);
+				super.request("/auditor/auditing-record/delete", param);
 				super.checkPanicExists();
 				super.signOut();
 			}

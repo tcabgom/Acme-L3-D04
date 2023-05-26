@@ -61,8 +61,8 @@ public class AuditorAuditingRecordsUpdateService extends AbstractService<Auditor
 
 		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
 			super.state(this.auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation", "acme.validation.spam");
-		final boolean confirmation = super.getRequest().getData("confirmation", boolean.class);
 
+		final boolean confirmation = super.getRequest().getData("confirmation", boolean.class);
 		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 
 	}
@@ -70,7 +70,7 @@ public class AuditorAuditingRecordsUpdateService extends AbstractService<Auditor
 	@Override
 	public void perform(final AuditingRecords object) {
 		assert object != null;
-		if (object.getSubject().charAt(0) != '*')
+		if (object.getSubject().charAt(0) != '*' && object.getSubject().length() < 75)
 			object.setSubject("*" + object.getSubject());
 		this.repository.save(object);
 

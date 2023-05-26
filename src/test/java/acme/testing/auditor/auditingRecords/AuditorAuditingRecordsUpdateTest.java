@@ -49,13 +49,13 @@ public class AuditorAuditingRecordsUpdateTest extends TestHarness {
 
 		super.checkListingExists();
 		super.sortListing(0, "asc");
-		super.checkColumnHasValue(auditingRecordIndex, 0, "*" + subject);
+		super.checkColumnHasValue(auditingRecordIndex, 0, subject);
 		super.checkColumnHasValue(auditingRecordIndex, 1, mark);
 		super.checkColumnHasValue(auditingRecordIndex, 2, draftmode);
 
 		super.clickOnListingRecord(auditingRecordIndex);
 		super.checkFormExists();
-		super.checkInputBoxHasValue("subject", "*" + subject);
+		super.checkInputBoxHasValue("subject", subject);
 		super.checkInputBoxHasValue("mark", mark);
 		super.checkInputBoxHasValue("assesment", assesment);
 		super.checkInputBoxHasValue("auditingPeriodInitial", beginning);
