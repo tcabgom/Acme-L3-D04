@@ -40,7 +40,9 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		status = super.getRequest().getPrincipal().hasRole(Assistant.class);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -127,6 +129,7 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		tuple.put("totalNumberOfHandsOnSessions", object.getTotalNumberOfSessionsPerType().get(ActivityType.HANDS_ON));
 		tuple.put("totalNumberOfTheorySessions", object.getTotalNumberOfSessionsPerType().get(ActivityType.THEORY));
 		tuple.put("totalNumberOfBalancedSessions", object.getTotalNumberOfSessionsPerType().get(ActivityType.BALANCED));
+
 		super.getResponse().setData(tuple);
 
 	}

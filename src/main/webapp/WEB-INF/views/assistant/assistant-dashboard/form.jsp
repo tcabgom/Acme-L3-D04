@@ -5,115 +5,136 @@
 
 <h2><acme:message code="assistant.dashboard.form.title.tutorial"/></h2>
 
-<table class="table table-sm">
+<jstl:choose>
 
-	<tr>
-        <th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.count"/></th>
-        <td><acme:print value="${assistantTutorials.getCount()}"/></td>
-    </tr>
-    
-    <tr>
-    	<th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.maximum"/></th>
-        <td><acme:print value="${assistantTutorials.getMaximum()}"/></td>
-    </tr>
-    
-   	<tr>
-    	<th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.minimum"/></th>
-        <td><acme:print value="${assistantTutorials.getMinimum()}"/></td>
-    </tr>
-    
-    <tr>
-    	<th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.average"/></th>
-        <td><acme:print value="${assistantTutorials.getAverage()}"/></td>
-    </tr>
-    
-    <tr>
-    	<th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.deviation"/></th>
-        <td><acme:print value="${assistantTutorials.getStdDeviation()}"/></td>
-    </tr>
+	<jstl:when test="${!assistantTutorials.isEmpty()}">
+	
+		<table class="table table-sm">
+		
+			<tr>
+		        <th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.count"/></th>
+		        <td><acme:print value="${assistantTutorials.getCount()}"/></td>
+		    </tr>
+		    
+		    <tr>
+		    	<th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.maximum"/></th>
+		        <td><acme:print value="${assistantTutorials.getMaximum()}"/></td>
+		    </tr>
+		    
+		   	<tr>
+		    	<th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.minimum"/></th>
+		        <td><acme:print value="${assistantTutorials.getMinimum()}"/></td>
+		    </tr>
+		    
+		    <tr>
+		    	<th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.average"/></th>
+		        <td><acme:print value="${assistantTutorials.getAverage()}"/></td>
+		    </tr>
+		    
+		    <tr>
+		    	<th scope="row"><acme:message code="assistant.dashboard.form.label.tutorial.deviation"/></th>
+		        <td><acme:print value="${assistantTutorials.getStdDeviation()}"/></td>
+		    </tr>
+		
+		</table>
+		
+	</jstl:when>
+	
+	<jstl:otherwise> <acme:message code="assistant.dashboard.form.noTutorials"/> </jstl:otherwise>
+	
+</jstl:choose>
 
-</table>
-
-<h2><acme:message code="assistant.dashboard.form.title.session"/></h2>
-
-<table class="table table-sm">
-
-    <tr>
-        <th scope="row"><acme:message code="assistant.dashboard.form.label.session.count"/></th>
-        <td><acme:print value="${assistantSession.getCount()}"/></td>
-    </tr>
-    
-    <tr>
-    	<th scope="row"><acme:message code="assistant.dashboard.form.label.session.maximum"/></th>
-        <td><acme:print value="${assistantSession.getMaximum()}"/></td>
-    </tr>
-    
-   	<tr>
-    	<th scope="row"><acme:message code="assistant.dashboard.form.label.session.minimum"/></th>
-        <td><acme:print value="${assistantSession.getMinimum()}"/></td>
-    </tr>
-    
-    <tr>
-    	<th scope="row"><acme:message code="assistant.dashboard.form.label.session.average"/></th>
-        <td><acme:print value="${assistantSession.getAverage()}"/></td>
-    </tr>
-    
-    <tr>
-    	<th scope="row"><acme:message code="assistant.dashboard.form.label.session.deviation"/></th>
-        <td><acme:print value="${assistantSession.getStdDeviation()}"/></td>
-    </tr>
-    
-</table>
-
-<h2><acme:message code="assistant.dashboard.form.title.session-type"/></h2>
+<h2> <acme:message code="assistant.dashboard.form.title.session"/> </h2>
 
 
-<div>
-	<canvas id="canvas"></canvas>
-</div>
+<jstl:choose>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		var data = {
-			labels : [
-					"HANDS_ON", "THEORY", "BALANCED"
-			],
-			datasets : [
-				{
-					data : [
-						<jstl:out value="${totalNumberOfHandsOnSessions}"/>, 
-						<jstl:out value="${totalNumberOfTheorySessions}"/>, 
-						<jstl:out value="${totalNumberOfBalancedSessions}"/>
-					]
-				}
-			]
-		};
-		var options = {
-			scales : {
-				yAxes : [
-					{
-						ticks : {
-							suggestedMin : 0.0,
-							suggestedMax : 1.0
+	<jstl:when test="${!assistantSession.isEmpty()}">
+	
+		<table class="table table-sm">
+		
+		    <tr>
+		        <th scope="row"><acme:message code="assistant.dashboard.form.label.session.count"/></th>
+		        <td><acme:print value="${assistantSession.getCount()}"/></td>
+		    </tr>
+		    
+		    <tr>
+		    	<th scope="row"><acme:message code="assistant.dashboard.form.label.session.maximum"/></th>
+		        <td><acme:print value="${assistantSession.getMaximum()}"/></td>
+		    </tr>
+		    
+		   	<tr>
+		    	<th scope="row"><acme:message code="assistant.dashboard.form.label.session.minimum"/></th>
+		        <td><acme:print value="${assistantSession.getMinimum()}"/></td>
+		    </tr>
+		    
+		    <tr>
+		    	<th scope="row"><acme:message code="assistant.dashboard.form.label.session.average"/></th>
+		        <td><acme:print value="${assistantSession.getAverage()}"/></td>
+		    </tr>
+		    
+		    <tr>
+		    	<th scope="row"><acme:message code="assistant.dashboard.form.label.session.deviation"/></th>
+		        <td><acme:print value="${assistantSession.getStdDeviation()}"/></td>
+		    </tr>
+		    
+		</table>
+
+		<h2> <acme:message code="assistant.dashboard.form.title.session-type"/> </h2>
+		
+		
+		<div>
+			<canvas id="canvas"></canvas>
+		</div>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var data = {
+					labels : [
+							"HANDS_ON", "THEORY", "BALANCED"
+					],
+					datasets : [
+						{
+							data : [
+								<jstl:out value="${totalNumberOfHandsOnSessions}"/>, 
+								<jstl:out value="${totalNumberOfTheorySessions}"/>, 
+								<jstl:out value="${totalNumberOfBalancedSessions}"/>
+							]
 						}
+					]
+				};
+				var options = {
+					scales : {
+						yAxes : [
+							{
+								ticks : {
+									suggestedMin : 0.0,
+									suggestedMax : 1.0
+								}
+							}
+						]
+					},
+					legend : {
+						display : false
 					}
-				]
-			},
-			legend : {
-				display : false
-			}
-		};
+				};
+			
+				var canvas, context;
+			
+				canvas = document.getElementById("canvas");
+				context = canvas.getContext("2d");
+				new Chart(context, {
+					type : "bar",
+					data : data,
+					options : options
+				});
+			});
+		</script>
+
+	</jstl:when>
 	
-		var canvas, context;
+	<jstl:otherwise> <acme:message code="assistant.dashboard.form.noSessions"/> </jstl:otherwise>
 	
-		canvas = document.getElementById("canvas");
-		context = canvas.getContext("2d");
-		new Chart(context, {
-			type : "bar",
-			data : data,
-			options : options
-		});
-	});
-</script>
+</jstl:choose>
 
 <acme:return/>

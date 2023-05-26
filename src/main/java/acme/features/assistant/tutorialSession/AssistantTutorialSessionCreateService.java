@@ -52,7 +52,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		tutorial = this.repository.findOneTutorialById(masterId);
 		assistantId = super.getRequest().getPrincipal().getAccountId();
 		tutorialOwnerId = tutorial.getAssistant().getUserAccount().getId();
-		status = tutorial != null && assistantId == tutorialOwnerId;
+		status = tutorial != null && assistantId == tutorialOwnerId && tutorial.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
