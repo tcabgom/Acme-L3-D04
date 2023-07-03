@@ -49,7 +49,8 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		final Collection<Lecture> lectures = this.repository.findLecturesByCourse(object.getId());
 		if (!lectures.isEmpty())
 			allPublished = lectures.stream().allMatch(e -> e.isDraftMode() == false);
-		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode() && allPublished);
+		final boolean notAllTheory = lectures.stream().anyMatch(x -> (x.getKnowledge().equals(ActivityType.HANDS_ON) || x.getKnowledge().equals(ActivityType.BALANCED)));
+		super.getResponse().setAuthorised(object.getLecturer().getUserAccount().getId() == userAccountId && object.isDraftMode() && allPublished && notAllTheory);
 	}
 
 	@Override
@@ -74,11 +75,11 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		super.state(!lectures.isEmpty(), "draftMode", "lecturer.course.form.error.emptycourse");
 		if (!lectures.isEmpty()) {
 			boolean allTheory;
-			allTheory = lectures.stream().anyMatch(x -> x.getKnowledge().equals(ActivityType.HANDS_ON));
+			allTheory = lectures.stream().anyMatch(x -> (x.getKnowledge().equals(ActivityType.HANDS_ON) || x.getKnowledge().equals(ActivityType.BALANCED)));
 			super.state(allTheory, "activityType", "lecturer.course.form.error.nohandson");
 			boolean allPublished;
 			allPublished = lectures.stream().allMatch(x -> x.isDraftMode() == false);
-			super.state(allPublished, "draftMode", "lecturer.course.form.error.lecturenp");
+			super.state(allPublished, "draftMode", "lecturer.course.form.error.lecturenotpublished");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code"))
@@ -113,7 +114,8 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 		tuple.put("activityType", activityType);
 
 		boolean showPublish = false;
-		if (lectures.stream().allMatch(e -> e.isDraftMode() == false))
+		final boolean notAllTheory = lectures.stream().anyMatch(x -> (x.getKnowledge().equals(ActivityType.HANDS_ON) || x.getKnowledge().equals(ActivityType.BALANCED)));
+		if (lectures.stream().allMatch(e -> e.isDraftMode() == false) && notAllTheory)
 			showPublish = true;
 
 		tuple.put("showPublish", showPublish);

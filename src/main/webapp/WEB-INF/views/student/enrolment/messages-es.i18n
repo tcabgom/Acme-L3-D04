@@ -22,4 +22,4 @@ student.enrolment.form.button.showActivities = Mostrar libro de actividades
 
 student.enrolment.form.error.code = Este código ya existe en otro objeto
 student.enrolment.form.error.invalidSecurityCode = El código de seguridad debe tener 3 dígitos
-student.enrolment.form.error.invalidExpirationDate = Fecha de caducidad inválida. Formatos soportados: yy/MM, MM/yy
+student.enrolment.form.error.invalidExpirationDate = Fecha de caducidad inválida. Formato: MM/yy

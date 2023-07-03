@@ -7,9 +7,14 @@ import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.Locale;
 
 @Service
 public class StudentEnrolmentFinaliseService extends AbstractService<Student, Enrolment> {
@@ -66,7 +71,6 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
         boolean filledCardHolder = object.getCreditCardHolder() != null && !object.getCreditCardHolder().isEmpty();
         boolean filledCardNumber = object.getCreditCardNibble() != null && !object.getCreditCardNibble().isEmpty();
         boolean filledSecurityCode = securityCode != null;
-        boolean filledExpirationDate = expirationDate != null;
         boolean validCardNumber = isValidCreditCardNumber(object.getCreditCardNibble());
         boolean validSecurityCode = filledSecurityCode && securityCode.toString().length() == 3;
         boolean validExpirationDate = checkExpirationDate(expirationDate);
@@ -152,7 +156,12 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 
     private boolean checkExpirationDate(String expirationDate) {
-        final String dateRegex = "^(0[1-9]|1[0-2])\\/\\d{2}|\\d{2}\\/(0[1-9]|1[0-2])$";
+        String dateRegex;
+        if (super.getRequest().getLocale().getLanguage().equals("es")) {
+            dateRegex = "^(0[1-9]|1[0-2])\\/\\d{2}$";
+        } else {
+            dateRegex = "^\\d{2}\\/(0[1-9]|1[0-2])$";
+        }
 
         return expirationDate != null && expirationDate.matches(dateRegex);
 
@@ -161,15 +170,16 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
     private Date parseExpirationDate(String expirationDate) {
         Date parsedDate;
 
-        if(expirationDate == null || expirationDate.isEmpty() || !checkExpirationDate(expirationDate)) {
+        if (expirationDate == null || expirationDate.isEmpty() || !checkExpirationDate(expirationDate)) {
             return null;
         }
 
-        try {
+        if (super.getRequest().getLocale().getLanguage().equals("es")) {
             parsedDate = MomentHelper.parse("MM/yy", expirationDate);
-        } catch (AssertionError e) {
+        } else
             parsedDate = MomentHelper.parse("yy/MM", expirationDate);
-        }
+
+        parsedDate = MomentHelper.deltaFromMoment(parsedDate, 1, ChronoUnit.MONTHS);
         return parsedDate;
     }
 }

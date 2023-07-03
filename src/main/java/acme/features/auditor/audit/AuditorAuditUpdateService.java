@@ -79,12 +79,15 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void validate(final Audit object) {
 		assert object != null;
+		final Audit audit = this.repository.findAuditByCode(object.getCode());
 
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
 			super.state(object.isDraftMode(), "draftMode", "administrator.audit.form.error.draftMode");
 
-		if (!super.getBuffer().getErrors().hasErrors("code"))
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			super.state(audit == null || audit.equals(object), "code", "administrator.audit.form.error.code");
 			super.state(this.auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("conclusion"))
 			super.state(this.auxiliaryService.validateString(object.getConclusion()), "conclusion", "acme.validation.spam");

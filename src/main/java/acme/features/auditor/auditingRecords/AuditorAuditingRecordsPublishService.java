@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import acme.components.AuxiliaryService;
 import acme.entities.audit.Audit;
 import acme.entities.audit.AuditingRecords;
+import acme.entities.enumerates.Mark;
+import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -63,6 +65,9 @@ public class AuditorAuditingRecordsPublishService extends AbstractService<Audito
 		if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
 			super.state(this.auxiliaryService.validateString(object.getFurtherInformation()), "furtherInformation", "acme.validation.spam");
 
+		final boolean confirmation = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+
 	}
 
 	@Override
@@ -98,14 +103,20 @@ public class AuditorAuditingRecordsPublishService extends AbstractService<Audito
 	@Override
 	public void unbind(final AuditingRecords object) {
 		assert object != null;
+		final SelectChoices choices;
 		final int auditId = super.getRequest().getData("auditId", int.class);
 		final Audit audit = this.repository.findAuditById(auditId);
+		choices = SelectChoices.from(Mark.class, object.getMark());
 
 		Tuple tuple;
 
 		tuple = super.unbind(object, "subject", "assesment", "auditingPeriodInitial", "auditingPeriodEnd", "furtherInformation", "mark", "draftMode");
 		tuple.put("readonly", false);
 		tuple.put("auditId", super.getRequest().getData("auditId", int.class));
+		tuple.put("mark", choices.getSelected().getKey());
+		tuple.put("marks", choices);
+		tuple.put("published", object.isDraftMode());
+		tuple.put("confirmation", false);
 
 		super.getResponse().setData(tuple);
 	}

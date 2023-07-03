@@ -67,16 +67,16 @@ public class AuditorAuditDeleteTest extends TestHarness {
 			param = String.format("id=%d", audit.getId());
 
 			super.checkLinkExists("Sign in");
-			super.request("/auditor/audit/publish", param);
+			super.request("/auditor/audit/delete", param);
 			super.checkPanicExists();
 
 			super.signIn("administrator1", "administrator1");
-			super.request("/auditor/audit/publish", param);
+			super.request("/auditor/audit/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 
 			super.signIn("assistant1", "assistant1");
-			super.request("/auditor/audit/publish", param);
+			super.request("/auditor/audit/delete", param);
 			super.checkPanicExists();
 			super.signOut();
 		}
@@ -91,7 +91,7 @@ public class AuditorAuditDeleteTest extends TestHarness {
 		for (final Audit audit : audits)
 			if (!audit.isDraftMode()) {
 				params = String.format("id=%d", audit.getId());
-				super.request("/auditor/audit/publish", params);
+				super.request("/auditor/audit/delete", params);
 			}
 		super.signOut();
 	}
@@ -108,7 +108,7 @@ public class AuditorAuditDeleteTest extends TestHarness {
 		audits = this.repository.findMyAuditsByAuditorUsername("auditor1");
 		for (final Audit audit : audits) {
 			params = String.format("id=%d", audit.getId());
-			super.request("/auditor/audit/publish", params);
+			super.request("/auditor/audit/delete", params);
 		}
 		super.signOut();
 	}

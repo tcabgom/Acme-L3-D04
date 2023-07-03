@@ -1,7 +1,6 @@
 creditCardNibble,creditCardHolder,expirationDate,securityCode
 # Date restrictions
-4929974991859626,valid,22/07,123
-4929974991859626,valid,07/22,123
+4929974991859626,valid,22/06,123
 4929974991859626,valid,22/22,123
 4929974991859626,valid,,123
 # Card holder restrictions

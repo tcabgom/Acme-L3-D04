@@ -20,4 +20,6 @@ lecturer.course.list.button.create = Create
 
 lecturer.course.form.error.code = The code already exists
 lecturer.course.form.error.retailPrice = Can not cost more than 1 000 000 and no less than 0
-lecturer.course.form.label.hiddenButton = To publish the course, all your lectures must be published and have at least one lecture
+lecturer.course.form.label.hiddenButton = To publish the course, all your lectures must be published and have at least one not theoretical lecture
+lecturer.course.form.error.nohandson = At least one lesson must be non theoretical
+lecturer.course.form.error.lecturenotpublished = There are not published lectures

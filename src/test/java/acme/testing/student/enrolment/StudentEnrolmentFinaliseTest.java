@@ -55,7 +55,7 @@ public class StudentEnrolmentFinaliseTest extends TestHarness {
         super.checkListingExists();
         super.sortListing(0, "desc");
 
-        super.clickOnListingRecord(0);
+        super.clickOnListingRecord(2);
         super.clickOnButton("Finalise");
         super.checkFormExists();
         super.fillInputBoxIn("creditCardNibble", creditCardNibble);

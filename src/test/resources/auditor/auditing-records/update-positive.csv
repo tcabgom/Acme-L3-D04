@@ -1,4 +1,10 @@
 auditIndex,code,auditingRecordIndex,subject,mark,assesment,beginning,ending,furtherInformation,draftmode,confirmation
-2,KKC442,0,subject,A_plus,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
-2,KKC442,0,subject,A,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
-2,KKC442,0,subject,B,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
+2,KKC442,0,Esta cadena tiene 75 palabras #############################################,A_plus,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
+2,KKC442,0,*Esta cadena tiene 74 palabras ############################################,A,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
+2,KKC442,0,*subject,B,Esta cadena tiene 100 palabras #####################################################################,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
+2,KKC442,0,*subject,B,Esta cadena tiene 99 palabras #####################################################################,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
+2,KKC442,0,*A,B,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
+2,KKC442,0,*AB,B,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
+2,KKC442,0,*subject,B,A,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
+2,KKC442,0,*subject,B,AB,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true
+2,KKC442,0,*subject,B,assesment,2022/07/20 00:00,2022/07/29 00:00,https://link.com,true,true

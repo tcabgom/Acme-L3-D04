@@ -58,7 +58,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
         Date periodStart = object.getPeriodStart();
         Date periodEnd = object.getPeriodEnd();
-        boolean validPeriod = periodStart == null && periodEnd == null && MomentHelper.isAfterOrEqual(object.getPeriodEnd(), object.getPeriodStart());
+        boolean validPeriod = periodStart != null && periodEnd != null && MomentHelper.isAfter(object.getPeriodEnd(), object.getPeriodStart());
 
         if (!super.getBuffer().getErrors().hasErrors("periodEnd")) {
             super.state(validPeriod, "periodEnd", "student.activity.form.error.periodEnd");

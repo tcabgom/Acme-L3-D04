@@ -14,3 +14,6 @@ lecturer.dashboard.form.label.lecture.maximum = Horas de la Lección Más Larga
 lecturer.dashboard.form.label.lecture.minimum = Horas de la Lección Más Corta
 lecturer.dashboard.form.label.lecture.average = Media de Horas de Lecciones
 lecturer.dashboard.form.label.lecture.deviation = Desviación típica de Horas de Lecciones
+
+lecturer.dashboard.form.noCourses = No tienes ningún curso
+lecturer.dashboard.form.noLectures = No tienes ninguna lección

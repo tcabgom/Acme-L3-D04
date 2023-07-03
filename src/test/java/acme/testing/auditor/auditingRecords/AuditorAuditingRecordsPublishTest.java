@@ -21,7 +21,7 @@ public class AuditorAuditingRecordsPublishTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/auditor/auditing-records/publish-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int auditIndex, final String code, final int auditingRecordIndex, final String subject) {
+	public void test100Positive(final int auditIndex, final String code, final int auditingRecordIndex, final String subject, final String confirmation) {
 
 		super.signIn("auditor1", "auditor1");
 
@@ -37,6 +37,7 @@ public class AuditorAuditingRecordsPublishTest extends TestHarness {
 		super.clickOnListingRecord(auditingRecordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("subject", subject);
+		super.fillInputBoxIn("confirmation", confirmation);
 		super.clickOnSubmit("Publish");
 		super.checkNotErrorsExist();
 
@@ -44,8 +45,9 @@ public class AuditorAuditingRecordsPublishTest extends TestHarness {
 
 	}
 
-	@Test
-	public void test200Negative() {
+	@ParameterizedTest
+	@CsvFileSource(resources = "/auditor/auditing-records/publish-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	public void test200Negative(final int auditIndex, final int auditingRecordIndex, final String confirmation) {
 
 	}
 

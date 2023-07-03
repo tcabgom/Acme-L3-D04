@@ -1,7 +1,11 @@
 recordIndex,code,conclusion,strongPoints,weakPoints,course
-0,,conclusion,strong,weakPoints,Un muy buen título
-1,KKC442,,strong,weakPoints,Un muy buen título
-2,KKC441,conclusion,,weakPoints,Un muy buen título
-3,KKC440,Esta conclusion se pasa del número máximo de palabras AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,strong,,Un muy buen título
-4,KKC439,conclusion,Estos puntos se pasa del número máximo de palabras AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,weakPoints,Un muy buen título
-5,KKC438,conclusion,strong,Estos puntos se pasa del número máximo de palabras AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Un muy buen título
+0,KKC432,conclusion,strong,weak,Un muy buen título
+0,,conclusion,strong,weak,Un muy buen título
+0,SK0,conclusion,strong,weak,Un muy buen título
+0,SSS223,Esta conclusión se pasa del número máximo de palabras AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,strong,weak,Un muy buen título
+0,SSS223,,strong,weak,Un muy buen título
+0,SSS224,conclusion,Estos puntos se pasa del número máximo de palabras AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,weak,Un muy buen título
+0,SSS223,conclusion,,weak,Un muy buen título
+0,SSS225,conclusion,strong,Estos puntos se pasa del número máximo de palabras AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,Un muy buen título
+0,SSS223,conclusion,strong,,Un muy buen título
+0,SSS226,conclusion,strong,weak,---

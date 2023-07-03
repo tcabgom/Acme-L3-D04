@@ -12,7 +12,7 @@
 <jstl:if test="${published}">
 	<acme:button code="auditor.records.form.button.create" action="/auditor/auditing-records/create?auditId=${auditId}"/>
 </jstl:if>
-<p><acme:print value="Los registros actualizados aparecerán con un * en el título"></acme:print></p>
+<p><acme:print value="Los registros actualizados aparecerán con un * en el título a menos que se utilize la longitud máxima"></acme:print></p>
 
 
 
