@@ -15,7 +15,7 @@
 	<jstl:choose>
         <jstl:when test="${_command == 'create'}">
         	<jstl:if test="${extraSession}">
-        			<acme:input-checkbox code="authenticated.note.form.label.confirmation" path="confirmation"/>
+        			<acme:input-checkbox code="company.practicumSession.form.error.confirmation" path="confirmation"/>
         	</jstl:if>
             <acme:submit code="company.practicumSession.form.button.create" action="/company/practicum-session/create?practicumId=${practicumId}"/>
         </jstl:when>

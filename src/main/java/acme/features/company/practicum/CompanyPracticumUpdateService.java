@@ -1,10 +1,10 @@
 
 package acme.features.company.practicum;
 
-import acme.components.AuxiliaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.lecture.Course;
 import acme.entities.practicum.Practicum;
 import acme.framework.components.jsp.SelectChoices;
@@ -20,9 +20,9 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 	// Internal state -----------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumRepository repository;
+	protected CompanyPracticumRepository	repository;
 	@Autowired
-	private AuxiliaryService auxiliaryService;
+	private AuxiliaryService				auxiliaryService;
 
 	// AbstractService interface ------------------------------------------
 
@@ -79,21 +79,17 @@ public class CompanyPracticumUpdateService extends AbstractService<Company, Prac
 		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
 			super.state(object.isDraftMode(), "draftMode", "company.practicum.form.error.draftMode");
 
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			super.state(auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(this.auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
 
-		if (!super.getBuffer().getErrors().hasErrors("title")) {
-			super.state(auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(this.auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
 
-		if (!super.getBuffer().getErrors().hasErrors("abstractPracticum")) {
-			super.state(auxiliaryService.validateString(object.getAbstractPracticum()), "abstractPracticum", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("abstractPracticum"))
+			super.state(this.auxiliaryService.validateString(object.getAbstractPracticum()), "abstractPracticum", "acme.validation.spam");
 
-		if (!super.getBuffer().getErrors().hasErrors("goals")) {
-			super.state(auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("goals"))
+			super.state(this.auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
 	}
 
 	@Override

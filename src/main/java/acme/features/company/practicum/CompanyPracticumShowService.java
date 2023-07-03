@@ -69,6 +69,7 @@ public class CompanyPracticumShowService extends AbstractService<Company, Practi
 		tuple.put("estimatedTime", object.getEstimatedTotalTimeInHours(sessions));
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+		tuple.put("anySessions", !sessions.isEmpty());
 
 		super.getResponse().setData(tuple);
 	}

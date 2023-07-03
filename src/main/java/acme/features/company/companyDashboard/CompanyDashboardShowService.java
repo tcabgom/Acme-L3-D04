@@ -32,7 +32,7 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 
 	@Override
 	public void check() {
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
@@ -61,29 +61,31 @@ public class CompanyDashboardShowService extends AbstractService<Company, Compan
 		final int hoursInMilliseconds = 3600000;
 		final int minutesInMilliseconds = 60000;
 
-		for (int i = 1; i < 13; i++)
-			practicaNumberPerMonth.put(Month.of(i).toString(), this.repository.findNumberOfPracticaByMonthAndCompany(i, MomentHelper.getCurrentMoment().getYear(), company.getId()));
+		if (!practicum.isEmpty()) {
+			for (int i = 1; i < 13; i++)
+				practicaNumberPerMonth.put(Month.of(i).toString(), this.repository.findNumberOfPracticaByMonthAndCompany(i, MomentHelper.getCurrentMoment().getYear(), company.getId()));
 
-		for (final PracticumSession ps : practicumSession) {
+			for (final PracticumSession ps : practicumSession) {
 
-			Double thisSessionDuration;
+				Double thisSessionDuration;
 
-			final double thisSessionStartTime = ps.getStart().getTime();
-			final double thisSessionEndTime = ps.getFinish().getTime();
+				final double thisSessionStartTime = ps.getStart().getTime();
+				final double thisSessionEndTime = ps.getFinish().getTime();
 
-			final double thisSessionHours = Math.abs(thisSessionEndTime / hoursInMilliseconds - thisSessionStartTime / hoursInMilliseconds);
-			final double thisSessionMinutes = Math.abs(thisSessionEndTime / minutesInMilliseconds - thisSessionStartTime / minutesInMilliseconds) % 60 * 0.01;
+				final double thisSessionHours = Math.abs(thisSessionEndTime / hoursInMilliseconds - thisSessionStartTime / hoursInMilliseconds);
+				final double thisSessionMinutes = Math.abs(thisSessionEndTime / minutesInMilliseconds - thisSessionStartTime / minutesInMilliseconds) % 60 * 0.01;
 
-			thisSessionDuration = thisSessionHours + thisSessionMinutes;
-			sessionsDuration.add(thisSessionDuration);
+				thisSessionDuration = thisSessionHours + thisSessionMinutes;
+				sessionsDuration.add(thisSessionDuration);
+			}
+
+			for (final Practicum p : practicum) {
+				final Double duration = p.getEstimatedTotalTimeInHours(this.repository.findPracticumSessionByPracticum(p));
+
+				practicumDuration.add(duration);
+			}
 		}
 		sessionsStatistics.obtainValues(sessionsDuration);
-
-		for (final Practicum p : practicum) {
-			final Double duration = p.getEstimatedTotalTimeInHours(this.repository.findPracticumSessionByPracticum(p));
-
-			practicumDuration.add(duration);
-		}
 		practicumStatistics.obtainValues(practicumDuration);
 
 		object.setTotalPracticesPerMonth(practicaNumberPerMonth);

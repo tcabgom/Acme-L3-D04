@@ -82,16 +82,13 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 			super.state(confirmation, "confirmation", "company.practicumSession.form.error.confirmation");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("finish")) {
-			super.state(MomentHelper.isLongEnough(object.getStart(), object.getFinish(), 1, ChronoUnit.WEEKS), "finish", "company.pacticumSession.form.error.not-long-enough");
-			super.state(!MomentHelper.isAfterOrEqual(object.getStart(), object.getFinish()), "finish", "company.pacticumSession.form.error.not-long-enough");
-			super.state(!MomentHelper.isPresentOrPast(object.getFinish()), "finish", "company.pacticumSession.form.error.last-date");
-		}
+		final boolean afterOrEqual = MomentHelper.isAfterOrEqual(object.getStart(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS));
 
-		if (!super.getBuffer().getErrors().hasErrors("start")) {
-			super.state(MomentHelper.isAfter(object.getStart(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS)), "start", "company.practicumSession.form.error.sessionStart");
-			super.state(!MomentHelper.isPresentOrPast(object.getStart()), "start", "company.pacticumSession.form.error.last-date");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("start"))
+			super.state(afterOrEqual, "start", "company.practicumSession.form.error.sessionStart");
+
+		if (!super.getBuffer().getErrors().hasErrors("finish") && afterOrEqual)
+			super.state(MomentHelper.isAfterOrEqual(object.getFinish(), MomentHelper.deltaFromMoment(object.getStart(), 1, ChronoUnit.WEEKS)), "finish", "company.practicumSession.form.error.not-long-enough");
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))
 			super.state(this.auxiliaryService.validateString("title"), "title", "acme.validation.spam");

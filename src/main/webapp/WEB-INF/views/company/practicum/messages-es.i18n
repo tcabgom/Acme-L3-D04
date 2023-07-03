@@ -17,9 +17,11 @@ company.practicum.form.button.update=Actualizar
 company.practicum.form.button.delete=Borrar
 company.practicum.form.button.publish=Publicar
 company.practicum.form.button.sessions=Sesiones
+company.practicum.form.label.anySession=No puedes publicar hasta que haya alguna sesión
 
 company.practicum.form.error.code=El código introducido ya existe
 company.practicum.form.error.draftMode=La práctica no ha sido publicada todavia
+company.practicum.form.error.noSessions=La práctica no tiene ninguna sesión asociada
 
 
 
