@@ -2,7 +2,7 @@ company.PracticumSession.list.label.title=Título
 company.PracticumSession.list.label.abstractSession=Resumen
 company.PracticumSession.list.label.extraSession=Sesión extra
 
-company.practicumSession.form.label.title=Títilu
+company.practicumSession.form.label.title=Títilo
 company.practicumSession.form.label.abstractSession=Resumen
 company.practicumSession.form.label.start=Fecha de inicio
 company.practicumSession.form.label.finish=Fecha de finalización

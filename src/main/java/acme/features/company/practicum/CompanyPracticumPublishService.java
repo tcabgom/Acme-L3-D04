@@ -42,7 +42,8 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 		boolean status;
 		final Practicum object = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
 
-		status = object != null && super.getRequest().getPrincipal().hasRole(Company.class) && object.isDraftMode() && object.getCompany().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId();
+		status = object != null && super.getRequest().getPrincipal().hasRole(Company.class) && object.isDraftMode() && object.getCompany().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId()
+			&& this.repository.findPracticumSessionByPracticum(object).size() > 0;
 
 		super.getResponse().setAuthorised(status);
 	}
