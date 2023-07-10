@@ -2,6 +2,7 @@
 package acme.features.company.practicumSession;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,10 +43,12 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 	public void authorise() {
 		boolean status;
 		Practicum object;
+		Collection<PracticumSession> extraSession;
 
 		object = this.repository.findPracticumById(super.getRequest().getData("practicumId", int.class));
+		extraSession = this.repository.findExtraSessionByPracticum(object.getId());
 
-		status = object != null && super.getRequest().getPrincipal().hasRole(object.getCompany());
+		status = object != null && super.getRequest().getPrincipal().hasRole(object.getCompany()) && extraSession.isEmpty();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -82,16 +85,11 @@ public class CompanyPracticumSessionCreateService extends AbstractService<Compan
 			super.state(confirmation, "confirmation", "company.practicumSession.form.error.confirmation");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("finish")) {
-			super.state(MomentHelper.isLongEnough(object.getStart(), object.getFinish(), 1, ChronoUnit.WEEKS), "finish", "company.pacticumSession.form.error.not-long-enough");
-			super.state(!MomentHelper.isAfterOrEqual(object.getStart(), object.getFinish()), "finish", "company.pacticumSession.form.error.not-long-enough");
-			super.state(!MomentHelper.isPresentOrPast(object.getFinish()), "finish", "company.pacticumSession.form.error.last-date");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("start"))
+			super.state(MomentHelper.isAfterOrEqual(object.getStart(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS)), "start", "company.practicumSession.form.error.sessionStart");
 
-		if (!super.getBuffer().getErrors().hasErrors("start")) {
-			super.state(MomentHelper.isAfter(object.getStart(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS)), "start", "company.practicumSession.form.error.sessionStart");
-			super.state(!MomentHelper.isPresentOrPast(object.getStart()), "start", "company.pacticumSession.form.error.last-date");
-		}
+		if (!super.getBuffer().getErrors().hasErrors("finish") && MomentHelper.isAfterOrEqual(object.getStart(), MomentHelper.deltaFromMoment(MomentHelper.getCurrentMoment(), 1, ChronoUnit.WEEKS)))
+			super.state(MomentHelper.isAfterOrEqual(object.getFinish(), MomentHelper.deltaFromMoment(object.getStart(), 1, ChronoUnit.WEEKS)), "finish", "company.practicumSession.form.error.not-long-enough");
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))
 			super.state(this.auxiliaryService.validateString("title"), "title", "acme.validation.spam");

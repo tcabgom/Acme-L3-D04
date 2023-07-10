@@ -17,7 +17,9 @@ company.practicum.form.button.update=Update
 company.practicum.form.button.delete=Delete
 company.practicum.form.button.publish=Publish
 company.practicum.form.button.sessions=Sessions
+company.practicum.form.label.anySession=You can't publish until there is some session
 
 company.practicum.form.error.code=This code already exists
 company.practicum.form.error.draftMode=The practicum is not published yet
+company.practicum.form.error.noSessions=The practicum does not have any associated session
 

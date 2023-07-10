@@ -6,8 +6,10 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.AuxiliaryService;
 import acme.entities.lecture.Course;
 import acme.entities.practicum.Practicum;
+import acme.entities.practicumSession.PracticumSession;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -19,7 +21,9 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected CompanyPracticumRepository repository;
+	protected CompanyPracticumRepository	repository;
+	@Autowired
+	private AuxiliaryService				auxiliaryService;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -38,7 +42,8 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 		boolean status;
 		final Practicum object = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
 
-		status = object != null && super.getRequest().getPrincipal().hasRole(Company.class) && object.isDraftMode();
+		status = object != null && super.getRequest().getPrincipal().hasRole(Company.class) && object.isDraftMode() && object.getCompany().getUserAccount().getId() == super.getRequest().getPrincipal().getAccountId()
+			&& this.repository.findPracticumSessionByPracticum(object).size() > 0;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -46,6 +51,8 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	@Override
 	public void load() {
 		final Practicum object = this.repository.findPracticumById(super.getRequest().getData("id", int.class));
+
+		object.setDraftMode(true);
 
 		super.getBuffer().setData(object);
 	}
@@ -56,7 +63,7 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 
 		final Course course = this.repository.findCourseById(super.getRequest().getData("course", int.class));
 
-		super.bind(object, "code", "title", "tutorialAbstract", "goals", "draftMode");
+		super.bind(object, "code", "title", "abstractPracticum", "goals", "draftMode");
 
 		object.setCourse(course);
 	}
@@ -69,6 +76,21 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 			final Practicum potentialDuplicate = this.repository.findPracticumByCode(object.getCode());
 			super.state(potentialDuplicate == null || potentialDuplicate.equals(object), "code", "company.practicum.form.error.code");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("draftMode"))
+			super.state(!this.repository.findPracticumSessionByPracticum(object).isEmpty(), "draftMode", "company.practicum.form.error.noSessions");
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(this.auxiliaryService.validateString(object.getCode()), "code", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(this.auxiliaryService.validateString(object.getTitle()), "title", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("abstractPracticum"))
+			super.state(this.auxiliaryService.validateString(object.getAbstractPracticum()), "abstractPracticum", "acme.validation.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("goals"))
+			super.state(this.auxiliaryService.validateString(object.getGoals()), "goals", "acme.validation.spam");
 	}
 
 	@Override
@@ -76,6 +98,7 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 		assert object != null;
 
 		object.setDraftMode(false);
+
 		this.repository.save(object);
 	}
 
@@ -85,14 +108,18 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 
 		Collection<Course> courses;
 		SelectChoices choices;
+		Collection<PracticumSession> sessions;
 		Tuple tuple;
 
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
+		sessions = this.repository.findPracticumSessionByPracticum(object);
 
-		tuple = super.unbind(object, "code", "title", "tutorialAbstract", "goals", "draftMode");
+		tuple = super.unbind(object, "code", "title", "abstractPracticum", "goals", "draftMode");
+		tuple.put("readonly", !object.isDraftMode());
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
+		tuple.put("estimatedTime", object.getEstimatedTotalTimeInHours(sessions));
 
 		super.getResponse().setData(tuple);
 	}

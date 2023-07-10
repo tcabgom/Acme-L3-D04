@@ -29,7 +29,6 @@ public class CompanyPracticumCreateTest extends TestHarness {
 		super.clickOnSubmit("Create");
 
 		super.checkListingExists();
-		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
 		super.checkColumnHasValue(recordIndex, 2, abstractPracticum);

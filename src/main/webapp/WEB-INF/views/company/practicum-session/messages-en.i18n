@@ -13,7 +13,6 @@ company.practicumSession.form.button.create=Create
 company.practicumSession.form.button.update=Update
 company.practicumSession.form.button.delete=Delete
 
-company.pacticumSession.form.error.not-long-enough=Session must last at least one week
+company.practicumSession.form.error.not-long-enough=Session must last at least one week
 company.practicumSession.form.error.sessionStart=The session must start at least within a week
 company.practicumSession.form.error.confirmation=You must confirm to continue
-company.pacticumSession.form.error.last-date=The date date has already passed
